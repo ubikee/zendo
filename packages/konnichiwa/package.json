@@ -1,0 +1,23 @@
+{
+  "name": "zendo-app-boilerplate",
+  "version": "0.0.1",
+  "description": "Zendo React Client Boilerplate",
+  "keywords": [
+    "ywana",
+    "zendo",
+    "react"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --env.dev --content-base dist",
+    "build": "webpack --env.dev",
+    "build:prod": "webpack --env.prod -p"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "whatwg-fetch": "^1.0.0",
+    "seito": "^0.0.1",
+    "tatami": "^0.0.1"
+  }
+}

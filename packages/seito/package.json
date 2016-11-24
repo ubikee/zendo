@@ -1,0 +1,17 @@
+{
+  "name": "seito",
+  "version": "0.0.1",
+  "description": "zendo react components ",
+  "author": "",
+  "main": "src/js/index.js",
+  "license": "ISC",
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "localforage": "^1.4.3",
+    "material-design-icons-iconfont": "^3.0.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-sticky-position": "^2.0.0",
+    "whatwg-fetch": "^1.0.0"
+  }
+}
