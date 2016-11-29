@@ -1,10 +1,10 @@
 {
-  "name": "zendo-app-boilerplate",
+  "name": "ywana-konnichiwa",
   "version": "0.0.1",
-  "description": "Zendo React Client Boilerplate",
+  "description": "ywana tatami project boilerplate",
+  "author": "jeroldan@gmail.com",
   "keywords": [
     "ywana",
-    "zendo",
     "react"
   ],
   "scripts": {
@@ -13,6 +13,7 @@
     "build:prod": "webpack --env.prod -p"
   },
   "dependencies": {
+    "material-design-icons-iconfont": "^3.0.0",
     "es6-promise": "^4.0.5",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",

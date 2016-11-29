@@ -1,0 +1,101 @@
+@import './app.scss';
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1rem 0;
+
+  .field-box {
+    flex: 1;
+    padding: 2rem 0 0 0;
+
+    .field-line {
+      padding-top: .2rem;
+      border-bottom: solid 1px $divider-color;
+    }
+
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      border: 0;
+      background-color: transparent;
+      line-height: 1.4;
+      font-size: 1.4rem;
+    }
+
+    label {
+      transition: all 0.5s ease;
+      position: absolute;
+      top: 2.2rem;
+      display: block;
+      color: $secondary-text-color;
+      min-width: 8rem;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+
+    input.notEmpty ~ label {
+      font-size: 1.2rem;
+      top: .1rem;
+    }
+
+    input:focus ~ label {
+      font-size: 1.2rem;
+      top: .1rem;
+    }
+
+    input:focus ~ .field-line {
+      border-bottom: solid 1px $accent-color;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  padding: 0 0 1rem 0;
+  align-items: center;
+
+  .info-label {
+    color: $secondary-text-color;
+    min-width: 8rem;
+    font-size: 1.4rem;
+  }
+
+  input, select {
+    background-color: transparent;
+    color: initial;
+    flex: 1;
+    line-height: 1.4;
+    font-size: 1.4rem;
+    border: 0;
+    & + .icon {
+      color: #FFF;
+      background-color: $accent-color;
+    }
+  }
+
+  input.info-value:focus {
+    border-bottom: solid 1px $accent-color;
+  }
+  input.info-value {
+    border-bottom: solid 1px $hint-text-color;
+  }
+
+}
+
+.searchBox {
+  display: flex;
+  background-color: #FFF;
+  padding: 0 1rem;
+  .field {
+    flex: 1;
+    padding: 0;
+    .field-box{
+      padding: 1rem;
+    }
+    .field-line {
+      border-bottom: solid 0px;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
-  "name": "tatami",
+  "name": "ywana-tatami",
   "version": "0.0.1",
-  "description": "React Screen Layout",
+  "description": "React Based Screen Layout",
+  "author": "jeroldan@gmail.com",
   "main": "src/js/index.js",
   "scripts": {
     "build": "webpack --env.dev",
