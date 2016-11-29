@@ -1,6 +1,6 @@
 {
   "name": "ywana-seito",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "components for tatami",
   "author": "jeroldan@gmail.com",
   "keywords": [
@@ -13,7 +13,6 @@
     "material-design-icons-iconfont": "^3.0.0",
     "es6-promise": "^4.0.5",
     "localforage": "^1.4.3",
-    "material-design-icons-iconfont": "^3.0.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-sticky-position": "^2.0.0",
