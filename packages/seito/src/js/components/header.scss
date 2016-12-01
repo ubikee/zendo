@@ -1,50 +1,27 @@
 @import './app.scss';
 
 .header {
-  width: inherit;
-  min-width: inherit;
-  padding: .5rem;
+  position: relative;
+  height: 5.6rem;
+  padding: 0 1.6rem;
 
-  background-color: $primary-color-dark-trans;
-  color: $primary-color-text;
-
-  &.light {
-    background-color: transparent;
-    color: $primary-color;
-    border-bottom: solid 2px $primary-color;
-    margin-bottom: 2rem;
-  }
-
-  z-index: 10;
-
-  font-size: 1.6rem;
-  font-weight: 400;
-
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-
-  &.page-title {
-    background-color: inherit;
-    color: $primary-color-dark;
-    border-bottom: solid 2px $primary-color-dark-trans;
-  }
-
-  &.float {
+  >.navIcon {
     position: absolute;
-    width: inherit;
-    min-width: inherit;
-    background-color: $primary-color-dark-trans;
+    left: .6rem;
+    top: .8rem;
   }
 
-  .title {
-    flex: 1;
-    line-height: 4.1rem;
-    margin: 0 1rem;
-    overflow: hidden;
+  >.title {
+    position: absolute;
+    left: 5.6rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 5.6rem;
   }
 
-  nav {
-    display: flex;
+  >.actions {
+    position: absolute;
+    right: .6rem;
+    top: .8rem;
   }
 }

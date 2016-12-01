@@ -2,68 +2,9 @@
 
 .drawer {
 
+  background-color: $background;
   display: flex;
   flex-direction: column;
-  transition: all 0.5s ease-in-out;
   overflow: hidden;
-  background-color: $background;
-  width: 0px;
-
-  &.visible {
-    display:flex;
-    &.normal {
-      width: 300px;
-    }
-    &.minimized {
-      width: 60px;
-    }
-  }
-
-  &.minimized {
-
-    .avatar{
-      width: 40px !important;
-      height: 40px !important;
-      transition: all 0.5s ease-in-out;
-    }
-
-    .list-group header {
-      max-height: 1px;
-      overflow: hidden;
-      transition: all 0.5s ease-in-out;
-    }
-  }
-
-  >header {
-    background-color: $primary-color-dark;
-    display: flex;
-    //flex-direction: column;
-  }
-
-  >main {
-    flex: 1;
-    background-color: $primary-color-lighter-trans;
-    display: flex;
-    flex-direction: column;
-
-    .icon {
-      color: $icon-menu;
-    }
-
-    .title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-left: 2rem !important;
-      text-rendering: geometricPrecision;
-    }
-  }
-
-  >footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: $background;
-    border-top: solid 1px $divider-color;
-  }
 
 }

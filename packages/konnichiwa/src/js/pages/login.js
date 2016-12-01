@@ -32,18 +32,11 @@ class Login extends React.Component {
     this.props.goto('DOSSIERS')
   }
 
-  render() {
+  render() {console.log(this.props)
     return (
-      <Page className="login">
+      <Page className="login" >
 
-        <h1>Components</h1>
-        <h2>Icon</h2>
-        <Icon icon="person" />
-        <h2>Buttons</h2>
-        <Button label="NORMAL" />
-        <Button label="PRIMARY" className="primary" />
-        <FAB icon="add" />
-        <Link label="Link"/>
+
       </Page>
     );
   }

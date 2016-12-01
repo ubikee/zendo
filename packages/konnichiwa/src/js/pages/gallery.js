@@ -1,13 +1,22 @@
 import React from 'react';
 
+// components
 import { Page } from 'tatami';
+import { Icon } from 'seito';
 
-const Gallery = (props) => {
-  return (
-    <Page>
-      <Header></Header>
-    </Page>
-  )
+// styles
+// import './login.scss';
+
+/**
+ * Gallery Page
+ */
+class Gallery extends React.Component {
+  render() {
+    return (
+      <Page className="gallery" {...this.props}>
+      </Page>
+    );
+  }
 }
 
 export default Gallery;

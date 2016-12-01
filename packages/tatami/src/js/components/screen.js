@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import AppBar from './appBar';
+import ToolBar from './toolbar';
 
 // css
 import './screen.scss';
@@ -34,7 +34,7 @@ class Screen extends React.Component {
     const page = this.props.page ? React.cloneElement(this.props.page, { onToggleDialog: this.toggleDialog, onToggleDrawer: this.toggleDrawer }): '';
     return (
       <div className="screen">
-        <AppBar icon="menu" title={page.props.title} toggleDrawer={this.toggleDrawer} className="primaryBar"/>
+        <ToolBar className="appBar" icon="menu" title={this.props.title} toggleDrawer={this.toggleDrawer} />
         <main className="contentArea">
           <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside>
           {page}

@@ -27,16 +27,16 @@ class Tatami extends React.Component {
     this.setState({ page: nextPageID });
   }
 
-  onClose = (event) => {
+  onExit = (event) => {
     session.logout();
     this.gotoPage('LOGIN');
   }
 
   render() {
-    const drawer = this.props.drawer ? this.props.drawer : '';
-    const page = React.cloneElement(this.props.pages[this.state.page], { goto: this.navigate, onClose: this.onClose });
+    const page = React.cloneElement(this.props.pages[this.state.page], { goto: this.navigate, onExit: this.onExit });
+    const drawer = page.props.drawer ? page.props.drawer : '';
     return (
-      <Screen page={page} drawer={drawer}/>
+      <Screen title={this.props.title} page={page} drawer={drawer}/>
     );
   }
 }

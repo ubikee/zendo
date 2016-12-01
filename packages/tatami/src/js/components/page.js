@@ -1,12 +1,17 @@
 import React from 'react';
-import AppBar from './appBar';
 
+// components
+import ToolBar from './toolbar';
+
+// styles
+import './page.scss'
+
+// Page Component
 const Page = (props) => {
-  const title = props.title ? <h3>{props.title}</h3> : '';
+  const title = props.title ? props.title : '<title>';
   return (
     <div className={`page ${props.className}`} onDragOver={props.onDragOver}>
-      <AppBar icon="person" title="< page title >" className="secondaryBar"/>
-      {title}
+      <ToolBar className="pageBar" icon={props.icon} title={title} />
       {props.children}
     </div>
   )

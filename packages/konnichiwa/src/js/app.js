@@ -2,6 +2,7 @@ import React from 'react';
 
 // components
 import { Tatami, Drawer } from 'tatami';
+import { Header } from 'seito';
 
 // pages
 import Login from './pages/login';
@@ -15,19 +16,21 @@ import './app.scss';
  */
 const Application = (props) => {
 
-  const pages = {
-    'LOGIN'    : <Login title="Login" fullscreen={true} />,
-    'GALLERY'  : <Gallery title="Gallery" />,
-  }
-
   const menu = [
     { id: 'GALLERY', title: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
   ]
 
-  const appDrawer = <Drawer icon="cloud_queue" title="Zendo" menu={menu}/>
+  const appDrawer = <Drawer icon="cloud_queue" title="Zendo" menu={menu}>
+                      <Header title="Zendo" />
+                    </Drawer>
+
+  const pages = {
+    'LOGIN'    : <Login   title="Login" />,
+    'GALLERY'  : <Gallery icon="list" title="Gallery" drawer={appDrawer} />,
+  }
 
   return (
-    <Tatami pages={pages} init="LOGIN" drawer={appDrawer} />
+    <Tatami title="Zendo" pages={pages} init="GALLERY" />
   );
 
 }

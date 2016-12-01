@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Header, List } from 'seito';
+import { Header } from 'seito';
 
 // css
 import './drawer.scss';
@@ -19,7 +19,6 @@ const Drawer = (props) => {
     <div className={`drawer`} onMouseUp={stopEvent}>
       <main>
         {props.children}
-        <List data={props.menu} groupBy="group"/>
       </main>
     </div>
   )

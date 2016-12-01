@@ -1,0 +1,12 @@
+@import './app.scss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+
+  .pageBar {
+    color: $primary-color-text;
+    background-color: $primary-color-dark;
+  }
+
+}
