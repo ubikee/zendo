@@ -1,4 +1,4 @@
-@import '../app.scss';
+@import './app.scss';
 
 .drawer {
 
@@ -7,6 +7,7 @@
   transition: all 0.5s ease-in-out;
   overflow: hidden;
   background-color: $background;
+  width: 0px;
 
   &.visible {
     display:flex;

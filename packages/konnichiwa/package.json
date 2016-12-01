@@ -1,7 +1,7 @@
 {
-  "name": "ywana-konnichiwa",
+  "name": "konnichiwa",
   "version": "0.0.2",
-  "description": "ywana tatami project boilerplate",
+  "description": "ubikee tatami project boilerplate",
   "author": "jeroldan@gmail.com",
   "keywords": [
     "ywana",
@@ -18,7 +18,7 @@
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "whatwg-fetch": "^1.0.0",
-    "seito": "^0.0.1",
-    "tatami": "^0.0.1"
+    "seito": "^0.0.2",
+    "tatami": "^0.0.2"
   }
 }

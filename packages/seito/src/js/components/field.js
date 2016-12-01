@@ -114,7 +114,7 @@ const Select = ({id, label, options, required, value, onChange }) => {
 const SearchBox = (props) => {
   return (
     <div className="searchBox">
-      <Icon icon="search" />
+      <Icon icon="search" />x
       <Field icon="filter" onChange={props.onChange}/>
     </div>
   )

@@ -3,7 +3,7 @@ const {resolve} = require('path');
 module.exports = env => {
   return {
     entry: {
-      app: ['es6-promise', 'whatwg-fetch', './js/main.js'],
+      tatami: ['es6-promise', 'whatwg-fetch', './js/main.js'],
       vendor: [ 'react', 'react-dom', 'blueimp-load-image']
     },
     output: {

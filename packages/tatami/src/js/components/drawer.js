@@ -15,17 +15,12 @@ const Drawer = (props) => {
     event.stopPropagation();
   }
 
-  const visible = props.visible ? 'visible' : '';
-
   return (
-    <div className={`drawer animated0 ${visible}`} onMouseUp={stopEvent}>
-      <Header icon={props.icon} title={props.title} action={props.onToggleDrawer}/>
+    <div className={`drawer`} onMouseUp={stopEvent}>
       <main>
         {props.children}
         <List data={props.menu} groupBy="group"/>
       </main>
-      <footer>
-      </footer>
     </div>
   )
 }

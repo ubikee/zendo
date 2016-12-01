@@ -5,6 +5,7 @@ import { Tatami, Drawer } from 'tatami';
 
 // pages
 import Login from './pages/login';
+import Gallery from './pages/gallery';
 
 // styles
 import './app.scss';
@@ -15,12 +16,12 @@ import './app.scss';
 const Application = (props) => {
 
   const pages = {
-    'LOGIN'    : <Login fullscreen={true} />,
+    'LOGIN'    : <Login title="Login" fullscreen={true} />,
+    'GALLERY'  : <Gallery title="Gallery" />,
   }
 
   const menu = [
-    { id: 'SPLASH', title: 'Welcome', subtitle: '...', icon: 'card_giftcard',  group: "" },
-    { id: 'LOGIN',  title: 'Login',   subtitle: '...', icon: 'cloud_done',     group: "" },
+    { id: 'GALLERY', title: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
   ]
 
   const appDrawer = <Drawer icon="cloud_queue" title="Zendo" menu={menu}/>

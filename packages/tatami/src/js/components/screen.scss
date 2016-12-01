@@ -1,4 +1,4 @@
-@import '../app.scss';
+@import './app.scss';
 
 .screen {
 
@@ -18,38 +18,60 @@
     display: flex;
 
     >aside {
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      >* {
+
+      overflow: hidden;
+      z-index: 1000;
+      background-color: transparent;
+
+      .drawer {
         width: $drawer-width;
-        height: 100vh;
+        height: 100%;
+        border-right: solid 1px $divider-color;
       }
-      @media screen and (max-width: $break-small) {
+
+      @media screen and (max-width: $break-medium) {
         position: absolute;
         top: 0px;
-        left: -$drawer-width;
-        background-color: rgba(255,255,255,.1);
-        &.active {
-          left: 0px;
+        width: 0px;
+        height: 100vh;
+
+        .drawer {
+          position: absolute;
+          left: -$drawer-width;
+          transition: all 0.5s ease-in-out;
+        }
+
+        &.active {transition: background 0.5s ease-in-out;
           width: 100vw;
-          height: 100vh;
           background-color: $overlay;
-          >* {
-            min-width: $drawer-width;
-            width: $floating-drawer-width;
+          .drawer {
+            left: 1px;
           }
+        }
+      }
+
+      @media screen and (min-width: $break-medium) {
+        position: relative;
+        width: $drawer-width;
+        .drawer {
+          position: relative;
         }
       }
     }
 
-    >.content {
+    >.page {
       flex: 1;
+      min-width: 325px;
+      max-width: none;
       display: flex;
-      flex-direction: column;
-      >* {
-        min-width:325px;
+
+      @media screen and (min-width: $break-big) {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 5vh;
+        box-shadow: $shadow1;
       }
+
     }
   }
 
