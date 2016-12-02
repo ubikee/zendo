@@ -3,7 +3,7 @@
 .screen {
 
   * {
-    border: dashed 0px red;
+    //border: dashed 0px red;
   }
 
   width: 100vw;
@@ -18,15 +18,23 @@
     display: flex;
 
     >aside {
-
       overflow: hidden;
       z-index: 1000;
       background-color: transparent;
 
-      .drawer {
+      >.drawer {
         width: $drawer-width;
         height: 100%;
         border-right: solid 1px $divider-color;
+
+        @media screen and (max-width: $break-medium) {
+          position: absolute;
+          left: -$drawer-width;
+          transition: all 0.5s ease-in-out;
+        }
+        @media screen and (min-width: $break-medium) {
+          position: relative;
+        }
       }
 
       @media screen and (max-width: $break-medium) {
@@ -34,14 +42,8 @@
         top: 0px;
         width: 0px;
         height: 100vh;
-
-        .drawer {
-          position: absolute;
-          left: -$drawer-width;
-          transition: all 0.5s ease-in-out;
-        }
-
-        &.active {transition: background 0.5s ease-in-out;
+        &.active {
+          transition: background 0.5s ease-in-out;
           width: 100vw;
           background-color: $overlay;
           .drawer {
@@ -53,9 +55,6 @@
       @media screen and (min-width: $break-medium) {
         position: relative;
         width: $drawer-width;
-        .drawer {
-          position: relative;
-        }
       }
     }
 
@@ -63,16 +62,14 @@
       flex: 1;
       min-width: 325px;
       max-width: none;
-      display: flex;
-
       @media screen and (min-width: $break-big) {
         max-width: $page-max-width;
         margin: 0 auto;
         margin-top: 5vh;
         box-shadow: $shadow1;
       }
-
     }
+
   }
 
   >footer {
@@ -85,7 +82,7 @@
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: $primary-color-dark-trans;
+    background-color: $overlay;
     z-index: 1000;
     display: flex;
     justify-content: center;

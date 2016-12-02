@@ -10,7 +10,8 @@ import './toolbar.scss';
 const ToolBar = (props) => {
   return (
     <Header className={`${props.className}`} icon={props.icon} title={props.title} action={props.toggleDrawer}>
-
+      <Icon icon="search" />
+      <Icon icon="more_vertical" />
     </Header>
   )
 }

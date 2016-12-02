@@ -30,8 +30,8 @@ class Screen extends React.Component {
 
   render() {
     const drawer = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
-    const drawerState = this.state.drawer === true ? 'active' : '';
-    const page = this.props.page ? React.cloneElement(this.props.page, { onToggleDialog: this.toggleDialog, onToggleDrawer: this.toggleDrawer }): '';
+    const page   = this.props.page   ? React.cloneElement(this.props.page  , { onToggleDrawer: this.toggleDrawer, onToggleDialog: this.toggleDialog }): '';
+    const drawerState = this.state.drawer ? 'active' : '';
     return (
       <div className="screen">
         <ToolBar className="appBar" icon="menu" title={this.props.title} toggleDrawer={this.toggleDrawer} />
@@ -39,7 +39,7 @@ class Screen extends React.Component {
           <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside>
           {page}
         </main>
-        <footer className="bottomBar">BOTTOM BAR</footer>
+        <footer className="bottomBar"></footer>
         {this.renderDialog(this.props)}
       </div>
     )
