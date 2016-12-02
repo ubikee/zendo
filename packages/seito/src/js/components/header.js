@@ -11,8 +11,7 @@ const Header = (props) => {
       {icon}
       <div className="title">{props.title}</div>
       <div className="actions">
-        <Icon icon="search" />
-        <Icon icon="more_vertical" />
+        {props.children}
       </div>
     </header>
   )

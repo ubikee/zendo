@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import { Tatami, Drawer } from 'tatami';
-import { Header } from 'seito';
+import { Header, Menu } from 'seito';
 
 // pages
 import Login from './pages/login';
@@ -17,11 +17,14 @@ import './app.scss';
 const Application = (props) => {
 
   const menu = [
-    { id: 'GALLERY', title: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
+    { id: 'GALLERY', label: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
+    { id: 'GALLERY', label: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
+    { id: 'GALLERY', label: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
   ]
 
   const appDrawer = <Drawer icon="cloud_queue" title="Zendo" menu={menu}>
                       <Header title="Zendo" />
+                      <Menu options={menu} />
                     </Drawer>
 
   const pages = {
