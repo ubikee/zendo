@@ -8,20 +8,20 @@ const Menu = (props) => {
   const options = props.options.map(option => {
 
     const handleClick = (event) => {
-      console.log(props)
-      if (props.onSelected) props.toggleDrawer();
+      props.goto(option.id)
+      props.toggleDrawer();
     }
 
     return (
       <li id={option.id} className={`menuitem`} onMouseUp={handleClick}>
-        <Icon icon="person" />
+        <Icon icon={option.icon} />
         <span className="label">{option.label}</span>
       </li>
     )
   });
 
   return (
-    <ul className={`menu`}>
+    <ul className={`menu ${props.className}`}>
       {options}
     </ul>
   )
