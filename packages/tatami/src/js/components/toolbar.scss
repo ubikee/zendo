@@ -1,6 +1,19 @@
 @import './app.scss';
 
 .appBar {
+  position: relative;
   color: $primary-color-text;
   background-color: $primary-color-dark;
+}
+
+.ctxMenu {
+  position: absolute;
+  box-shadow: $shadow1;
+  background-color: $background;
+  color: $primary-text-color;
+  top: .5rem;
+  right: .5rem;
+  min-width: 15rem;
+  min-height: 1rem;
+  z-index: 999;
 }
