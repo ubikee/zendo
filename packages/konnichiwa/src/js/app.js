@@ -22,13 +22,13 @@ const Application = (props) => {
     { id: 'GALLERY', label: 'Gallery', subtitle: '...', icon: 'list',  group: "" },
   ]
 
-  const appDrawer = <Drawer icon="cloud_queue" title="Zendo" menu={menu}>
+  const appDrawer = <Drawer icon="cloud_queue" title="Zendo" >
                       <Header title="Zendo" />
                       <Menu options={menu} />
                     </Drawer>
 
   const pages = {
-    'LOGIN'    : <Login   title="Login" />,
+    'LOGIN'    : <Login               title="Login" />,
     'GALLERY'  : <Gallery icon="list" title="Gallery" drawer={appDrawer} />,
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Page } from 'tatami';
+import { Page, Toolbar } from 'tatami';
 import { Icon } from 'seito';
 
 // styles
@@ -10,13 +10,20 @@ import { Icon } from 'seito';
 /**
  * Gallery Page
  */
-class Gallery extends React.Component {
-  render() {
-    return (
-      <Page className="gallery" {...this.props}>
-      </Page>
-    );
-  }
+const Gallery = (props) => {
+
+  const ctxMenu = [
+    { icon: 'refresh', label: 'Update'},
+    { icon: 'sort', label: 'Sorting'},
+  ]
+
+  const title = props.title ? props.title : '<title>';
+
+  return (
+    <Page className="gallery" {...props}>
+      <Toolbar className="pageBar" icon={props.icon} title={title} menu={ctxMenu}/>
+    </Page>
+  );
 }
 
 export default Gallery;
