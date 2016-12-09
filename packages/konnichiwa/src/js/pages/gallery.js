@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import { Page, Toolbar } from 'tatami';
-import { Icon } from 'seito';
+import { Icon, Header } from 'seito';
 
 // styles
 // import './login.scss';

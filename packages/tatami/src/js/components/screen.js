@@ -24,23 +24,24 @@ class Screen extends React.Component {
     this.setState({ drawer: !this.state.drawer })
   }
 
-  renderDialog = (props) => {
-    return props.dialog ? <div className="overlay">{props.dialog}</div> : '';
+  renderDialog = () => {
+    return this.state.dialog ? <div className="overlay">{this.state.dialog}</div> : '';
   }
 
   render() {
     const drawer = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
-    const page   = this.props.page   ? React.cloneElement(this.props.page  , { onToggleDrawer: this.toggleDrawer, onToggleDialog: this.toggleDialog }): '';
+    const aside = this.props.drawer ? <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside> : '';
+    const page   = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
     const drawerState = this.state.drawer ? 'active' : '';
     return (
       <div className="screen">
-        <ToolBar className="appBar" icon="menu" title={this.props.title} toggleDrawer={this.toggleDrawer} />
+        <ToolBar className="appBar" icon="cloud" title={this.props.title} toggleDrawer={this.toggleDrawer} />
         <main className="contentArea">
-          <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside>
+          {aside}
           {page}
         </main>
         <footer className="bottomBar"></footer>
-        {this.renderDialog(this.props)}
+        {this.renderDialog()}
       </div>
     )
   }

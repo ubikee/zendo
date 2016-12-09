@@ -46,6 +46,9 @@ $icon-inactive: rgba(0,0,0,.38);
 $icon-hover:    rgba(255,255,255,.12);
 
 // shadows
-$shadow1: 0 0   2px rgba(0,0,0,.12),
-          0 2px 4px rgba(0,0,0,.24);
+$shadow1: 0   0   2px  rgba(0,0,0,.12),
+          0   2px 4px  rgba(0,0,0,.24);
+
+$shadow2: 0   0   2px  rgba(0,0,0,.12),
+          0px 8px 10px rgba(0,0,0,0.44);
 $overlay: rgba(0,0,50,.54);

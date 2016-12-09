@@ -10,6 +10,7 @@ class Tatami extends React.Component {
 
   state = {
     page: null,
+    ctx: null,
   }
 
   componentWillMount() {
@@ -21,10 +22,16 @@ class Tatami extends React.Component {
     return nextPage && (!nextPage.props.private || session.isLoggedIn());
   }
 
-  navigate = (newPageID, me) => { console.log(newPageID, me)
+  navigate = (newPageID, params) => {
     const nextPageID = this.canNavigateTo(newPageID) ? newPageID : 'LOGIN';
-    const nextMe = me ? me : this.state.me;
-    this.setState({ page: nextPageID });
+    const nextPage = this.props.pages[nextPageID];
+    if (nextPage.props.inputAction) {
+      nextPage.props.inputAction(params, (nextCtx) => {
+        this.setState({ page: nextPageID, ctx: nextCtx });
+      });
+    } else {
+      this.setState({ page: nextPageID });
+    }
   }
 
   onExit = (event) => {
@@ -33,7 +40,7 @@ class Tatami extends React.Component {
   }
 
   render() {
-    const page = React.cloneElement(this.props.pages[this.state.page], { goto: this.navigate, onExit: this.onExit });
+    const page = React.cloneElement(this.props.pages[this.state.page], { ctx: this.state.ctx, goto: this.navigate, onExit: this.onExit });
     const drawer = page.props.drawer ? React.cloneElement(page.props.drawer, { goto: this.navigate }) : '';
     return (
       <Screen title={this.props.title} page={page} drawer={drawer} />
