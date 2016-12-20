@@ -1,0 +1,59 @@
+@import './app.scss';
+
+.panel {
+
+  min-width: 20rem;
+
+  >.content {
+    overflow: auto;
+  }
+
+  >header {
+    border-bottom: solid 1px $primary-color-light;
+    color: $primary-color;
+    max-height: 4rem;
+    >.title {
+      //left: 1.6rem !important;
+      font-weight: 500;
+      font-variant: small-caps;
+      //text-transform: uppercase;
+    }
+  }
+
+  &.infopanel {
+    >header {
+      color: $secondary-text-color;
+      background-color: $primary-color-lighter-trans;
+      >.title {
+        //left: 1.6rem !important;
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-variant: normal;
+        //text-transform: uppercase;
+      }
+    }
+  }
+
+  &.window {
+    min-width: 300px;
+    min-height: 200px;
+    border: solid 1px $primary-text-color;
+    >header {
+      color: $primary-text-color;
+      background-color: $background;
+      border-bottom: solid 1px $primary-text-color;
+      >.title {
+        //left: 1.6rem !important;
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-variant: normal;
+        //text-transform: uppercase;
+      }
+    }
+    >.content {
+      background-color: #FFF;
+      padding: 1rem 2rem;
+    }
+  }
+
+}

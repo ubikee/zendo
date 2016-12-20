@@ -9,8 +9,8 @@ import Screen from './screen';
 class Tatami extends React.Component {
 
   state = {
-    page: null,
-    ctx: null,
+    page: 'WAIT',
+    ctx : {},
   }
 
   componentWillMount() {
@@ -30,7 +30,7 @@ class Tatami extends React.Component {
         this.setState({ page: nextPageID, ctx: nextCtx });
       });
     } else {
-      this.setState({ page: nextPageID });
+      this.setState({ page: nextPageID, ctx: {} });
     }
   }
 
@@ -40,10 +40,11 @@ class Tatami extends React.Component {
   }
 
   render() {
-    const page = React.cloneElement(this.props.pages[this.state.page], { ctx: this.state.ctx, goto: this.navigate, onExit: this.onExit });
+    const nextPage = this.props.pages[this.state.page];
+    const page = React.cloneElement(nextPage, { ctx: this.state.ctx, goto: this.navigate, onExit: this.onExit });
     const drawer = page.props.drawer ? React.cloneElement(page.props.drawer, { goto: this.navigate }) : '';
     return (
-      <Screen title={this.props.title} page={page} drawer={drawer} />
+      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate}/>
     );
   }
 }

@@ -12,11 +12,12 @@ import './button.scss';
 const Button = (props) => {
 
   const handleMouseUp = (event) => {
-    props.action();
+    if (!props.disabled) props.action();
   }
 
+  const disabled = props.disabled ? 'disabled' : '';
   return (
-    <button className={`button ${props.className}`} onMouseUp={handleMouseUp}>{props.label}</button>
+    <button className={`button ${disabled} ${props.className}`} onMouseUp={handleMouseUp}>{props.label}</button>
   )
 }
 

@@ -1,8 +1,7 @@
 import React from 'react';
 
 //components
-import { Button } from './button';
-import Panel from './panel';
+import { Button, PAnel } from 'seito';
 
 // style
 import './dialogs.scss';

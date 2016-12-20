@@ -16,7 +16,7 @@ module.exports = env => {
       inline: true,
       contentBase: './dist',
       https: false,
-      //host: '192.168.1.130',
+      //host: '192.168.1.129',
       //port: 5555,
     },
     module: {

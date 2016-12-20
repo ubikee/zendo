@@ -23,6 +23,10 @@
   &.primary {
     background-color: $primary-color;
     color: $primary-color-text;
+    &.disabled {
+      background-color: rgba($primary-color-dark, .3);
+      cursor:inherit;
+    }
   }
 
   &.danger {

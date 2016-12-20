@@ -4,6 +4,7 @@
   position: relative;
   color: $primary-color-text;
   background-color: $primary-color-dark;
+  min-height: 5.6rem;
 }
 
 .ctxMenu {
@@ -13,7 +14,7 @@
   color: $primary-text-color;
   top: .5rem;
   right: .5rem;
-  min-width: 15rem;
+  min-width: 20rem;
   min-height: 1rem;
   z-index: 999;
 }

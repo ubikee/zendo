@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Page } from 'tatami';
+import { Page, Toolbar } from 'tatami';
 import { Icon, Button, FAB, Link } from 'seito';
 
 // styles

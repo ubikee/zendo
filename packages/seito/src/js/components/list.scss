@@ -1,0 +1,73 @@
+@import './app.scss';
+
+.list {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  >.listitem {
+    min-height: 4rem;
+    padding: 4px 0px 4px 6px;
+    cursor: pointer;
+    display: flex;
+
+    .icon {
+
+    }
+
+    .label {
+      flex: 1;
+      padding-left: 1.6rem;
+      display: inline-block;
+      line-height: 40px;
+      vertical-align: top;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      background-color: $primary-color-lighter-trans;
+    }
+  }
+}
+
+.grouplist {
+  >.panel {
+    >header {
+      border-bottom: solid 1px $primary-color-light;
+      color: $primary-color;
+      max-height: 4rem;
+      >.title {
+        left: 1.6rem !important;
+        font-weight: 500;
+        font-variant: small-caps;
+        //text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.listitem0 {
+  display: flex;
+  min-height: 4rem;
+  padding: 4px 0px 4px 6px;
+  .primaryAction {
+    cursor: pointer;
+    flex:1;
+    display: flex;
+    .content {
+      flex:1;
+      display: flex;
+      flex-direction: column;
+      .caption {
+        color: $secondary-text-color;
+      }
+    }
+    .info {
+      color: $secondary-text-color;
+    }
+  }
+  &:hover {
+    background-color: $primary-color-lighter-trans;
+  }
+}

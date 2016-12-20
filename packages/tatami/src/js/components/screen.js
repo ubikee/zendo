@@ -29,13 +29,14 @@ class Screen extends React.Component {
   }
 
   render() {
-    const drawer = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
-    const aside = this.props.drawer ? <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside> : '';
-    const page   = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
+    const drawer      = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
     const drawerState = this.state.drawer ? 'active' : '';
+    const aside       = this.props.drawer ? <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside> : '';
+    const page        = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
+    const appIcon     = this.props.icon   ? this.props.icon : 'menu';
     return (
       <div className="screen">
-        <ToolBar className="appBar" icon="cloud" title={this.props.title} toggleDrawer={this.toggleDrawer} />
+        <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} menu={this.props.menu}/>
         <main className="contentArea">
           {aside}
           {page}

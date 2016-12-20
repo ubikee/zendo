@@ -1,8 +1,8 @@
 @import './app.scss';
 
 .drawer {
-
-  background-color: $background;
+  color: $primary-text-color;
+  background-color: $drawer-bgcolor;
   display: flex;
   flex-direction: column;
   overflow: hidden;

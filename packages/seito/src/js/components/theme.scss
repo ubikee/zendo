@@ -5,18 +5,28 @@ $floating-drawer-width: 85vw;
 $screen-content-width: 325px;
 $break-small: 575px;
 
-/* Palette */
+/* Palette Blue*/
 $primary-color-dark:   #512DA8;
 $primary-color:        #673AB7;
 $primary-color-light:  #D1C4E9;
 $primary-color-text:   #FFFFFF;
-$accent-color:         #FFC107;
+$accent-color:         #FF4081;;
 
-/* Palette trans */
+
+/* Palette Green
+$primary-color-dark:        #455A64;
+$primary-color:             #20A867;
+$primary-color-light:       #CFD8DC;
+$primary-color-text:        rgba(255,255,255,.94);
+$accent-color:              #455A64;
+*/
+
+/* generic trans */
 $primary-color-dark-trans:  rgba( $primary-color-dark, .87);
 $primary-color-trans:       rgba( $primary-color, .5);
 $primary-color-light-trans: rgba( $primary-color-light, .5);
 $primary-color-lighter-trans: rgba( $primary-color-light, .1);
+
 
 //light theme
 $background:           #FAFAFA;
@@ -37,6 +47,7 @@ $divider-color:        #CCC;
 
 // additions
 $danger-color:         #ff4400;
+$danger-color-trans:        rgba(255,44, 0, .58);
 $hint-text-color:      rgba(0,0,0,0.38);
 
 // icons
