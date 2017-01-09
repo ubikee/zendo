@@ -1,0 +1,16 @@
+.user {
+  display: flex;
+  >.avatar {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  >.info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}

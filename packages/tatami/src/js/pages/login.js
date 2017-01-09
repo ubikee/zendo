@@ -2,18 +2,29 @@ import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
 import Session from '../stores/session';
-import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack} from 'seito';
+import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List} from 'seito';
 import { Validator as check } from 'seito';
 import API from '../api/userAPI';
 import './login.scss';
 
 const localUsers = (params, done) => {
+
+  /*
   const users = [
     { avatar: 'MKT', name: 'p_lopez', info: 'Compras de Material' },
     { avatar: 'MKT', name: 'i_diaz' , info: 'Marketing' },
     { avatar: 'PPV', name: 'j_huete', info: 'Marketing' },
     { avatar: 'RLZ', name: 'j_rayon', info: 'Realización' },
   ]
+  */
+
+  const users = [
+    {id:'p_lopez', icon:'person', title:'P. Lopez',  caption:'Marketing', role: 'compras'},
+    {id:'i_diaz', icon:'person', title:'I. Diaz' ,  caption:'Marketing', role: 'marketing' },
+    {id:'j_huete', icon:'person', title:'Julio Huete',  caption:'PPV', role: 'ppv'},
+    {id:'j_rayon', icon:'person', title:'Javier Rayón',  caption:'Realización', role: 'realizacion'},
+  ]
+
   done(users);
 }
 
@@ -37,7 +48,7 @@ class Login extends React.Component {
     API.authenticate(user, password, (data) => {
       Session.init(data.token, '');
       API.me((me) => {
-        Session.init(data.token, me);console.log(this.props.next)
+        Session.init(data.token, me);
         this.props.goto(this.props.next);
       }, (error) => { this.setState({ error: error.message }); });
     }, (error) => { this.setState({ error: error.message }); });
@@ -49,6 +60,16 @@ class Login extends React.Component {
 
   handleChangeTab = (tab) => {
     this.setState({ tab })
+  }
+
+  handleSelectUser = (user) => {
+    const me = {
+      
+    }
+    Session.init('*', user.role, user.name);
+    setTimeout(() => {
+      this.props.goto(this.props.next);
+    }, 1000);
   }
 
   render() {
@@ -67,15 +88,16 @@ class Login extends React.Component {
                 <center>{this.state.error}</center>
                 <Field id="user"     icon="person" label="User"     value={this.state.user}     onChange={this.handleChangeField}/>
                 <Field id="password" icon="lock"   label="Password" value={this.state.password} onChange={this.handleChangeField}/>
+                <div style={{ display: 'flex', padding: '1rem 4rem', justifyContent: 'flex-end'}}>
+                  <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
+                </div>
               </div>
               <div>1</div>
               <div>
-                2
+                <List data={this.props.ctx} onSelection={this.handleSelectUser}/>
               </div>
             </Stack>
-            <div style={{ display: 'flex', padding: '1rem 4rem', justifyContent: 'flex-end'}}>
-              <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
-            </div>
+
           </Card>
       </Page>
     )

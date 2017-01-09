@@ -4,15 +4,13 @@ import Panel from './panel';
 
 import './list.scss';
 
-const listItem = (item, onSelection) => {
-
-  console.log('listitemrenderer', item)
+const defaultListItemRenderer = (item, onSelection) => {
 
   const id =  item.id;
 
   const content = {
     caption: item.caption,
-    title: item.label,
+    title: item.label || item.title,
     subtitle: item.subtitle,
     info: item.info,
     description: item.description,
@@ -20,7 +18,9 @@ const listItem = (item, onSelection) => {
 
   const primaryAction = {
     icon: item.icon,
-    action: onSelection,
+    action() {
+      onSelection(item)
+    },
   };
 
   const secondaryAction = {
@@ -48,13 +48,11 @@ const listItem = (item, onSelection) => {
 
 const List = (props) => {
 
-  const renderer = props.renderer ? props.renderer : listItem;
+  const renderer = props.renderer ? props.renderer : defaultListItemRenderer;
 
   const items = props.data.map(item => {
     return renderer(item, props.onSelection);
   });
-
-  console.log(items)
 
   return (
     <ul className={`list ${props.className}`}>

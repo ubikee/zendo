@@ -14,7 +14,7 @@
       box-shadow: $shadow1;
     }
     .header {
-      height: 10rem;
+      max-height: 200px;
     }
 
     @media screen and (max-width: $break-medium) {
