@@ -1,24 +1,31 @@
 @import '../components/app.scss';
 
 .login {
-  .card {
+  justify-content: center;
 
+  .card {
+    width: 80vw;
+    max-width: 1000px;
+    align-self: center;
     display: flex;
     flex-direction: column;
+    &:hover {
+      box-shadow: $shadow1;
+    }
 
     @media screen and (max-width: $break-medium) {
       height: 100vh;
+      width: 100vw;
+      min-width: 320px;
       margin: 0;
 
-      @media (max-height: 600px ) {
+      .header {
+        height: 50vh;
+      }
+      @media (max-height: 567px ) {
         .header {
           min-height: 50px;
           max-height: 50px;
-        }
-      }
-      @media (min-height: 600px ) {
-        .header {
-          height: 50vh;
         }
       }
     }
