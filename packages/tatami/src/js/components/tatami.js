@@ -24,7 +24,7 @@ class Tatami extends React.Component {
 
   navigate = (newPageID, params) => { console.log(newPageID)
     const nextPageID = this.canNavigateTo(newPageID) ? newPageID : 'LOGIN';
-    const nextPage = this.props.pages[nextPageID];
+    const nextPage = this.props.pages[nextPageID]; console.log(nextPage.props)
     if (nextPage.props.inputAction) {
       nextPage.props.inputAction(params, (nextCtx) => {
         this.setState({ page: nextPageID, ctx: nextCtx });

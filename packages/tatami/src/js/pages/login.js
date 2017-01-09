@@ -2,12 +2,26 @@ import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
 import Session from '../stores/session';
-import { Icon, Button, Field, Card , Header, Tab} from 'seito';
+import { Icon, Button, Field, Card , Header, Tabs, Tab} from 'seito';
 import { Validator as validate } from 'seito';
 import API from '../api/userAPI';
 import './login.scss';
 
+const localUsers = (params, done) => {
+  const users = [
+    { avatar: 'MKT', name: 'p_lopez', info: 'Compras de Material' },
+    { avatar: 'MKT', name: 'i_diaz' , info: 'Marketing' },
+    { avatar: 'PPV', name: 'j_huete', info: 'Marketing' },
+    { avatar: 'RLZ', name: 'j_rayon', info: 'Realización' },
+  ]
+  done(users);
+}
+
 class Login extends React.Component {
+
+  static defaultProps= {
+    inputAction: localUsers,
+  }
 
   state = {
     user: 'admin',
@@ -37,11 +51,11 @@ class Login extends React.Component {
       <Page className="login">
           <Card>
             <Header title={this.props.title} className='hero' />
-            <div style={{ display: 'flex'}}>
-              <Tab label="LOGIN" className="selected"/>
+            <Tabs>
+              <Tab label="LOGIN" />
               <Tab label="REGISTER" />
               <Tab label="USERS" />
-            </div>
+            </Tabs>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 4rem', justifyContent: 'center'}}>
               <center>{this.state.error}</center>
               <Field id="user"     icon="person" label="User"     value={this.state.user}     onChange={this.handleChangeField}/>
