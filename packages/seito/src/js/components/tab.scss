@@ -15,7 +15,8 @@
   vertical-align: middle;
   overflow: hidden;
   color: $divider-color;
-
+  cursor: pointer;
+  
   &.selected {
     color: $accent-color;
     border-bottom: solid 2px $accent-color;

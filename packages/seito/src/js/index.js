@@ -8,7 +8,7 @@ import Field from './components/field';
 import Select from './components/select';
 import Panel from './components/panel';
 import { List, GroupList } from './components/list';
-import { Tabs, Tab } from './components/tab';
+import { Tabs, Tab, Stack } from './components/tab';
 import { InfoLine } from './components/info';
 import Validator from './validator';
 
@@ -19,6 +19,6 @@ export {
   Card, HCard,
   Field, Select,
   Panel,
-  Tabs, Tab ,
+  Tabs, Tab, Stack,
   InfoLine
 };

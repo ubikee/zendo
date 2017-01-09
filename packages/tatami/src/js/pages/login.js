@@ -2,8 +2,8 @@ import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
 import Session from '../stores/session';
-import { Icon, Button, Field, Card , Header, Tabs, Tab} from 'seito';
-import { Validator as validate } from 'seito';
+import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack} from 'seito';
+import { Validator as check } from 'seito';
 import API from '../api/userAPI';
 import './login.scss';
 
@@ -20,10 +20,12 @@ const localUsers = (params, done) => {
 class Login extends React.Component {
 
   static defaultProps= {
+    tab: 2,
     inputAction: localUsers,
   }
 
   state = {
+    tab: this.props.tab,
     user: 'admin',
     password: '12345678',
     error: '',
@@ -45,22 +47,32 @@ class Login extends React.Component {
     this.setState({ [id] : value });
   }
 
+  handleChangeTab = (tab) => {
+    this.setState({ tab })
+  }
+
   render() {
-    const canLogin = validate.notEmpty(this.state.user) && validate.notEmpty(this.state.password);
+    const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
     return (
       <Page className="login">
           <Card>
             <Header title={this.props.title} className='hero' />
-            <Tabs>
+            <Tabs selected={this.state.tab} onChange={this.handleChangeTab}>
               <Tab label="LOGIN" />
               <Tab label="REGISTER" />
               <Tab label="USERS" />
             </Tabs>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 4rem', justifyContent: 'center'}}>
-              <center>{this.state.error}</center>
-              <Field id="user"     icon="person" label="User"     value={this.state.user}     onChange={this.handleChangeField}/>
-              <Field id="password" icon="lock"   label="Password" value={this.state.password} onChange={this.handleChangeField}/>
-            </div>
+            <Stack selected={this.state.tab}>
+              <div>
+                <center>{this.state.error}</center>
+                <Field id="user"     icon="person" label="User"     value={this.state.user}     onChange={this.handleChangeField}/>
+                <Field id="password" icon="lock"   label="Password" value={this.state.password} onChange={this.handleChangeField}/>
+              </div>
+              <div>1</div>
+              <div>
+                2
+              </div>
+            </Stack>
             <div style={{ display: 'flex', padding: '1rem 4rem', justifyContent: 'flex-end'}}>
               <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
             </div>

@@ -13,6 +13,7 @@ class Tabs extends React.Component {
 
   toggleTab = (id) => {
     this.setState({ selected: id });
+    this.props.onChange(id);
   }
 
   render() {
@@ -44,4 +45,17 @@ const Tab = (props) => {
   )
 }
 
-export { Tabs, Tab }
+const Stack = (props) => {
+  const selected = props.selected ? props.selected : 0;
+  const child = React.Children.toArray(props.children).filter((child, index) => {
+    return index === selected;
+  })[0];
+  return (
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 4rem', justifyContent: 'center'}}>
+      {child}
+    </div>
+  )
+}
+
+
+export { Tabs, Tab, Stack }
