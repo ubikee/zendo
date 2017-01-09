@@ -12,7 +12,7 @@ const Field = ({id, type='text', icon, label, value, required, onChange }) => {
   const notEmpty = value && value.length > 0 ? 'notEmpty' : '';
 
   return (
-    <div className="field" style={{ margin: '16px 12px 8px 16px'}}>
+    <div className="field">
       <Icon icon={icon} />
       <div className="field" style={{ flex: '1', marginLeft: '1rem'}}>
         <div className="field-box">

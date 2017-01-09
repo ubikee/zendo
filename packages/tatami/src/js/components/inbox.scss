@@ -1,0 +1,71 @@
+@import './app.scss';
+
+.inboxItem {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  .infoline:last-child .content {
+    padding-bottom: 1rem;
+    border-bottom: solid 1px $divider-color;
+  }
+  &:hover {
+    background-color: $primary-color-light-trans;
+  }
+}
+
+.inbox {
+  position: relative;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+
+  .list {
+    border-left: solid 1px $divider-color;
+    border-right: solid 1px $divider-color;
+  }
+
+  .viewer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    .list {
+      flex: 1;
+    }
+    .viewer {
+      position: absolute;
+      top: 400px;
+      width:80%;
+      height: 0;
+      left: 10vw;
+      //visibility: hidden;
+      background-color: $background;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      &.show {
+        left: 0;
+        //border: solid 1px red;
+        //visibility: visible;
+        width: 100%;
+        z-index: 9999;
+        top: 0;
+        height: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: $break-medium) {
+    .list {
+      flex: 4;
+      //border-right: solid 1px $divider-color;
+      //border-left: solid 1px $divider-color;
+    }
+    .viewer {
+      position: relative;
+      flex: 6;
+    }
+  }
+}

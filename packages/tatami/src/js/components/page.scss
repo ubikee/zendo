@@ -3,7 +3,6 @@
 .page {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   .pageBar {
     color: $primary-text-color;
     background-color: $primary-color-light-trans;

@@ -12,4 +12,20 @@
   &:hover {
     box-shadow: $shadow2;
   }
+
+  &.hcard {
+    display: flex;
+    >.image {
+      width: 15rem;
+      height: 20rem;
+      overflow: auto;
+      background-color: rgba(10,10,10, .8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    >.content {
+      flex: 1;
+    }
+  }
 }

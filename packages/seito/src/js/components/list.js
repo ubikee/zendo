@@ -4,19 +4,30 @@ import Panel from './panel';
 
 import './list.scss';
 
-const listControls = (props) => {
-  const controls =  {
-    //'thumb': <Thumb img={img} />,
-    'icon'    : <Icon icon={icon} action={action} />,
-    //'check'   : < >,
-    //'switch'  : < >,
-    //'reorder' : < >,
-    //'collapse': < >,
-  }
-  return controls[props.type];
-}
+const listItem = (item, onSelection) => {
 
-const listItem = ({ id, content, primaryAction, secondaryAction }) => {
+  console.log('listitemrenderer', item)
+
+  const id =  item.id;
+
+  const content = {
+    caption: item.caption,
+    title: item.label,
+    subtitle: item.subtitle,
+    info: item.info,
+    description: item.description,
+  };
+
+  const primaryAction = {
+    icon: item.icon,
+    action: onSelection,
+  };
+
+  const secondaryAction = {
+    icon: 'close',
+    action: null,
+  }
+
   return (
       <li id={id} className={`listitem0`}>
         <span className="primaryAction" onClick={primaryAction.action}>
@@ -24,7 +35,7 @@ const listItem = ({ id, content, primaryAction, secondaryAction }) => {
           <span className="content">
             <span className="caption">{content.caption}</span>
             <span className="title">{content.title}</span>
-            <span>{content.subtitle}</span>
+            <span className="subtitle">{content.subtitle}</span>
           </span>
           <span className="info">{content.info}</span>
         </span>
@@ -37,29 +48,11 @@ const listItem = ({ id, content, primaryAction, secondaryAction }) => {
 
 const List = (props) => {
 
-  const handleItemPrimaryAction = (event) => {
-    props.onSelection(item.id);
-  }
+  const renderer = props.renderer ? props.renderer : listItem;
 
   const items = props.data.map(item => {
-    return listItem({
-        id: item.id,
-        content: {
-          caption: item.caption,
-          title: item.label,
-          subtitle: item.subtitle,
-          info: item.info,
-        },
-        primaryAction: {
-          icon: item.icon,
-          action: handleItemPrimaryAction,
-        },
-        secondaryAction: {
-          icon: 'close',
-          action: null,
-        }
-    });
-  })
+    return renderer(item, props.onSelection);
+  });
 
   console.log(items)
 
@@ -69,29 +62,6 @@ const List = (props) => {
     </ul>
   )
 }
-
-const List2 = (props) => {
-
-  const items = props.data.map(item => {
-    const handleClick = (event) => {
-      props.onSelection(item.id);
-    }
-    return (
-      <li id={item.id} className={`listitem`} onMouseUp={handleClick}>
-        <Icon icon={item.icon} />
-        <span className="label">{item.label}</span>
-        <span className="action"></span>
-      </li>
-    )
-  })
-
-  return (
-    <ul className={`list ${props.className}`}>
-      {items}
-    </ul>
-  )
-}
-
 
 /*
   GroupList
@@ -110,34 +80,12 @@ const GroupList = (props) => {
   }
 
   const groups = props.data.map(group => {
-    const items = group.items.map( item => {
-      return listItem({
-        id: item.id,
-        content: {
-          caption: item.caption,
-          title: item.label,
-          subtitle: item.subtitle,
-          info: item.info,
-        },
-        primaryAction: {
-          icon: item.icon,
-          action: handleItemPrimaryAction,
-        },
-        secondaryAction: {
-          icon: 'close',
-          action: null,
-        }
-      });
-    });
-
     return (
       <Panel id={group.id} title={group.label} collapsed={false}>
-        <ul className={`list ${props.className}`}>
-          {items}
-        </ul>
+        <List data={group.items} onSelection={handleItemPrimaryAction}/>
       </Panel>
     )
-  });
+  })
 
   return (
     <div className={`grouplist ${props.className}`}>

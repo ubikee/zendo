@@ -1,13 +1,19 @@
 @import './app.scss';
 
+.tabs {
+  display: flex;
+  overflow-x: auto;
+}
+
 .tab {
   text-transform: uppercase;
+  min-width: 10vw;
   flex:1;
   text-align: center;
   line-height: 5rem;
   font-size: 1.6rem;
   vertical-align: middle;
-
+  overflow: hidden;
   color: $divider-color;
 
   &.selected {

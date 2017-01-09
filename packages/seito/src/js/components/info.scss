@@ -1,0 +1,45 @@
+@import './app.scss';
+
+.infoline {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+
+  >.info {
+    min-width: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: $icon-active;
+    font-size: $caption-font-size;
+  }
+
+  >.content {
+    flex: 1;
+    padding-left: 1rem;
+  }
+
+  &.title {
+    font-size: $title-font-size;
+    font-weight: $title-font-weight;
+  }
+
+  &.caption {
+    color: $secondary-text-color;
+    font-size: $caption-font-size;
+    font-weight: $caption-font-weight;
+    >.content {
+      color: $divider-color;
+      text-align: right;
+    }
+  }
+
+  &.subtitle {
+    font-size: $subtitle-font-size;
+    font-weight: $subtitle-font-weight;
+  }
+
+  &.text {
+    color: $secondary-text-color;
+  }
+}

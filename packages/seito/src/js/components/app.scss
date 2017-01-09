@@ -13,7 +13,7 @@ body {
   margin: 0;
   background-color: $background;
   //background-image: url('/background6.svg');
-  background-size:cover;
+  background-size: cover;
   color: $primary-text-color;
   font-size: 1.3rem;
   font-family: 'Roboto', sans-serif;
@@ -55,15 +55,14 @@ button {
     outline: none;
 }
 
-.right {
-  align-self: flex-end;
-}
-
 .horizontal {
   display: flex;
   flex-direction: row;
+  .right {
+    align-self: flex-end;
+  }
 }
 
 .float {
-  box-shadow: $shadow1;  
+  box-shadow: $shadow1;
 }

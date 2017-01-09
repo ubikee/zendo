@@ -34,9 +34,10 @@ class Screen extends React.Component {
     const aside       = this.props.drawer ? <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside> : '';
     const page        = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
     const appIcon     = this.props.icon   ? this.props.icon : 'menu';
+    const toolbar     = this.props.fullscreen ? '' : <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} menu={this.props.menu}/>;
     return (
       <div className="screen">
-        <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} menu={this.props.menu}/>
+        {toolbar}
         <main className="contentArea">
           {aside}
           {page}

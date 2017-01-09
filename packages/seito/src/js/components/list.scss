@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
   flex: 1;
+  min-width: 20vw;
+  overflow-y: auto;
+
   >.listitem {
     min-height: 4rem;
     padding: 4px 0px 4px 6px;
@@ -69,5 +72,72 @@
   }
   &:hover {
     background-color: $primary-color-lighter-trans;
+  }
+}
+
+.inboxItem000 {
+  display: flex;
+  border-right: solid 1px $divider-color;
+  border-left: solid 1px $divider-color;
+
+  >.status {
+    width: 7px;
+  }
+
+  &:active {
+    background-color: #FFF;
+    >.status {
+      background-color: red;
+    }
+  }
+
+  >.info {
+    width: 100px;
+    color: $secondary-text-color;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 1rem;
+    padding-top: 1rem;
+        margin-top: 1rem;
+    >.caption {
+      padding-right: 10px;
+      font-size: 1.2rem;
+    }
+  }
+
+  >.content {
+    flex: 1;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-bottom: solid 1px $divider-color;
+    >.caption {
+      font-size: 1.2rem;
+    }
+    >.title {
+      padding: 1rem 0;
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    >.subtitle {
+      padding: 1rem 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    >.description {
+      color: $divider-color;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .caption {
+    color: $secondary-text-color;
+    max-height: 2rem;
+    overflow: hidden;
+    line-height: 1.8;
   }
 }

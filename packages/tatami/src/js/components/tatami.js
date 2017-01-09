@@ -22,7 +22,7 @@ class Tatami extends React.Component {
     return nextPage && (!nextPage.props.private || session.isLoggedIn());
   }
 
-  navigate = (newPageID, params) => {
+  navigate = (newPageID, params) => { console.log(newPageID)
     const nextPageID = this.canNavigateTo(newPageID) ? newPageID : 'LOGIN';
     const nextPage = this.props.pages[nextPageID];
     if (nextPage.props.inputAction) {
@@ -34,17 +34,13 @@ class Tatami extends React.Component {
     }
   }
 
-  onExit = (event) => {
-    session.logout();
-    this.gotoPage('LOGIN');
-  }
-
   render() {
     const nextPage = this.props.pages[this.state.page];
-    const page = React.cloneElement(nextPage, { ctx: this.state.ctx, goto: this.navigate, onExit: this.onExit });
-    const drawer = page.props.drawer ? React.cloneElement(page.props.drawer, { goto: this.navigate }) : '';
+    const page     = React.cloneElement(nextPage, { ctx: this.state.ctx, goto: this.navigate, onExit: this.onExit });
+    const drawer   = page.props.drawer ? React.cloneElement(page.props.drawer, { goto: this.navigate }) : '';
+    const fullscreen = page.props.fullscreen;
     return (
-      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate}/>
+      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate} fullscreen={fullscreen}/>
     );
   }
 }

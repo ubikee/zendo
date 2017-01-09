@@ -3,13 +3,22 @@ import Icon from './components/icon';
 import { Button, FAB, Link } from './components/button';
 import Header from './components/header';
 import Menu from './components/menu';
-import Card from './components/card';
+import { Card, HCard } from './components/card';
 import Field from './components/field';
 import Select from './components/select';
 import Panel from './components/panel';
 import { List, GroupList } from './components/list';
-import { Tab } from './components/tab';
-
+import { Tabs, Tab } from './components/tab';
+import { InfoLine } from './components/info';
 import Validator from './validator';
 
-export { Validator, Icon, Button, FAB, Link, Header, Menu, List, GroupList, Card, Field, Select, Panel, Tab };
+export {
+  Validator,
+  Icon, Button, FAB, Link,
+  Header, Menu, List, GroupList,
+  Card, HCard,
+  Field, Select,
+  Panel,
+  Tabs, Tab ,
+  InfoLine
+};

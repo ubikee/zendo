@@ -28,6 +28,10 @@ const Application = (props) => {
     { id: 'TOOLBAR', label: 'Toolbar', icon: 'keyboard_arrow_right' },
   ]
 
+  const tatamiPages = [
+    { id: 'LOGIN' , label: 'Login' , icon: 'people' },
+  ]
+
   const drawerMenu = [
     { id: 'PANEL', label: 'Panel', icon: 'keyboard_arrow_right' },
     { id: 'HEADER', label: 'Header', icon: 'keyboard_arrow_right' },
@@ -43,6 +47,7 @@ const Application = (props) => {
   const appDrawer = <Drawer icon="cloud_queue" title="Zendo" >
                       <Header title="Zendo" />
                       <Menu title="Tatami" options={tatamiMenu} />
+                      <Menu title="Pages" options={tatamiPages} />
                       <Menu title="Seito" options={drawerMenu} />
                     </Drawer>
 
