@@ -1,7 +1,9 @@
-import HTTPClient from './HTTPClient';
+import HTTPClient from '../http/httpClient';
 import Session from '../stores/session';
 
-const DOMAIN = 'http://isend.developxp.com/app';
+const DOMAIN = window.DOMAIN;
+//const DOMAIN = 'http://localhost:5555/api';
+//const DOMAIN = 'http://isend.developxp.com/app';
 const http = HTTPClient(DOMAIN, Session);
 
 const MESSAGES = {
@@ -23,6 +25,16 @@ const errorHandler = (onError) => {
 }
 
 const UserAPI = {
+
+  login (user, password, onSuccess, onError) {
+    this.authenticate(user, password, (data) => {
+      Session.init(data.token, '');
+      this.me((me) => {
+        Session.init(data.token, me);
+        onSuccess();
+      }, onError);
+    }, onError);
+  },
 
   authenticate(login, password, onSuccess, onError) {
     const AUTHENTICATION = '/authenticate';

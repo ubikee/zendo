@@ -63,15 +63,19 @@
       display: flex;
       flex-direction: column;
       .caption {
-        min-height: 1.4rem;
-        font-size: 1.2rem;
-        font-style: italic;
-        color: $secondary-text-color;
+        min-height: $caption-font-size;
+        font-size: $caption-font-size;
+        font-weight: $caption-font-weight;
+        color: $icon-active;
       }
       .title {
-        font-size: 1.3rem;
-        font-weight: 400;
-
+        font-size: $title-font-size;
+        font-weight: $title-font-weight;
+      }
+      .subtitle {
+        font-size: $subtitle-font-size;
+        font-weight: $subtitle-font-weight;
+        color: $icon-active;
       }
     }
     .info {
@@ -80,72 +84,5 @@
   }
   &:hover {
     background-color: $primary-color-lighter-trans;
-  }
-}
-
-.inboxItem000 {
-  display: flex;
-  border-right: solid 1px $divider-color;
-  border-left: solid 1px $divider-color;
-
-  >.status {
-    width: 7px;
-  }
-
-  &:active {
-    background-color: #FFF;
-    >.status {
-      background-color: red;
-    }
-  }
-
-  >.info {
-    width: 100px;
-    color: $secondary-text-color;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding-right: 1rem;
-    padding-top: 1rem;
-        margin-top: 1rem;
-    >.caption {
-      padding-right: 10px;
-      font-size: 1.2rem;
-    }
-  }
-
-  >.content {
-    flex: 1;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    border-bottom: solid 1px $divider-color;
-    >.caption {
-      font-size: 1.2rem;
-    }
-    >.title {
-      padding: 1rem 0;
-      font-size: 1.7rem;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-    >.subtitle {
-      padding: 1rem 0;
-      font-size: 1.5rem;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-    >.description {
-      color: $divider-color;
-      padding-bottom: 1rem;
-    }
-  }
-
-  .caption {
-    color: $secondary-text-color;
-    max-height: 2rem;
-    overflow: hidden;
-    line-height: 1.8;
   }
 }

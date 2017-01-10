@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToolBar } from './toolbar';
 import { Icon, Header } from 'seito';
 import './inbox.scss';
 

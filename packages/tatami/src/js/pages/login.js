@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
-import Session from '../stores/session';
+import { DomainAware } from '../http/domain';
 import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List} from 'seito';
 import { Validator as check } from 'seito';
 import API from '../api/userAPI';
@@ -31,7 +31,7 @@ const localUsers = (params, done) => {
 class Login extends React.Component {
 
   static defaultProps= {
-    tab: 2,
+    tab: 0,
     inputAction: localUsers,
   }
 
@@ -45,13 +45,11 @@ class Login extends React.Component {
   handleSubmit = () => {
     const user = this.state.user;
     const password = this.state.password;
-    API.authenticate(user, password, (data) => {
-      Session.init(data.token, '');
-      API.me((me) => {
-        Session.init(data.token, me);
-        this.props.goto(this.props.next);
-      }, (error) => { this.setState({ error: error.message }); });
-    }, (error) => { this.setState({ error: error.message }); });
+    API.login(
+      user, password,
+      () => { this.props.goto(this.props.next); },
+      (error) => { this.setState({ error: error.message }); }
+    );
   }
 
   handleChangeField = (id, value) => {
@@ -63,16 +61,12 @@ class Login extends React.Component {
   }
 
   handleSelectUser = (user) => {
-    const me = {
-      
-    }
-    Session.init('*', user.role, user.name);
-    setTimeout(() => {
-      this.props.goto(this.props.next);
-    }, 1000);
+    API.login(user.id, '12345678');
   }
 
   render() {
+    console.log('LOGINPAGE.domain', this.props.domain)
+    console.log('LOGINPAGE.ctx', this.props.ctx)
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
     return (
       <Page className="login">
@@ -97,7 +91,6 @@ class Login extends React.Component {
                 <List data={this.props.ctx} onSelection={this.handleSelectUser}/>
               </div>
             </Stack>
-
           </Card>
       </Page>
     )

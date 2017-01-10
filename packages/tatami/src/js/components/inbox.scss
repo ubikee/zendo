@@ -32,9 +32,11 @@
   }
 
   @media screen and (max-width: $break-medium) {
+
     .list {
       flex: 1;
     }
+
     .viewer {
       position: absolute;
       top: 400px;
@@ -50,7 +52,7 @@
         //border: solid 1px red;
         //visibility: visible;
         width: 100%;
-        z-index: 9999;
+        z-index: 999;
         top: 0;
         height: 100%;
       }
