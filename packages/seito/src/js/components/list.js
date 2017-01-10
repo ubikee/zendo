@@ -24,8 +24,8 @@ const defaultListItemRenderer = (item, onSelection) => {
   };
 
   const secondaryAction = {
-    icon: item.action.icon,
-    action: item.action.do,
+    icon: item.action ? item.action.icon : '',
+    action: item.action ? item.action.do : '',
   }
 
   return (
@@ -47,7 +47,6 @@ const defaultListItemRenderer = (item, onSelection) => {
 }
 
 const List = (props) => {
-  console.log('LIST', props.data)
   const renderer = props.renderer ? props.renderer : defaultListItemRenderer;
 
   const items = props.data.map(item => {
