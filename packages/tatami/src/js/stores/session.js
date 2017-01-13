@@ -12,7 +12,7 @@ const SessionStore = {
     return json.token;
   },
 
-  me() {
+  me() { console.log('Session.me()')
     const item = localStorage.getItem(SESSION_NAME);
     const json = item ? JSON.parse(localStorage.getItem(SESSION_NAME)) : {};
     return json.me;

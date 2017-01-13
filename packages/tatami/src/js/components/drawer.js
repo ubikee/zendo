@@ -2,6 +2,7 @@ import React from 'react';
 
 // components
 import { Header } from 'seito';
+import User from  './user';
 
 // css
 import './drawer.scss';
@@ -15,11 +16,12 @@ const Drawer = (props) => {
     event.stopPropagation();
   }
 
-  const children = React.Children.map(props.children, (child => React.cloneElement(child, { goto: props.goto, toggle : props.onToggleDrawer })));
-
+  const children = React.Children.map(props.children, (child => React.cloneElement(child, { user: props.user, goto: props.goto, toggle : props.onToggleDrawer })));
+  console.log(props.user)
   return (
     <div className={`drawer`} onMouseUp={stopEvent}>
       <main>
+        <User avatar="/user.png" name={`${props.user.name} ${props.user.family_name}`} info={props.user.email} />
         {children}
       </main>
     </div>

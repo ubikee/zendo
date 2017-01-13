@@ -31,7 +31,7 @@ const UserAPI = {
       Session.init(data.token, '');
       this.me((me) => {
         Session.init(data.token, me);
-        onSuccess();
+        onSuccess(me);
       }, onError);
     }, onError);
   },

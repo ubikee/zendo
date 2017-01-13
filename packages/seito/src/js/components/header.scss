@@ -19,7 +19,10 @@
     background-color: $primary-color-dark-trans;
     min-height: 20rem;
     flex: 1;
-
+    >.icon {
+      font-size: 5rem;
+      left: calc(50% - 3rem);
+    }
     >.title {
       position: relative;
       left: inherit;

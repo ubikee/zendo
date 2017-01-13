@@ -35,6 +35,18 @@
       text-overflow: ellipsis;
     }
 
+    >.info {
+      display: flex;
+      align-items: center;
+      padding-right: 1.6rem;
+      >.badge {
+        border-radius: 1rem;
+        color: $primary-color-text;
+        background-color: $primary-color-dark;
+        font-weight: bold;
+      }
+    }
+
     &:hover {
       background-color: $primary-color-light-trans;
     }

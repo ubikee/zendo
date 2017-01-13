@@ -52,7 +52,7 @@ const Stack = (props) => {
     return index === selected;
   })[0];
   return (
-    <div className="stack" style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 0rem', justifyContent: 'center'}}>
+    <div className="stack" style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 0rem'}}>
       {child}
     </div>
   )

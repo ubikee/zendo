@@ -19,10 +19,10 @@ const localUsers = (params, done) => {
   */
 
   const users = [
-    {id:'p_lopez', icon:'person', title:'P. Lopez',  caption:'Marketing', role: 'compras'},
-    {id:'i_diaz', icon:'person', title:'I. Diaz' ,  caption:'Marketing', role: 'marketing' },
-    {id:'j_huete', icon:'person', title:'Julio Huete',  caption:'PPV', role: 'ppv'},
-    {id:'j_rayon', icon:'person', title:'Javier Rayón',  caption:'Realización', role: 'realizacion'},
+    {id:'p_lopez', icon:'person', title:'Pedro Lopez', caption:'Compras', role: 'compras'},
+    {id:'d_echebarria', icon:'person', title:'David Echebarria', caption:'Marketing', role: 'marketing' },
+    {id:'j_huete', icon:'person', title:'Julio Huete', caption:'PPV', role: 'ppv'},
+    {id:'j_rayon', icon:'person', title:'Javier Rayón', caption:'Realización', role: 'realizacion'},
   ]
 
   done(users);
@@ -47,7 +47,7 @@ class Login extends React.Component {
     const password = this.state.password;
     API.login(
       user, password,
-      () => { this.props.goto(this.props.next); },
+      (me) => { this.props.changeUser(me), this.props.goto(this.props.next); },
       (error) => { this.setState({ error: error.message }); }
     );
   }
@@ -61,17 +61,19 @@ class Login extends React.Component {
   }
 
   handleSelectUser = (user) => {
-    API.login(user.id, '12345678');
+    API.login(
+      user.id, '12345678',
+      (me) => { console.log(me); this.props.changeUser(me), this.props.goto(this.props.next); },
+      (error) => { this.setState({ error: error.message }); }
+    );
   }
 
   render() {
-    console.log('LOGINPAGE.domain', this.props.domain)
-    console.log('LOGINPAGE.ctx', this.props.ctx)
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
     return (
       <Page className="login">
           <Card>
-            <Header title={this.props.title} className='hero' />
+            <Header icon={this.props.icon} title={this.props.title} className='hero' />
             <Tabs selected={this.state.tab} onChange={this.handleChangeTab}>
               <Tab label="LOGIN" />
               <Tab label="REGISTER" />
@@ -82,7 +84,7 @@ class Login extends React.Component {
                 <center>{this.state.error}</center>
                 <Field id="user"     icon="person" label="User"     value={this.state.user}     onChange={this.handleChangeField}/>
                 <Field id="password" icon="lock"   label="Password" value={this.state.password} onChange={this.handleChangeField}/>
-                <div style={{ display: 'flex', padding: '1rem 4rem', justifyContent: 'flex-end'}}>
+                <div style={{ display: 'flex', padding: '1rem 0rem', justifyContent: 'flex-end'}}>
                   <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
                 </div>
               </div>

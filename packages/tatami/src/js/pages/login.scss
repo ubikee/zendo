@@ -11,11 +11,17 @@
     align-self: center;
     display: flex;
     flex-direction: column;
+
     &:hover {
       box-shadow: $shadow1;
     }
+
     .header {
       max-height: 200px;
+    }
+
+    .stack {
+      padding: 2rem 4rem !important;
     }
 
     @media screen and (max-width: $break-medium) {
