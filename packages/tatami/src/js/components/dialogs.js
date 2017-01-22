@@ -6,6 +6,15 @@ import { Icon, Button, Panel } from 'seito';
 // style
 import './dialogs.scss';
 
+const Dialog = (props) => {
+
+  return (
+    <Panel icon={props.icon} title={props.title} className="window dialog" collapsed={false} collapsable={false} >
+      <div className="message">{props.children}</div>
+    </Panel>
+  )
+}
+
 /**
  * Confirm Dialog
  */
@@ -32,4 +41,4 @@ const ConfirmDialog = ({icon, title, message, onOK, onCancel, onClose, children}
   )
 }
 
-export { ConfirmDialog }
+export { Dialog, ConfirmDialog }

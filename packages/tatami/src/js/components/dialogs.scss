@@ -1,4 +1,8 @@
+@import './app.scss';
+
 .dialog {
+
+  box-shadow: $shadow1;
 
   .message {
     flex: 1;
@@ -13,4 +17,5 @@
     display: flex;
     justify-content: flex-end;
   }
+  
 }

@@ -1,10 +1,69 @@
 import React from 'react';
 import Icon from './icon';
 import Panel from './panel';
+import Hammer from 'react-hammerjs';
 
 import './list.scss';
 
-const defaultListItemRenderer = (item, onSelection) => {
+const Swapable = (WrappedItem, leftActions, rightActions) => {
+
+  return class SwapItem extends React.Component {
+
+    state = {
+      pan: 1, // 0 swapped left, 1 no-swap, 2 swapped right
+    }
+
+    handleSwapLeft = () => {
+      this.setState({ swapped: this.state.swapped + 1 })
+    }
+
+    handleSwapRight = () => {
+      this.setState({ swapped: this.state.swapped - 1 })
+    }
+
+    handlePan = (event) => {
+      const nextPan = event.srcEvent.type === 'pointerup' ? 1 : 0;
+      const shiftX = Math.abs(event.deltaX) < 100 ? event.deltaX : this.state.shiftX;
+      this.setState({ pan: nextPan, shiftX: shiftX });
+    }
+
+    render() {
+
+      const hammerOptions = {
+        touchAction:'compute',
+        recognizers: {
+          pan: { direction: 6  }
+        }
+      };
+
+      const panStyles = {
+        0: 'pan-left',
+        1: 'no-pan',
+        2: 'pan-right'
+      }
+
+      const panStyle = panStyles[this.state.pan];
+
+      const itemStyle = {
+        left: this.state.shiftX
+      }
+
+      return (
+        <Hammer onPan={this.handlePan} options={hammerOptions}>
+          <div className={`listitem panable ${panStyle}`}>
+            <div className="leftActions">{leftActions}</div>
+            <div className="item" style={itemStyle}>
+              <WrappedItem {...this.props} />
+            </div>
+            <div className="rightActions">{rightActions}</div>
+          </div>
+        </Hammer>
+      )
+    }
+  }
+}
+
+const defaultListItemRenderer = ({item, onSelection}) => {
 
   const id =  item.id;
 
@@ -37,7 +96,7 @@ const defaultListItemRenderer = (item, onSelection) => {
             <span className="title">{content.title}</span>
             <span className="subtitle">{content.subtitle}</span>
           </span>
-          <span className="info">{content.info}</span>
+          <span className="info0" style={{ display: 'flex', alignItems: 'center'}}>{content.info}</span>
         </span>
         <span className="secondaryAction">
           <Icon icon={secondaryAction.icon} />
@@ -47,11 +106,13 @@ const defaultListItemRenderer = (item, onSelection) => {
 }
 
 const List = (props) => {
-  const renderer = props.renderer ? props.renderer : defaultListItemRenderer;
 
-  const items = props.data.map(item => {
-    return renderer(item, props.onSelection);
-  });
+  const Renderer = props.renderer ? props.renderer : defaultListItemRenderer;
+
+  const items = props.data ? props.data.map(item => {
+    //return renderer(item, props.onSelection);
+    return <Renderer {...item} item={item} onSelection={props.onSelection} />
+  }) : [];
 
   return (
     <ul className={`list ${props.className}`}>
@@ -76,9 +137,11 @@ const GroupList = (props) => {
     props.onPrimaryAction(id);
   }
 
+  const collapsed = props.collapsed ? props.collapsed : true;
+
   const groups = props.data.map(group => {
     return (
-      <Panel id={group.id} title={group.label} collapsed={false}>
+      <Panel id={group.id} title={group.label} collapsed={collapsed}>
         <List data={group.items} onSelection={handleItemPrimaryAction}/>
       </Panel>
     )
@@ -92,4 +155,4 @@ const GroupList = (props) => {
 }
 
 
-export { List, GroupList };
+export { List, GroupList, Swapable };

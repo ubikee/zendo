@@ -17,7 +17,7 @@ const Drawer = (props) => {
   }
 
   const children = React.Children.map(props.children, (child => React.cloneElement(child, { user: props.user, goto: props.goto, toggle : props.onToggleDrawer })));
-  console.log(props.user)
+
   return (
     <div className={`drawer`} onMouseUp={stopEvent}>
       <main>

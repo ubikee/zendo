@@ -1,5 +1,38 @@
 @import './app.scss';
 
+.panable {
+  position: relative;
+  display: flex;
+  
+  >.leftActions {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 400;
+  }
+
+  >.rightActions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 400;
+  }
+
+  &.pan-left {
+    //border: solid 2px red;
+    >.item {
+      position: absolute;
+      top: 0;
+      left: -20px;
+    }
+  }
+  >.item {
+    width: 100%;
+    z-index: 500;
+  }
+}
+
+
 .list {
   margin: 0;
   padding: 0;
@@ -54,6 +87,7 @@
   display: flex;
   min-height: 4rem;
   padding: 4px 0px 4px 6px;
+  cursor: pointer;
   .primaryAction {
     cursor: pointer;
     flex:1;
@@ -77,9 +111,6 @@
         font-weight: $subtitle-font-weight;
         color: $icon-active;
       }
-    }
-    .info {
-      color: $secondary-text-color;
     }
   }
   &:hover {

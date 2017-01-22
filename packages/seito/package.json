@@ -16,6 +16,7 @@
     "material-design-icons-iconfont": "^3.0.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-hammerjs": "^0.5.0",
     "react-sticky-position": "^2.0.0",
     "whatwg-fetch": "^1.0.0"
   }

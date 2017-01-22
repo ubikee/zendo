@@ -27,7 +27,7 @@ class Tabs extends React.Component {
     });
 
     return (
-      <div className="tabs">
+      <div className={`tabs ${this.props.className}`}>
         {tabs}
       </div>
     )
@@ -52,7 +52,7 @@ const Stack = (props) => {
     return index === selected;
   })[0];
   return (
-    <div className="stack" style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 0rem'}}>
+    <div className="stack" style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem 0 0 0'}}>
       {child}
     </div>
   )

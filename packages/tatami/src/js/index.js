@@ -2,7 +2,7 @@ import Tatami from './components/tatami';
 import Drawer from './components/drawer';
 import Page from './components/page';
 import Toolbar from './components/toolbar';
-import { ConfirmDialog } from './components/dialogs';
+import { Dialog, ConfirmDialog } from './components/dialogs';
 import Inbox from './components/inbox';
 import User from './components/user';
 
@@ -15,7 +15,7 @@ import Exit from './pages/exit';
 import Wait from './pages/wait';
 
 export {
-  Tatami, Drawer, Page, Toolbar, ConfirmDialog, Inbox, User,
+  Tatami, Drawer, Page, Toolbar, Dialog, ConfirmDialog, Inbox, User,
   DomainAware, DomainProvider, Session, HTTPClient,
   Wait, Login, Exit,
 };

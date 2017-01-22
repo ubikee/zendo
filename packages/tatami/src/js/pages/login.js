@@ -1,8 +1,9 @@
 import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
+import User from '../components/user';
 import { DomainAware } from '../http/domain';
-import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List} from 'seito';
+import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List, Swapable } from 'seito';
 import { Validator as check } from 'seito';
 import API from '../api/userAPI';
 import './login.scss';
@@ -70,6 +71,12 @@ class Login extends React.Component {
 
   render() {
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
+    const leftActions =
+      <Button label="done" className="primary"/>
+
+    const rightActions = [
+      <Button label="close" className="danger"/>
+    ]
     return (
       <Page className="login">
           <Card>
@@ -88,9 +95,9 @@ class Login extends React.Component {
                   <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
                 </div>
               </div>
-              <div>1</div>
+              <div>TODO: Register Form</div>
               <div>
-                <List data={this.props.ctx} onSelection={this.handleSelectUser}/>
+                <List data={this.props.ctx} onSelection={this.handleSelectUser} renderer={Swapable(User, leftActions, rightActions)}/>
               </div>
             </Stack>
           </Card>
@@ -100,7 +107,6 @@ class Login extends React.Component {
 }
 
 export default Login;
-
 
 /*
 

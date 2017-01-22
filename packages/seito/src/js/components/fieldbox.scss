@@ -1,0 +1,17 @@
+@import './app.scss';
+
+.fieldbox {
+  position: relative;
+  display: flex;
+
+  >.icon-box {}
+
+  >.field {
+    position: relative;
+    display: flex;
+  }
+
+  >.actions-box {
+    display: flex;
+  }
+}

@@ -12,7 +12,7 @@ class Inbox extends React.Component {
           {this.props.items}
         </div>
         <div className={`viewer ${viewerClass}`}>
-          <Header icon="arrow_back" title={title} action={this.props.onCloseViewer}/>
+          <Header icon="arrow_back" title={title} action={this.props.onCloseViewer}>{this.props.actions}</Header>
           {this.props.viewer}
         </div>
       </div>

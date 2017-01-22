@@ -21,7 +21,7 @@ class Screen extends React.Component {
   }
 
   toggleDrawer = () => {
-    this.setState({ drawer: !this.state.drawer })
+    this.setState({ drawer: !this.state.drawer });
   }
 
   renderDialog = () => {
