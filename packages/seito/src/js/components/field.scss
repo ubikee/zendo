@@ -1,6 +1,70 @@
 @import './app.scss';
 
+    label {
+      transition: all 0.5s ease;
+      position: absolute;
+      top: 2.2rem;
+      display: block;
+      color: $divider-color;
+      min-width: 8rem;
+      font-size: 1.4rem;
+    }
+
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      border: 0;
+      background-color: transparent;
+
+      font-size: 1.6rem;
+      font-family: inherit;
+      line-height: inherit;
+      border-bottom: solid 1px $divider-color;
+
+      &:focus {
+        border-bottom: solid 1px $accent-color;
+      }
+
+      &:focus ~ label {
+        font-size: 1.2rem;
+        font-weight: 400;
+        top: .1rem;
+        color: $secondary-text-color;
+      }
+
+      &.notEmpty ~ label {
+        font-size: 1.2rem;
+        font-weight: 400;
+        top: .1rem;
+        color: $secondary-text-color;
+      }
+    }
+
 .field {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding-top: 1.2rem;
+  margin-right: 1.2rem;
+  margin-bottom: 2rem;
+
+  >.icon-box {
+    padding-left: 1.6rem;
+  }
+  >.field-box {
+    flex: 1;
+    display: flex;
+    padding-left: 1.6rem;
+  }
+  >.actions-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.fieldx {
   position: relative;
   display: flex;
   padding: 0 0 1rem 0;
@@ -14,24 +78,9 @@
       border-bottom: solid 1px $divider-color;
     }
 
-    input, select {
-      width: 100%;
-      box-sizing: border-box;
-      border: 0;
-      background-color: transparent;
-      line-height: 1.4;
-      font-size: 1.4rem;
-    }
 
-    label {
-      transition: all 0.5s ease;
-      position: absolute;
-      top: 2.2rem;
-      display: block;
-      color: $secondary-text-color;
-      min-width: 8rem;
-      font-size: 1.4rem;
-    }
+
+
 
     input.notEmpty ~ label {
       font-size: 1.2rem;

@@ -110,7 +110,6 @@ const List = (props) => {
   const Renderer = props.renderer ? props.renderer : defaultListItemRenderer;
 
   const items = props.data ? props.data.map(item => {
-    //return renderer(item, props.onSelection);
     return <Renderer {...item} item={item} onSelection={props.onSelection} />
   }) : [];
 

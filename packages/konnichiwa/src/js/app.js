@@ -2,12 +2,14 @@ import React from 'react';
 
 // components
 import { Tatami, Drawer } from 'tatami';
-import { Header, Menu } from 'seito';
+import { Menu } from 'seito';
 
 // pages
-import Login from './pages/login';
+import { Login, Exit, Wait } from 'tatami';
 import Gallery from './pages/gallery';
 import PanelPage from './pages/panel';
+import FieldPage from './pages/field';
+
 
 // styles
 import './app.scss';
@@ -32,7 +34,7 @@ const Application = (props) => {
     { id: 'LOGIN' , label: 'Login' , icon: 'people' },
   ]
 
-  const drawerMenu = [
+  const seitoMenu = [
     { id: 'PANEL', label: 'Panel', icon: 'keyboard_arrow_right' },
     { id: 'HEADER', label: 'Header', icon: 'keyboard_arrow_right' },
     { id: 'CARD', label: 'Card', icon: 'keyboard_arrow_right' },
@@ -45,20 +47,20 @@ const Application = (props) => {
   ]
 
   const appDrawer = <Drawer icon="cloud_queue" title="Zendo" >
-                      <Header title="Zendo" />
                       <Menu title="Tatami" options={tatamiMenu} />
                       <Menu title="Pages" options={tatamiPages} />
-                      <Menu title="Seito" options={drawerMenu} />
+                      <Menu title="Seito" options={seitoMenu} />
                     </Drawer>
 
   const pages = {
-    'LOGIN'  : <Login />,
-    'GALLERY': <Gallery drawer={appDrawer} />,
-    'PANEL'  : <PanelPage drawer={appDrawer} />
+    'LOGIN'  : <Login title="Zendo Konnichiwa"/>,
+    'GALLERY': <Gallery title="Gallery" drawer={appDrawer} />,
+    'PANEL'  : <PanelPage title="Panel" drawer={appDrawer} />,
+    'FIELD'  : <FieldPage title="Field" drawer={appDrawer} />
   }
 
   return (
-    <Tatami title="Zendo" pages={pages} init="PANEL" menu={appMenu}/>
+    <Tatami title="Zendo" pages={pages} init="FIELD" menu={appMenu} drawer={appDrawer}/>
   );
 
 }
