@@ -7,7 +7,7 @@ const Header = (props) => {
   const icon = props.icon ? <Icon className="navIcon" icon={props.icon} action={props.action}/> : null;
 
   return (
-    <header className={`header ${props.className}`}>
+    <header className={`header ${props.className}`} onMouseUp={props.onMouseUp}>
       {icon}
       <div className="title">{props.title}</div>
       <div className="actions">
