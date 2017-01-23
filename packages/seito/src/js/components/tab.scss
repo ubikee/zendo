@@ -17,10 +17,24 @@
   color: $divider-color;
   cursor: pointer;
 
+  >.badge {
+    margin: 1rem;
+    padding: .3rem .6rem;
+    border-radius: 1rem;
+    color: $primary-color-text;
+    background-color: $divider-color;
+  }
+
   &.selected {
     color: $accent-color;
     border-bottom: solid 2px $accent-color;
+    >.badge {
+      color: $primary-color-text;
+      background-color: $primary-color-dark;
+      font-weight: bold;
+    }
   }
+
 }
 
 .stack {
