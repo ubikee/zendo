@@ -26,7 +26,7 @@ const Button = (props) => {
  */
 const FAB = (props) => {
   return (
-    <div className="fab" onMouseUp={props.action}><Icon icon={props.icon} /></div>
+    <div className={`fab ${props.className}`} onMouseUp={props.action}><Icon icon={props.icon} /></div>
   )
 }
 
