@@ -64,7 +64,7 @@ class Login extends React.Component {
   handleSelectUser = (user) => {
     API.login(
       user.id, '12345678',
-      (me) => { console.log(me); this.props.changeUser(me), this.props.goto(this.props.next); },
+      (me) => { this.props.changeUser(me), this.props.goto(this.props.next); },
       (error) => { this.setState({ error: error.message }); }
     );
   }

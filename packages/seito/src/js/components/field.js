@@ -1,5 +1,7 @@
 import React from 'react';
 import Icon from './icon';
+import Validator from '../validator';
+
 import './field.scss';
 
 const FieldFactory = (WField) => {
@@ -28,11 +30,16 @@ const FieldFactory = (WField) => {
       this.props.onChange(id, newValue);
     };
 
+    handleClear = () => {
+      this.handleChange(this.props.id, "");
+    }
+
     render() {
       const icon = this.props.icon ? <Icon icon={this.props.icon} /> : '';
       const text = this.props.required ? `* ${this.props.label}` : this.props.label;
       const label = this.props.label ? <label htmlFor={this.props.id}>{text}</label> : '';
-      const actions = this.props.readOnly === true ? [] : [<Icon icon="close" className="small"/>];
+      const clearIcon = Validator.notEmpty(this.props.value) ? <Icon icon="close" className="small" action={this.handleClear}/> : '';
+      const actions = this.props.readOnly === true ? [] : [clearIcon];
       return (
         <div className="field">
           <div className="icon-box">{icon}</div>
