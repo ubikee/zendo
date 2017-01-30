@@ -1,0 +1,66 @@
+@import './app.scss';
+
+.searchbox {
+
+  flex: 1;
+  //border: solid 1px $divider-color;
+  padding: .5rem;
+
+  >.querybox {
+    padding: 0 1.6rem 0 1rem;
+    background-color: $paper;
+    min-height: 3rem;
+    max-height: 3rem;
+    display: flex;
+    align-items: center;
+
+
+    >.criteriabox {
+      display: flex;
+      align-items: center;
+      margin: .5rem;
+      padding: .5rem;
+      border: solid 1px $divider-color;
+      border-radius: 3px;
+      background-color: $background;
+      >.queryname {
+        color: $secondary-text-color;
+        padding: 0 1rem 0 .5rem;
+      }
+      >.material-icons {
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-weight: 500;
+        border-radius: 1rem;
+        border: solid 0px $divider-color;
+        color: $divider-color;
+        margin-left: 1rem;
+        padding: .1rem;
+        &:hover {
+          color: #FFF;
+          background-color: $primary-color-dark-trans;
+        }
+      }
+    }
+
+    >input {
+      flex: 1;
+      font-size: 1.3rem;
+      border: 0;
+    }
+
+  }
+  >.resultbox {
+    display: none;
+    border-top: solid 1px $divider-color;
+    padding: .5rem;
+    dl {
+      margin: 1rem;
+    }
+    dt {
+      color: $divider-color;
+      border-bottom: solid 1px $divider-color;
+      margin: 1rem 0;
+    }
+  }
+}

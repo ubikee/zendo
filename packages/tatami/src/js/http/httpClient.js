@@ -64,7 +64,9 @@ const HTTPClient = (domain, securityCtx) => {
         })
         .then(response => response.json())
         .then(handleData)
-        .catch(error => onError);
+        .catch(error => {
+          onError(null, error);
+        });
     }
   }
 };

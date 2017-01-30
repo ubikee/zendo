@@ -1,6 +1,7 @@
 @import './app.scss';
 
 .inboxItem {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
@@ -14,30 +15,44 @@
   }
 }
 
+
+.inboxItemWrapper {
+  display: flex;
+  >.itemState {
+    width: .4rem;
+    &.selected {
+      background-color: $accent-color;
+    }
+  }
+  &:hover {
+    background-color: $primary-color-light-trans;
+  }
+}
+
 .inbox {
   position: relative;
   flex: 1;
   display: flex;
   overflow: hidden;
 
-  .list {
-    border-left: solid 1px $divider-color;
+  >.inboxlist {
     border-right: solid 1px $divider-color;
+    overflow-y: auto;
   }
 
-  .viewer {
+  >.inboxviewer {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto;
   }
 
   @media screen and (max-width: $break-medium) {
 
-    .list {
+    >.inboxlist {
       flex: 1;
     }
 
-    .viewer {
+    >.inboxviewer {
       position: absolute;
       top: 5%;
       width: 100%;
@@ -46,7 +61,6 @@
       z-index: 0;
       visibility: hidden;
       background-color: $primary-color-light;
-      overflow: hidden;
       transition: all .3s ease-in-out;
       box-shadow: $shadow1;
       &.show {
@@ -65,11 +79,11 @@
   }
 
   @media screen and (min-width: $break-medium) {
+
     .list {
       flex: 4;
-      //border-right: solid 1px $divider-color;
-      //border-left: solid 1px $divider-color;
     }
+
     .viewer {
       position: relative;
       flex: 6;

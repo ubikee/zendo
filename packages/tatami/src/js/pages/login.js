@@ -9,23 +9,12 @@ import API from '../api/userAPI';
 import './login.scss';
 
 const localUsers = (params, done) => {
-
-  /*
-  const users = [
-    { avatar: 'MKT', name: 'p_lopez', info: 'Compras de Material' },
-    { avatar: 'MKT', name: 'i_diaz' , info: 'Marketing' },
-    { avatar: 'PPV', name: 'j_huete', info: 'Marketing' },
-    { avatar: 'RLZ', name: 'j_rayon', info: 'Realización' },
-  ]
-  */
-
   const users = [
     {id:'p_lopez', icon:'person', title:'Pedro Lopez', caption:'Compras', role: 'compras'},
     {id:'d_echebarria', icon:'person', title:'David Echebarria', caption:'Marketing', role: 'marketing' },
     {id:'j_huete', icon:'person', title:'Julio Huete', caption:'PPV', role: 'ppv'},
     {id:'j_rayon', icon:'person', title:'Javier Rayón', caption:'Realización', role: 'realizacion'},
   ]
-
   done(users);
 }
 
@@ -49,7 +38,10 @@ class Login extends React.Component {
     API.login(
       user, password,
       (me) => { this.props.changeUser(me), this.props.goto(this.props.next); },
-      (error) => { this.setState({ error: error.message }); }
+      (error) => {
+        const mssg = error.status ? error.message : error.error;
+        this.setState({ error: mssg });
+      }
     );
   }
 
@@ -77,6 +69,7 @@ class Login extends React.Component {
     const rightActions = [
       <Button label="close" className="danger"/>
     ]
+
     return (
       <Page className="login">
           <Card>
@@ -97,7 +90,7 @@ class Login extends React.Component {
               </div>
               <div>TODO: Register Form</div>
               <div>
-                <List data={this.props.ctx} onSelection={this.handleSelectUser} renderer={Swapable(User, leftActions, rightActions)}/>
+                <List data={this.props.ctx} onSelection={this.handleSelectUser} />
               </div>
             </Stack>
           </Card>
@@ -107,56 +100,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-/*
-
-{
- "has_next": false,
- "total": 3,
- "users": [
-   {
-     "_id": "58505fc215d14cd1de5cc03c",
-     "email": "admin@ywana.com",
-     "name": "Juan",
-     "family_name": "Pérez García",
-     "login": "admin",
-     "roles": [
-       "manager",
-       "customer"
-     ]
-   },
-   {
-     "_id": "58505fc215d14cd1de5cc03d",
-     "email": "customer@ywana.com",
-     "name": "Pedro",
-     "family_name": "Martínez García",
-     "login": "customer",
-     "roles": [
-       "customer"
-     ]
-   },
-   {
-     "_id": "58505fc315d14cd1de5cc03e",
-     "email": "manager@ywana.com",
-     "name": "Luis",
-     "family_name": "Durán Fernández",
-     "login": "manager",
-     "roles": [
-       "manager"
-     ]
-   }
- ]
-}
-
-
-
-NEW TICKET =>
-{
- "id": "57e52790-c639-11e6-8f6f-4141cca1a68d",
- "idTicket": "58599294bfabf967543d4e70",
- "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU3ZTUyNzkwLWM2MzktMTFlNi04ZjZmLTQxNDFjY2ExYTY4ZCIsImlkVGlja2V0IjoiNTg1OTkyOTRiZmFiZjk2NzU0M2Q0ZTcwIiwidGltZXN0YW1wIjoxNDgyMjY1MjM2OTMyfQ.PmvDEPopiRacRaGs42xlb_zs-oHMQjahO61OvYyI8jI"
-}
-
-
-
-*/

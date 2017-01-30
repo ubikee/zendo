@@ -12,13 +12,19 @@ const Card = (props) => {
 }
 
 const HCard = (props) => {
+
+  const image = props.image ? (
+    <div className="image">
+      <img height="110%" src={props.image} alt="150x200"/>
+    </div>
+  ) : '';
+
+  const caption = props.caption ? <div className="caption">{props.caption}</div> : '';
   return (
     <Card className="hcard">
-      <div className="image">
-        <img height="110%" src={props.src} alt="150x200"/>
-      </div>
+      {image}
       <div className="content">
-        <Header icon={props.icon} title={props.title}><Icon icon='close'/></Header>
+        {caption}
         {props.children}
       </div>
     </Card>

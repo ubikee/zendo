@@ -41,7 +41,7 @@ const FieldFactory = (WField) => {
       const clearIcon = Validator.notEmpty(this.props.value) ? <Icon icon="close" className="small" action={this.handleClear}/> : '';
       const actions = this.props.readOnly === true ? [] : [clearIcon];
       return (
-        <div className="field">
+        <div className={`field ${this.props.className}`}>
           <div className="icon-box">{icon}</div>
           <div className={`field-box`}>
             <WField {...this.props} onChange={this.handleChange}/>

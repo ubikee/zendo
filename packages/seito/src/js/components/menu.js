@@ -4,8 +4,9 @@ import './menu.scss';
 
 const Menu = (props) => {
 
-  const authorizedOptions = props.user && props.user.roles ? props.options.filter( option => {
-    return !option.roles || option.roles.includes(props.user.roles[0]);
+  const authorizedOptions = props.user && props.user.rol ? props.options.filter( option => {
+    const rol = props.user.rol;
+    return !option.roles || option.roles.includes(rol);
   }) : props.options;
 
   const options = authorizedOptions.map(option => {
