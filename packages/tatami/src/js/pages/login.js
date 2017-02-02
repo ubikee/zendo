@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
-import User from '../components/user';
+import { User, UserListItem } from '../components/user';
 import { DomainAware } from '../http/domain';
 import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List, Swapable } from 'seito';
 import { Validator as check } from 'seito';
@@ -11,9 +11,10 @@ import './login.scss';
 const localUsers = (params, done) => {
   const users = [
     {id:'p_lopez', icon:'person', title:'Pedro Lopez', caption:'Compras', role: 'compras'},
-    {id:'d_echebarria', icon:'person', title:'David Echebarria', caption:'Marketing', role: 'marketing' },
+    {id:'d_echebarria', icon:'person', title:'David Echevarria', caption:'Marketing', role: 'marketing' },
     {id:'j_huete', icon:'person', title:'Julio Huete', caption:'PPV', role: 'ppv'},
     {id:'j_rayon', icon:'person', title:'Javier Rayón', caption:'Realización', role: 'realizacion'},
+    {id:'p_mercado', icon:'person', title:'Paco Mercado', caption:'Arte Final', role: 'artefinal'},
   ]
   done(users);
 }
@@ -63,12 +64,8 @@ class Login extends React.Component {
 
   render() {
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
-    const leftActions =
-      <Button label="done" className="primary"/>
-
-    const rightActions = [
-      <Button label="close" className="danger"/>
-    ]
+    const leftActions = <Button label="done" className="primary"/>
+    const rightActions = [ <Button label="close" className="danger"/>]
 
     return (
       <Page className="login">
@@ -90,7 +87,7 @@ class Login extends React.Component {
               </div>
               <div>TODO: Register Form</div>
               <div>
-                <List data={this.props.ctx} onSelection={this.handleSelectUser} />
+                <List data={this.props.ctx} onSelection={this.handleSelectUser} renderer={UserListItem} />
               </div>
             </Stack>
           </Card>

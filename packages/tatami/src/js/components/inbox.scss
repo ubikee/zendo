@@ -38,12 +38,15 @@
   >.inboxlist {
     border-right: solid 1px $divider-color;
     overflow-y: auto;
+    flex: 2;
   }
 
   >.inboxviewer {
+    flex: 4;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    >.header { display: none; }
   }
 
   @media screen and (max-width: $break-medium) {

@@ -21,7 +21,7 @@ const HCard = (props) => {
 
   const caption = props.caption ? <div className="caption">{props.caption}</div> : '';
   return (
-    <Card className="hcard">
+    <Card className={`hcard ${props.className}`}>
       {image}
       <div className="content">
         {caption}

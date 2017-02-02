@@ -1,5 +1,56 @@
 @import './app.scss';
 
+
+.userlistitem {
+  padding: .8rem 0;
+  display: flex;
+  cursor: pointer;
+  >.avatar {
+    margin: .8rem 1.6rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 200;
+    background-color: $primary-color;
+    color: white;
+  }
+  >.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    >.line1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: $primary-text-color;
+      line-height: 1.9rem;
+    }
+    >.line2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $secondary-text-color;
+    }
+    >.line3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $secondary-text-color;
+    }
+  }
+  >.actions {
+    padding: .8rem;
+  }
+  &:hover {
+    background-color: $primary-color-light-trans;
+  }
+}
+
+
+
 .user {
 
   * {

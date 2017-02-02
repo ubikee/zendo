@@ -47,8 +47,6 @@
       }
     }
 
-
-
   >.icon-box {
     padding-left: 1.6rem;
   }
@@ -62,6 +60,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &.bold {
+    input, select {
+      font-weight: bold;
+      font-size: 2rem;
+    }
   }
 }
 
@@ -79,10 +84,6 @@
       padding-top: .2rem;
       border-bottom: solid 1px $divider-color;
     }
-
-
-
-
 
     input.notEmpty ~ label {
       font-size: 1.2rem;

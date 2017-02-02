@@ -15,9 +15,16 @@
   }
 
   >.content {
+    position: relative;
     flex: 1;
     padding-left: 1rem;
+    >.decorator {
+      position: absolute;
+      top: 0rem;
+      right: .4rem;
+    }
   }
+
 
   &.title {
     font-size: $title-font-size;

@@ -8,8 +8,10 @@ import './dialogs.scss';
 
 const Dialog = (props) => {
 
+  const actionz = <Icon icon="close" action={props.onClose}/>
+
   return (
-    <Panel icon={props.icon} title={props.title} className="window dialog" collapsed={false} collapsable={false} >
+    <Panel icon={props.icon} title={props.title} className="window dialog" collapsed={false} collapsable={false} actions={actionz}>
       <div className="message">{props.children}</div>
     </Panel>
   )
@@ -18,7 +20,7 @@ const Dialog = (props) => {
 /**
  * Confirm Dialog
  */
-const ConfirmDialog = ({icon, title, message, onOK, onCancel, onClose, children}) => {
+const ConfirmDialog = ({icon, title, message, onOK, canOK, onCancel, onClose, children}) => {
 
   const handleOK = () => {
     onOK();
@@ -35,7 +37,7 @@ const ConfirmDialog = ({icon, title, message, onOK, onCancel, onClose, children}
       <div className="message">{children}</div>
       <div className="buttons">
         <Button label="CANCEL"  action={handleCancel}/>
-        <Button label="OK" className="accent" action={handleOK}/>
+        <Button label="OK" className="primary" action={handleOK} disabled={!canOK}/>
       </div>
     </Panel>
   )

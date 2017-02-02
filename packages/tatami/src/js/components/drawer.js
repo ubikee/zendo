@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import { Header } from 'seito';
-import User from  './user';
+import { User } from  './user';
 
 // css
 import './drawer.scss';

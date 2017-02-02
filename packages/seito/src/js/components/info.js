@@ -4,11 +4,14 @@ import './info.scss';
 
 const InfoLine = (props) => {
   const icon = props.icon ? <Icon icon={props.icon} className="small"/> : '';
-  console.log(icon)
+  const decorator = props.decorator ? <div className="decorator">{props.decorator}</div>: '';
   return (
     <div className={`infoline ${props.className}`}>
       <div className="info">{icon}{props.info}</div>
-      <div className="content">{props.children}</div>
+      <div className="content">
+        {decorator}
+        {props.children}
+      </div>
     </div>
   )
 }

@@ -65,6 +65,7 @@ const HTTPClient = (domain, securityCtx) => {
         .then(response => response.json())
         .then(handleData)
         .catch(error => {
+          console.log(error)
           onError(null, error);
         });
     }
