@@ -16,6 +16,7 @@ const Button = (props) => {
   }
 
   const disabled = props.disabled ? 'disabled' : '';
+  
   return (
     <button className={`button ${disabled} ${props.className}`} onMouseUp={handleMouseUp}>{props.label}</button>
   )
@@ -26,7 +27,7 @@ const Button = (props) => {
  */
 const FAB = (props) => {
   return (
-    <div className={`fab ${props.className}`} onMouseUp={props.action}><Icon icon={props.icon} /></div>
+    <div className={`fab accent ${props.className}`} onMouseUp={props.action}><Icon icon={props.icon} /></div>
   )
 }
 

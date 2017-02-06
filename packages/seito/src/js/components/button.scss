@@ -15,30 +15,9 @@
   background-color: $background;
   border-radius: 2px;
   transition: all 0.5s ease;
-
   &:hover {
     box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 2px rgba(0,0,0,.2);
   }
-
-  &.primary {
-    background-color: $primary-color;
-    color: $primary-color-text;
-    &.disabled {
-      background-color: rgba($primary-color-dark, .3);
-      cursor:inherit;
-    }
-  }
-
-  &.danger {
-    background-color: $danger-color;
-    color: $primary-color-text;
-  }
-
-  &.accent {
-    background-color: $accent-color;
-    color: $primary-color-text;
-  }
-
 }
 
 .fab {
