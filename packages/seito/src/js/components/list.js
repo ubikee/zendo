@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from './icon';
 import Panel from './panel';
 import Hammer from 'react-hammerjs';
+import Collections from '../collections';
 
 import './list.scss';
 
@@ -105,16 +106,39 @@ const defaultListItemRenderer = ({item, onSelection}) => {
   )
 }
 
+
+const SimpleListItem = (props) => {
+  const handlePrimaryAction = () => {
+    props.onSelection(props);
+  }
+  const initial = props.title ? props.title[0] : '-' ;
+  const avatar = props.avatar ? <img src={props.avatar} /> : <div>{initial}</div>
+  return (
+    <div className="userlistitem">
+      <div className="avatar" onMouseUp={handlePrimaryAction}>{avatar}</div>
+      <div className="content" onMouseUp={handlePrimaryAction}>
+        <span className="line1">{props.title}</span>
+        <span className="line2">{props.subtitle}</span>
+        <span className="line3">{props.description}</span>
+      </div>
+      <div className="actions">
+
+      </div>
+    </div>
+  )
+}
+
 const List = (props) => {
-
+  const data = props.groupBy ? Collections.groupBy(props.data, props.groupBy) : props.data;
   const Renderer = props.renderer ? props.renderer : defaultListItemRenderer;
-
-  const items = props.data ? props.data.map(item => {
-    return <Renderer {...item} item={item} onSelection={props.onSelection} />
+  const items = data ? data.map(item => {
+    return item.grouper ?
+      <li className="grouper" style={{ position: 'sticky', top: '0px', backgroundColor: 'white', display: 'block', height: '2.5rem' }}>{item.title}</li> :
+      <Renderer {...item} item={item} onSelection={props.onSelection} />
   }) : [];
 
   return (
-    <ul className={`list ${props.className}`}>
+    <ul className={`list ${props.className}`} data-header={props.title}>
       {items}
     </ul>
   )
@@ -154,4 +178,4 @@ const GroupList = (props) => {
 }
 
 
-export { List, GroupList, Swapable };
+export { List, GroupList, Swapable, SimpleListItem };

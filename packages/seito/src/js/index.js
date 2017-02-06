@@ -7,15 +7,16 @@ import { Card, HCard } from './components/card';
 import Field from './components/field';
 import Select from './components/select';
 import Panel from './components/panel';
-import { List, GroupList, Swapable } from './components/list';
+import { List, GroupList, Swapable, SimpleListItem } from './components/list';
 import { Tabs, Tab, Stack } from './components/tab';
 import { InfoLine } from './components/info';
 import Validator from './validator';
+import Collections from './collections';
 
 export {
-  Validator,
+  Validator, Collections,
   Icon, Button, FAB, Link,
-  Header, Menu, List, GroupList, Swapable,
+  Header, Menu, List, GroupList, Swapable, SimpleListItem,
   Card, HCard,
   Field, Select,
   Panel,

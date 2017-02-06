@@ -8,22 +8,10 @@ import { Validator as check } from 'seito';
 import API from '../api/userAPI';
 import './login.scss';
 
-const localUsers = (params, done) => {
-  const users = [
-    {id:'p_lopez', icon:'person', title:'Pedro Lopez', caption:'Compras', role: 'compras'},
-    {id:'d_echebarria', icon:'person', title:'David Echevarria', caption:'Marketing', role: 'marketing' },
-    {id:'j_huete', icon:'person', title:'Julio Huete', caption:'PPV', role: 'ppv'},
-    {id:'j_rayon', icon:'person', title:'Javier Rayón', caption:'Realización', role: 'realizacion'},
-    {id:'p_mercado', icon:'person', title:'Paco Mercado', caption:'Arte Final', role: 'artefinal'},
-  ]
-  done(users);
-}
-
 class Login extends React.Component {
 
   static defaultProps= {
     tab: 0,
-    inputAction: localUsers,
   }
 
   state = {
@@ -87,7 +75,7 @@ class Login extends React.Component {
               </div>
               <div>TODO: Register Form</div>
               <div>
-                <List data={this.props.ctx} onSelection={this.handleSelectUser} renderer={UserListItem} />
+                <List data={this.props.users} onSelection={this.handleSelectUser} renderer={UserListItem} groupBy='role'/>
               </div>
             </Stack>
           </Card>

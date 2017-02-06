@@ -40,6 +40,20 @@
   min-width: 20vw;
   overflow-y: auto;
 
+  &:before{
+      content:attr(data-header);
+      background-color: rgba(255,255,255,.9);
+      color: $secondary-text-color;
+      font-size: 1.3rem;
+      font-weight:400;
+      padding-left: 1rem;
+      line-height: 3rem;
+      position: sticky;
+      top: 0px;
+      width: 100%;
+      display: block;
+  }
+
   >.listitem {
     min-height: 4rem;
     padding: 4px 0px 4px 6px;
@@ -59,10 +73,6 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    &:hover {
-      background-color: $primary-color-lighter-trans;
     }
   }
 }
@@ -112,8 +122,5 @@
         color: $icon-active;
       }
     }
-  }
-  &:hover {
-    background-color: $primary-color-lighter-trans;
   }
 }
