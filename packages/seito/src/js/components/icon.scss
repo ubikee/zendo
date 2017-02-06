@@ -7,10 +7,16 @@
   padding: .8rem;
   margin: 0;
   cursor: pointer;
-  color: $icon-menu;
+  transition: all .5s;
 
+/*
   &.inactive {
     color: $icon-inactive;
+  }
+*/
+
+  &.toggled {
+    transform: rotate(180deg);
   }
 
   &.clickable:hover {
