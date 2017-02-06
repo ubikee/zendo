@@ -5,8 +5,8 @@
   flex-direction: column;
 
   .pageBar {
-    color: $primary-text-color;
-    background-color: $primary-color-light-trans;
+    //color: $primary-text-color;
+    //background-color: $primary-color-light-trans;
     //border-bottom: solid 2px;
     @media (max-width: $break-medium) {
       box-shadow: $shadow1;

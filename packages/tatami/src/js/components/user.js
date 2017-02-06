@@ -4,7 +4,6 @@ import './user.scss';
 
 const UserListItem = (props) => {
   const handlePrimaryAction = () => {
-    console.log(props.id)
     props.onSelection(props);
   }
   const initial = props.title ? props.title[0] : '-' ;
@@ -18,7 +17,7 @@ const UserListItem = (props) => {
         <span className="line3">{props.description}</span>
       </div>
       <div className="actions">
-        <Icon icon="more_vert" />
+
       </div>
     </div>
   )
