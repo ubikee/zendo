@@ -1,41 +1,31 @@
 @import './app.scss';
 
 .button {
-
   position: relative;
   outline: 0;
   padding: 0 2.5rem;
   margin: .6rem .1rem;
-
   font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
   height: 3.6rem;
   text-transform: uppercase;
-  background-color: $background;
   border-radius: 2px;
   transition: all 0.5s ease;
-  &:hover {
-    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 2px rgba(0,0,0,.2);
-  }
 }
 
 .fab {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  border: solid 1px $accent-color;
   border-radius: 10rem;
-  background-color: $accent-color;
   min-width: 5.5rem;
   min-height: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: $shadow1;
+  z-index: 998;
   span {
-    color: $primary-color-text;
-    background-color: $accent-color;
   }
   &:hover {
     min-width: 5.6rem;
@@ -45,10 +35,8 @@
 
 .link {
   padding: 0 1rem;
-  color: $primary-color-trans;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
-    color: $accent-color;
   }
 }

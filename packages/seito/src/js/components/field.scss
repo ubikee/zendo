@@ -22,7 +22,6 @@
         position: absolute;
         top: 1.6rem;
         display: block;
-        color: $divider-color;
         min-width: 8rem;
         font-size: 1.4rem;
       }
@@ -32,11 +31,10 @@
         height: 100%;
         box-sizing: border-box;
         border: 0;
-        background-color: transparent;
+        //background-color: transparent;
         font-size: 1.6rem;
         font-family: inherit;
         line-height: 3rem;
-        border-bottom: solid 1px $divider-color;
 
         &:focus {
           border-bottom: solid 1px blue;
@@ -46,21 +44,24 @@
           font-size: 1.2rem;
           font-weight: 400;
           top: -1rem;
-          color: $secondary-text-color;
         }
 
         &.notEmpty ~ label {
           font-size: 1.2rem;
           font-weight: 400;
           top: -1rem;
-          color: $secondary-text-color;
+        }
+
+        &.readOnly {
+          border-bottom: 0;
         }
       }
     }
 
   >.icon-box {
-    padding-left: 1.6rem;
+    //padding-left: 1.6rem;
   }
+  
   >.actions-box {
     display: flex;
     align-items: center;
@@ -71,37 +72,6 @@
     input, select {
       font-weight: bold;
       font-size: 2rem;
-    }
-  }
-}
-
-
-.fieldx {
-  position: relative;
-  display: flex;
-  padding: 0 0 1rem 0;
-
-  .field-box {
-    flex: 1;
-    padding: 2rem 0 0 0;
-
-    .field-line {
-      padding-top: .2rem;
-      border-bottom: solid 1px $divider-color;
-    }
-
-    input.notEmpty ~ label {
-      font-size: 1.2rem;
-      top: .1rem;
-    }
-
-    input:focus ~ label {
-      font-size: 1.2rem;
-      top: .1rem;
-    }
-
-    input:focus ~ .field-line {
-      border-bottom: solid 1px $accent-color;
     }
   }
 }

@@ -54,14 +54,37 @@ const FieldFactory = (WField) => {
   }
 }
 
-const Field = ({id, type='text', icon, label, value, required, onChange, readOnly }) => {
+const Field = ({id, type='text', value, required, onChange, readOnly }) => {
   const handleChange = (e) => {
     onChange(id, e.target.value);
   };
   const notEmpty = value && value.length > 0 ? 'notEmpty' : '';
+  const decorator = readOnly ? 'readOnly' : '';
   return (
-    <input id={id} type={type} value={value} onChange={handleChange} required={required} className={notEmpty} readOnly={readOnly}/>
+    <input id={id} type={type} value={value} onChange={handleChange} required={required} className={`${notEmpty} ${decorator}`} readOnly={readOnly}/>
   )
 }
 
-export default FieldFactory(Field);
+
+const Select = (props) => {
+
+  const renderOption = (option) => {
+    return (
+      <option value={option.value}>{option.label}</option>
+    )
+  }
+
+  const renderSelect = (props) => {
+    return (
+      <select required={props.required} disabled={props.disabled} value={props.value}>
+        {props.options.map(renderOption)}
+      </select>
+    )
+  }
+
+  return props.readOnly ? Field(props) : renderSelect(props);
+}
+
+const FField = FieldFactory(Field);
+const FSelect = FieldFactory(Select);
+export { FField as Field, FSelect as Select };

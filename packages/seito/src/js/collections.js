@@ -16,15 +16,26 @@ const Collections = {
     }).filter(x => x)
   },
 
-  groupBy(collection, fieldName) {
+
+  groupBy(collection, fieldName, groupDecorator) {
     const result = [];
     const sorted = this.sortBy(collection, fieldName);
 
-    if (sorted.length > 0) result.push({ grouper: true, title: sorted[0][fieldName]});
+    const groupData = (id) => {
+        const data = groupDecorator ? groupDecorator(id) : {}
+        return {
+          grouper: true,
+          title: id,
+          data,
+        }
+    }
+
+    if (sorted.length > 0) result.push(groupData(sorted[0][fieldName]));
+
     Collections.correlatives(sorted).forEach( pair => {
       result.push(pair[0]);
       if (pair[0][fieldName] != pair[1][fieldName]) {
-        result.push({ grouper: true, title: pair[1][fieldName]})
+        result.push(groupData(pair[1][fieldName]));
       }
     });
     if (sorted.length > 0) result.push(sorted[sorted.length - 1]);

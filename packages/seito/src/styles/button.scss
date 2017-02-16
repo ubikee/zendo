@@ -1,0 +1,68 @@
+/*
+ * button
+ */
+.button {
+
+  background-color: transparent;
+  color:                 $primary-text-color;
+  &:hover {
+    box-shadow:          $shadow1;
+  }
+  &:active {
+    background-color:    $primary-color-light;
+  }
+
+  &.disabled {
+    color:               $hint-text-color;
+    cursor:inherit;
+    &:hover {
+      box-shadow: inherit;
+    }
+    &:active {
+      background-color:   transparent;
+    }
+  }
+
+  &.primary {
+    background-color:     $primary-color;
+    color:                $primary-color-text;
+    &:active {
+      background-color:   $primary-color-light;
+    }
+
+    &.disabled {
+      background-color:   $primary-color-light-trans;
+      &:active {
+        background-color: $primary-color-light-trans;
+      }
+    }
+  }
+
+  &.accent {
+    background-color:     $accent-color;
+    color:                $primary-color-text;
+    &:active {
+      background-color:   $accent-color-light;
+    }
+    &.disabled {
+      background-color:   $accent-color-light-trans;
+      &:active {
+        background-color: $accent-color-light-trans;
+      }
+    }
+  }
+
+  &.danger {
+    background-color:     $danger-color;
+    color:                $primary-color-text;
+    &:active {
+      background-color:   $danger-color-light;
+    }
+    &.disabled {
+      background-color:   $danger-color-light-trans;
+      &:active {
+        background-color: $danger-color-light-trans;
+      }
+    }
+  }
+}

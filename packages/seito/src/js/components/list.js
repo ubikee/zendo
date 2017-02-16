@@ -96,11 +96,12 @@ const defaultListItemRenderer = ({item, onSelection}) => {
             <span className="caption">{content.caption}</span>
             <span className="title">{content.title}</span>
             <span className="subtitle">{content.subtitle}</span>
+            <span>{content.description}</span>
           </span>
           <span className="info0" style={{ display: 'flex', alignItems: 'center'}}>{content.info}</span>
         </span>
         <span className="secondaryAction">
-          <Icon icon={secondaryAction.icon} />
+          <Icon icon={secondaryAction.icon} action={secondaryAction.action}/>
         </span>
       </li>
   )
@@ -108,32 +109,39 @@ const defaultListItemRenderer = ({item, onSelection}) => {
 
 
 const SimpleListItem = (props) => {
-  const handlePrimaryAction = () => {
-    props.onSelection(props);
-  }
-  const initial = props.title ? props.title[0] : '-' ;
-  const avatar = props.avatar ? <img src={props.avatar} /> : <div>{initial}</div>
+  const handlePrimaryAction = () => { props.onSelection(props); }
+  const initial = props.title  ? props.title[0] : '-' ;
+  const avatar  = props.avatar ? <img src={props.avatar} /> : props.icon ? <Icon icon={props.icon} /> : <div>{initial}</div>
+  const icon    = props.noIcon ? '' : <div className="avatar" onMouseUp={handlePrimaryAction}>{avatar}</div>;
+
   return (
-    <div className="userlistitem">
-      <div className="avatar" onMouseUp={handlePrimaryAction}>{avatar}</div>
+    <li className="userlistitem" style={{ display: 'flex'}}>
+      {icon}
       <div className="content" onMouseUp={handlePrimaryAction}>
         <span className="line1">{props.title}</span>
         <span className="line2">{props.subtitle}</span>
         <span className="line3">{props.description}</span>
       </div>
       <div className="actions">
-
+        {props.actions}
       </div>
-    </div>
+    </li>
+  )
+}
+
+const defaultGroupItemRenderer = (props) => {
+  return (
+    <li className="grouper">{props.title}</li>
   )
 }
 
 const List = (props) => {
-  const data = props.groupBy ? Collections.groupBy(props.data, props.groupBy) : props.data;
-  const Renderer = props.renderer ? props.renderer : defaultListItemRenderer;
+  const data = props.groupBy ? Collections.groupBy(props.data, props.groupBy, props.groupData) : props.data;
+  const GroupRenderer = props.groupRenderer ? props.groupRenderer : defaultGroupItemRenderer;
+  const Renderer      = props.renderer      ? props.renderer      : defaultListItemRenderer;
   const items = data ? data.map(item => {
     return item.grouper ?
-      <li className="grouper" style={{ position: 'sticky', top: '0px', backgroundColor: 'white', display: 'block', height: '2.5rem' }}>{item.title}</li> :
+      <GroupRenderer {...item} /> :
       <Renderer {...item} item={item} onSelection={props.onSelection} />
   }) : [];
 

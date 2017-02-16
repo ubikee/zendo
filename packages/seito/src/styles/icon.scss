@@ -1,0 +1,29 @@
+.icon {
+
+  >.decorator {
+    background-color: $primary-color-light-trans;
+  }
+
+  &.clickable:hover {
+    background-color: $icon-hover;
+  }
+
+  &.thumb {
+    border: solid 1px $divider-color;
+  }
+
+  &.step {
+    border: solid 1px $divider-color;
+  }
+}
+
+.badge {
+  min-width: 2.5rem;
+  height: 1.8rem;
+  border-radius: 2rem;
+  background-color: rgba($secondary-text-color, .3);
+  color: $background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

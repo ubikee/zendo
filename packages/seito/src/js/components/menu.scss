@@ -3,11 +3,9 @@
 .menu {
   margin: 0px;
   padding: 8px 0;
-  border-bottom: solid 1px $divider-color;
 
   &:before{
       content:attr(data-header);
-      color: $secondary-text-color;
       font-size: 1.3rem;
       font-weight:400;
       margin-left: 1rem;
@@ -41,14 +39,11 @@
       padding-right: 1.6rem;
       >.badge {
         border-radius: 1rem;
-        color: $primary-color-text;
-        background-color: $primary-color-dark;
         font-weight: bold;
       }
     }
 
     &:hover {
-      background-color: $primary-color-light-trans;
     }
   }
 }

@@ -15,16 +15,14 @@ const HCard = (props) => {
 
   const image = props.image ? (
     <div className="image">
-      <img height="110%" src={props.image} alt="150x200"/>
+      <img src={props.image} />
     </div>
   ) : '';
 
-  const caption = props.caption ? <div className="caption">{props.caption}</div> : '';
   return (
     <Card className={`hcard ${props.className}`}>
       {image}
       <div className="content">
-        {caption}
         {props.children}
       </div>
     </Card>

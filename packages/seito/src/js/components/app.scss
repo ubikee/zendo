@@ -1,32 +1,3 @@
-@import './theme.scss';
-
-html {
-  font-size:62.5%;
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background-color: $background;
-  //background-image: url('/background6.svg');
-  background-size: cover;
-  color: $primary-text-color;
-  font-size: 1.3rem;
-  font-family: 'Roboto', sans-serif;
-  text-rendering: auto;
-  overflow-y: hidden;
-}
-
-.app {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-}
-
 .animated {
   -webkit-transition-timming-function: ease-in-out;
   -webkit-transition: all 0.5s;
@@ -61,8 +32,4 @@ button {
   .right {
     align-self: flex-end;
   }
-}
-
-.float {
-  box-shadow: $shadow1;
 }

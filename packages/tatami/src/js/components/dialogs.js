@@ -20,7 +20,7 @@ const Dialog = (props) => {
 /**
  * Confirm Dialog
  */
-const ConfirmDialog = ({icon, title, message, onOK, canOK, onCancel, onClose, children}) => {
+const ConfirmDialog = ({icon, title, message, onOK, canOK = true, onCancel, onClose, children}) => {
 
   const handleOK = () => {
     onOK();

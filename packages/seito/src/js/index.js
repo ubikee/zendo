@@ -4,8 +4,9 @@ import { Button, FAB, Link } from './components/button';
 import Header from './components/header';
 import Menu from './components/menu';
 import { Card, HCard } from './components/card';
-import Field from './components/field';
-import Select from './components/select';
+import Form from './components/form';
+import { Field, Select } from './components/field';
+//import Select from './components/select';
 import Panel from './components/panel';
 import { List, GroupList, Swapable, SimpleListItem } from './components/list';
 import { Tabs, Tab, Stack } from './components/tab';
@@ -18,7 +19,7 @@ export {
   Icon, Button, FAB, Link,
   Header, Menu, List, GroupList, Swapable, SimpleListItem,
   Card, HCard,
-  Field, Select,
+  Form, Field, Select,
   Panel,
   Tabs, Tab, Stack,
   InfoLine

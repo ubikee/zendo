@@ -1,47 +1,35 @@
-@import './app.scss';
-
 .card {
   position: relative;
   min-width: 20rem;
-  background-color: $paper;
   border: 0;
   border-radius: .2rem;
-  box-shadow: $shadow1;
-  margin: 2rem 1rem;
   padding: 1rem;
-
-  &.nocard {
-      border-radius: 0;
-      box-shadow: auto;
-      margin: 0;
-      border-bottom: solid 1px $divider-color;
-  }
-
-  &:hover {
-    box-shadow: $shadow1;
-    //background-color: $primary-color-light-trans;
-  }
 
   &.hcard {
     display: flex;
+    align-items: flex-start;
+
     >.image {
       width: 7.5rem;
-      height: 9rem;
+      height: 7.5rem;
       overflow: auto;
-      background-color: rgba(10,10,10, .8);
       display: flex;
       justify-content: center;
       align-items: center;
+      border: solid 1px #CCC;
+      background-color: #CCC;
+      margin-right: 1rem;
+
+      >img {
+        position:relative;
+        display: block;
+        border: 0px solid black;
+        max-width: 7.5rem;
+        max-height: 7.5rem;
+      }
     }
     >.content {
       flex: 1;
-      >.caption {
-        padding-left: 1.6rem;
-        padding-top: .8rem;
-        font-size: 1.1rem;
-        font-weight: 300;
-        color: $divider-color;
-      }
     }
   }
 }

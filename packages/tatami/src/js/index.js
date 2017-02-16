@@ -6,6 +6,8 @@ import { Dialog, ConfirmDialog } from './components/dialogs';
 import { Inbox, InboxItem } from './components/inbox';
 import { User, UserListItem } from './components/user';
 import { SearchBox, Query } from './components/search';
+import { LoadCard } from './components/loader';
+import Schedule from './components/schedule';
 
 import { DomainProvider, DomainAware } from './http/domain';
 import HTTPClient from './http/httpClient';
@@ -16,7 +18,10 @@ import Exit from './pages/exit';
 import Wait from './pages/wait';
 
 export {
-  Tatami, Drawer, Page, Toolbar, Dialog, ConfirmDialog, Inbox, InboxItem, User, UserListItem, SearchBox,
+  Tatami, Drawer, Page, Toolbar, Dialog, ConfirmDialog,
+  Inbox, InboxItem,
+  LoadCard,
+  User, UserListItem, SearchBox, Schedule,
   DomainAware, DomainProvider, Session, HTTPClient,
   Wait, Login, Exit,
 };

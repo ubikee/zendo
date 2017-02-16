@@ -11,13 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "es6-promise": "^4.0.5",
-    "material-design-icons-iconfont": "^3.0.0",
+    "flag-icon-css": "^2.8.0",
     "localforage": "^1.4.3",
+    "material-design-icons-iconfont": "^3.0.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-sticky-position": "^2.0.0",
-    "whatwg-fetch": "^1.0.0",
-
-    "seito": "^0.0.2"
+    "seito": "^0.0.2",
+    "whatwg-fetch": "^1.0.0"
   }
 }

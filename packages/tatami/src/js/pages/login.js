@@ -26,7 +26,11 @@ class Login extends React.Component {
     const password = this.state.password;
     API.login(
       user, password,
-      (me) => { this.props.changeUser(me), this.props.goto(this.props.next); },
+      (me) => {
+        this.props.changeUser(me);
+        const nextPage = typeof this.props.next === 'function' ? this.props.next(me) : this.props.next;
+        this.props.goto(nextPage);
+      },
       (error) => {
         const mssg = error.status ? error.message : error.error;
         this.setState({ error: mssg });
@@ -45,7 +49,10 @@ class Login extends React.Component {
   handleSelectUser = (user) => {
     API.login(
       user.id, '12345678',
-      (me) => { this.props.changeUser(me), this.props.goto(this.props.next); },
+      (me) => {
+        this.props.changeUser(me);
+        const nextPage = typeof this.props.next === 'function' ? this.props.next(me) : this.props.next;
+        this.props.goto(nextPage); },
       (error) => { this.setState({ error: error.message }); }
     );
   }

@@ -12,7 +12,11 @@ const Menu = (props) => {
   const options = authorizedOptions.map(option => {
 
     const handleClick = (event) => {
-      props.goto(option.id);
+      if (option.action) {
+        option.action()
+      } else {
+        props.goto(option.id);
+      }
       props.toggle();
     }
 
