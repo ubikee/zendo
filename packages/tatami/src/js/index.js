@@ -14,6 +14,7 @@ import HTTPClient from './http/httpClient';
 import Session from './stores/session';
 
 import Login from './pages/login';
+import Login2 from './pages/login2';
 import Exit from './pages/exit';
 import Wait from './pages/wait';
 
@@ -23,5 +24,5 @@ export {
   LoadCard,
   User, UserListItem, SearchBox, Schedule,
   DomainAware, DomainProvider, Session, HTTPClient,
-  Wait, Login, Exit,
+  Wait, Login, Login2, Exit,
 };

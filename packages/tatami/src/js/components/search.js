@@ -55,7 +55,7 @@ class SearchBox extends React.Component {
 
   render() {
     return (
-      <div className="searchbox">
+      <div className={`searchbox ${this.props.className}`}>
         {this.renderQueryBox()}
         <div className="resultbox">{this.renderResults()}</div>
       </div>

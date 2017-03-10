@@ -1,5 +1,14 @@
 @import './app.scss';
 
+.toolbar {
+  top: 0;
+  // transition: all 0.3s ease-in-out;
+  &.hidden {
+    min-height: 0;
+    top: -40px;
+  }
+}
+
 .appBar {
   position: relative;
   //color: $primary-color-text;

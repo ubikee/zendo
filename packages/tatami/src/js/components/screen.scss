@@ -64,7 +64,7 @@
 
     >.page {
       flex: 1;
-      min-width: 325px;
+      min-width: 320px;
       max-width: none;
       @media screen and (min-width: $break-big) {
         max-width: $page-max-width;

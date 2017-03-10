@@ -1,14 +1,11 @@
-import React from 'react';
-import Page from '../components/page';
-import Toolbar from '../components/toolbar';
-import { User, UserListItem } from '../components/user';
-import { DomainAware } from '../http/domain';
-import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List, Swapable, Switch } from 'seito';
+import React from 'react'
+
+import { Tabs, Tab, Stack, Field, Button } from 'seito';
 import { Validator as check } from 'seito';
 import API from '../api/userAPI';
-import './login.scss';
+import './login2.scss';
 
-class Login extends React.Component {
+class Login2 extends React.Component {
 
   static defaultProps= {
     tab: 0,
@@ -46,30 +43,21 @@ class Login extends React.Component {
     this.setState({ tab })
   }
 
-  handleSelectUser = (user) => {
-    API.login(
-      user.id, '12345678',
-      (me) => {
-        this.props.changeUser(me);
-        const nextPage = typeof this.props.next === 'function' ? this.props.next(me) : this.props.next;
-        this.props.goto(nextPage); },
-      (error) => { this.setState({ error: error.message }); }
-    );
-  }
-
   render() {
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
-    const leftActions = <Button label="done" className="primary"/>
-    const rightActions = [ <Button label="close" className="danger"/>]
+    const logo = this.props.logo ? <div className="logo"><img src={this.props.logo}/></div> : null;
+    const title = this.props.title ? <div className="title">{this.props.title}</div> : null;
 
     return (
-      <Page className={`login ${this.props.skin}`}>
-          <Card>
-            <Header icon={this.props.icon} title={this.props.title} className='hero' />
+      <div className="login2">
+          <header>
+            {logo}
+            {title}
+          </header>
+          <main>
             <Tabs selected={this.state.tab} onChange={this.handleChangeTab}>
               <Tab label="LOGIN" />
               <Tab label="REGISTER" />
-              <Tab label="USERS" />
             </Tabs>
             <Stack selected={this.state.tab}>
               <div>
@@ -81,14 +69,11 @@ class Login extends React.Component {
                 </div>
               </div>
               <div>TODO: Register Form</div>
-              <div>
-                <List data={this.props.users} onSelection={this.handleSelectUser} renderer={UserListItem} groupBy='role'/>
-              </div>
             </Stack>
-          </Card>
-      </Page>
+          </main>
+      </div>
     )
   }
 }
 
-export default Login;
+export default Login2;

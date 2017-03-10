@@ -4,6 +4,31 @@ import Session from '../stores/session';
 //components
 import Screen from './screen';
 
+class StateEngine {
+    constructor(states) {
+      this.actualState = null;
+      this.states = states;
+    }
+    actualState = "";
+    goto(stateID) {
+
+    }
+}
+
+const StateType = (View, onEnter, onExit, transitions, constraints) => {
+  return class State extends React.Component {
+    static propTypes = {
+      onEnter,
+      onExit,
+    }
+    render() {
+      return (
+        <View {...this.props} />
+      )
+    }
+  }
+}
+
 /**
  * Tatami
  */
@@ -33,7 +58,6 @@ class Tatami extends React.Component {
   }
 
   navigate = (newPageID, params) => {
-    console.log('TATAMI.navigate to ',newPageID)
     const nextPageID = this.canNavigateTo(newPageID) ? newPageID : 'LOGIN';
     const nextPage = this.props.pages[nextPageID];
     if (nextPage.props.inputAction) {
@@ -51,7 +75,7 @@ class Tatami extends React.Component {
     const drawer     = page.props.drawer ? React.cloneElement(this.props.drawer, { goto: this.navigate, user: this.state.me }) : '';
     const fullscreen = page.props.fullscreen;
     return (
-      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate} fullscreen={fullscreen}/>
+      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate} fullscreen={fullscreen} />
     );
   }
 }

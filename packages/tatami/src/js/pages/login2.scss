@@ -1,0 +1,77 @@
+@import '../components/app.scss';
+
+@keyframes showForm {
+  0% {
+    height: 100vh;
+    opacity: 0;
+  }
+  50% {
+    height: 100vh;
+    opacity: 1;
+  }
+  100% {
+    height: 250px;
+  }
+}
+
+.login2 {
+  flex: 1;
+  color: #FFF;
+  header {
+    width: 100%;
+    height: 250px;
+    opacity: 1;
+    animation: showForm 4s 1;
+    animation-timing-function: ease-in-out;
+
+    background-color: #6c40bc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .logo{
+      max-width: 144px;
+      max-height: 144px;
+      img {
+        width: 100%;
+      }
+    }
+    .title {
+      margin: 1rem;
+      font-family: Roboto;
+      font-size: 3.5rem;
+      font-weight: 200;
+      text-align: center;
+    }
+  }
+  main {
+    margin: 0 auto;
+    .button.primary {
+      width: 100%;
+      margin: 0 4.2rem 0 5.5rem;
+    }
+    .icon-box .icon {
+      color: $icon-active;
+    }
+  }
+
+  @media (max-height: 567px) {
+    header {
+      height: 50px;
+      img {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: $break-small) {
+    main {
+      max-width: $break-small;
+      .button.primary {
+        width: 150px;
+        margin: 0 4.2rem 0 5.5rem;
+      }
+    }
+  }
+
+}

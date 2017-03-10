@@ -4,9 +4,9 @@ import './form.scss';
 const Form = (props) => {
   const title = props.title ? <h4>{props.title}</h4> : '';
   return (
-    <div className="formu">
+    <div className={`formu`}>
       {title}
-      <div className="fieldset">
+      <div className={`fieldset ${props.className}`}>
         {props.children}
       </div>
     </div>

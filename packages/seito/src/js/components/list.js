@@ -112,12 +112,13 @@ const SimpleListItem = (props) => {
   const handlePrimaryAction = () => { props.onSelection(props); }
   const initial = props.title  ? props.title[0] : '-' ;
   const avatar  = props.avatar ? <img src={props.avatar} /> : props.icon ? <Icon icon={props.icon} /> : <div>{initial}</div>
-  const icon    = props.noIcon ? '' : <div className="avatar" onMouseUp={handlePrimaryAction}>{avatar}</div>;
+  const icon    = props.noIcon ? '' : <div className={`avatar ${props.color}`} onMouseUp={handlePrimaryAction}>{avatar}</div>;
 
   return (
     <li className="userlistitem" style={{ display: 'flex'}}>
       {icon}
       <div className="content" onMouseUp={handlePrimaryAction}>
+        <span className="line2">{props.caption}</span>
         <span className="line1">{props.title}</span>
         <span className="line2">{props.subtitle}</span>
         <span className="line3">{props.description}</span>

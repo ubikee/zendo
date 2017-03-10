@@ -54,6 +54,10 @@ const FieldFactory = (WField) => {
   }
 }
 
+
+/**
+ * Field
+ */
 const Field = ({id, type='text', value, required, onChange, readOnly }) => {
   const handleChange = (e) => {
     onChange(id, e.target.value);
@@ -65,7 +69,9 @@ const Field = ({id, type='text', value, required, onChange, readOnly }) => {
   )
 }
 
-
+/**
+ * Select
+ */
 const Select = (props) => {
 
   const renderOption = (option) => {
@@ -85,6 +91,23 @@ const Select = (props) => {
   return props.readOnly ? Field(props) : renderSelect(props);
 }
 
+/**
+ * Switch
+ */
+const Switch = ({ id, selected = false, onToggle}) => {
+  const state = selected ? 'on' : 'off';
+  const handleClick = () => {
+    onToggle(id);
+  }
+  return (
+    <div className="switch">
+      <div className="bar" />
+      <div className={`dot ${state}`} onMouseUp={handleClick}/>
+    </div>
+  )
+}
+
 const FField = FieldFactory(Field);
 const FSelect = FieldFactory(Select);
-export { FField as Field, FSelect as Select };
+const FSwitch = FieldFactory(Switch);
+export { FField as Field, FSelect as Select, FSwitch as Switch };

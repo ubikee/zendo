@@ -2,20 +2,22 @@
 
 .dialog {
 
+  max-height: 90vh;
   box-shadow: $shadow1;
 
   .message {
     flex: 1;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: center;
   }
 
   .buttons {
+    margin-bottom: 1rem;
     max-height:5rem;
     display: flex;
     justify-content: flex-end;
   }
-  
+
 }
