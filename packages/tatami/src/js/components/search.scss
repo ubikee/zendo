@@ -7,13 +7,17 @@
   padding: .5rem;
 
   >.querybox {
-    padding: 0 1.6rem 0 1rem;
+
+    padding: 0 1.6rem 0 0rem;
     background-color: $paper;
     min-height: 3rem;
-    max-height: 3rem;
+    max-height: 5.4rem;
     display: flex;
     align-items: center;
 
+    >.field {
+      margin-bottom: 1rem !important;
+    }
 
     >.criteriabox {
       display: flex;
@@ -47,6 +51,8 @@
       flex: 1;
       font-size: 1.3rem;
       border: 0;
+      align-self: baseline;
+      background-color: $divider-color !important;
     }
 
   }

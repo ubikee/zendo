@@ -1,5 +1,8 @@
 //import fetch from 'node-fetch';
 
+//import polyFetch from 'node-fetch';
+//const fetcher = typeof fetch === "undefined" ? polyFetch : fetch;
+
 /**
  * Remote and generic http client
  *
@@ -19,9 +22,9 @@ const HTTPClient = (domain, securityCtx) => {
 
     DOMAIN: domain,
 
-    GET(URL, handleData, onError) {
+    GET(URL, handleData, onError, token) {
       URL = this.DOMAIN + URL;
-      this.call('GET', URL, null, handleData, onError);
+      this.call('GET', URL, null, handleData, onError, token);
     },
 
     POST(URL, body, handleData, onError) {
@@ -44,12 +47,12 @@ const HTTPClient = (domain, securityCtx) => {
       this.call('DELETE', URL, null, handleData, onError);
     },
 
-    call(method, URL, body, handleData, onError) {
-      const token = securityCtx ? securityCtx.token() : null;
+    call(method, URL, body, handleData, onError, tkn) {
+      const token = tkn ? tkn : securityCtx ? securityCtx.token() : null;
       const headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "x-access-token": token,
+        "x-access-token": token
       }
       fetch(URL, { method, mode: 'cors', headers, body })
         .then(response => {

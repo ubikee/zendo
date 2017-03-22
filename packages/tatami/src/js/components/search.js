@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from 'seito';
+import { Icon, Field } from 'seito';
 import './search.scss';
 
 const Query = (props) => {
@@ -17,8 +17,8 @@ class SearchBox extends React.Component {
 
   state = {
     criterias: [
-      { name: 'query1', value: 'value1' },
-      { name: 'query2', value: 'value2' },
+    //  { name: 'query1', value: 'value1' },
+    //  { name: 'query2', value: 'value2' },
     ]
   }
 
@@ -31,9 +31,8 @@ class SearchBox extends React.Component {
   renderQueryBox = () => {
     return (
       <nav className="querybox">
-        <Icon icon="search" />
         {this.state.criterias.map(this.renderCriteriaBox)}
-        <input type="text" />
+        <Field label={this.props.label} value={this.props.value} onChange={this.props.onChange} />
       </nav>
     )
   }

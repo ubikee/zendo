@@ -57,8 +57,16 @@
       }
 
       @media screen and (min-width: $break-medium) {
+        transition: all 0.5s ease-in-out;
         position: relative;
-        width: $drawer-width;
+        left: -$drawer-width;
+        width: 0px;
+        opacity: 0;
+        &.active {
+          opacity: 1;
+          left: 0;
+          width: $drawer-width;
+        }
       }
     }
 
@@ -82,6 +90,9 @@
   }
 
   >.overlay {
+
+      animation: fadeOut .6s 1;
+      animation-timing-function: ease-in-out;
     position: absolute;
     top: 0px;
     left: 0px;

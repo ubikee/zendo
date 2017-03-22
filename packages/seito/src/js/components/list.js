@@ -147,7 +147,7 @@ const List = (props) => {
   }) : [];
 
   return (
-    <ul className={`list ${props.className}`} data-header={props.title}>
+    <ul id={props.id} className={`list ${props.className}`} data-header={props.title}>
       {items}
     </ul>
   )

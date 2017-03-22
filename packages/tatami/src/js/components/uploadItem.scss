@@ -1,0 +1,115 @@
+//@import '../app.scss';
+
+  .uploadlistitem {
+
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: rgba(200, 200, 255, .7);
+    min-width: 30rem;
+    display: flex;
+    overflow: hidden;
+
+    @media (min-width: 400px) {
+      margin: 1rem;
+      box-shadow: 4px 5px 3px 0 rgba(200, 200, 200, 0.42);
+      padding-bottom: .2rem;
+      border-radius: .5rem;
+      border: solid 1px rgba(200, 200, 255, .7);
+    }
+
+      .gauge {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        margin: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 50px;
+        -webkit-animation: rotating 2s linear infinite;
+        .icon {
+          background-color: white;
+          width: 3.8rem;
+          height: 3.8rem;
+          -webkit-animation: derotating 2s linear infinite;
+        }
+      }
+
+    &.loading {
+      progress[value]::-webkit-progress-value {
+        background-color: blue;
+      }
+      .gauge {
+        color: blue;
+        background-image: linear-gradient(to bottom, white 20%, blue 100%);
+      }
+    }
+
+
+    &.checking {
+      progress[value]::-webkit-progress-value {
+        background-color: orange;
+      }
+      .gauge {
+        color: orange;
+        background-image: linear-gradient(to bottom, white 20%, orange 100%);
+      }
+    }
+
+    .thumbnail {
+      width: 6rem;
+      height: 6rem;
+      margin: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      border-radius: .6rem;
+      background-color: #EEE;
+      img {
+        position: relative;
+        display: block;
+        border: 0px solid black;
+        max-width: 6rem;
+        max-height: 6rem;
+      }
+    }
+    .fileinfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-left: 2rem;
+      .filename {
+        padding: 2rem .5rem 0 0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        flex: 1;
+      }
+      .filestatus {
+        padding: .5rem 1rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        .icon {
+
+        }
+        &.LOADING {
+          color: #297bc0;
+        }
+        &.PENDING {
+          color: orange;
+        }
+        &.CORRECT {
+          color: #393;
+        }
+        &.ERROR {
+          color: #933;
+        }
+      }
+    }
+  }

@@ -5,7 +5,7 @@ import Header from './components/header';
 import Menu from './components/menu';
 import { Card, HCard } from './components/card';
 import Form from './components/form';
-import { Field, Select, Switch } from './components/field';
+import { Field, Select, Switch, DateField } from './components/field';
 import Panel from './components/panel';
 import { List, GroupList, Swapable, SimpleListItem } from './components/list';
 import { Tabs, Tab, Stack } from './components/tab';
@@ -18,7 +18,7 @@ export {
   Icon, Button, FAB, Link,
   Header, Menu, List, GroupList, Swapable, SimpleListItem,
   Card, HCard,
-  Form, Field, Select, Switch,
+  Form, Field, Select, Switch, DateField,
   Panel,
   Tabs, Tab, Stack,
   InfoLine

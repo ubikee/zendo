@@ -2,7 +2,7 @@
  * Session store
  * implements securityCtx methods //TODO: MIXIN
  */
-const SESSION_NAME = 'TatamiSession';
+const SESSION_NAME = window && window.SESSION ? window.SESSION : 'TatamiSession';
 
 const SessionStore = {
 

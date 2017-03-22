@@ -26,7 +26,7 @@ select {
     label {
         transition: all 0.5s ease;
         position: absolute;
-        top: 1.6rem;
+        top: 1.2rem;
         display: block;
         min-width: 8rem;
         font-size: 1.4rem;
@@ -54,8 +54,9 @@ select {
 
         &.notEmpty ~ label {
           font-size: 1.2rem;
-          font-weight: 400;
+          font-weight: 300;
           top: -1rem;
+          color: #6c40bc !important;
         }
 
         &.readOnly {

@@ -70,10 +70,30 @@ const Field = ({id, type='text', value, required, onChange, readOnly }) => {
 }
 
 /**
+ * Date Field
+ */
+const DateField = ({id, type='date', value, required, onChange, readOnly }) => {
+  const handleChange = (e) => {
+    onChange(id, e.target.value);
+  };
+  const notEmpty = 'notEmpty';
+  const decorator = readOnly ? 'readOnly' : '';
+  return (
+    <input id={id} type="date" value={value} onChange={handleChange} required={required} className={`${notEmpty} ${decorator}`} readOnly={readOnly}/>
+  )
+}
+
+
+/**
  * Select
  */
 const Select = (props) => {
 
+  const handleChange = (e) => {
+    props.onChange(props.id, e.target.value);
+  };
+  const notEmpty = props.value && props.value.length > 0 ? 'notEmpty' : '';
+  const decorator = props.readOnly ? 'readOnly' : '';
   const renderOption = (option) => {
     return (
       <option value={option.value}>{option.label}</option>
@@ -82,7 +102,7 @@ const Select = (props) => {
 
   const renderSelect = (props) => {
     return (
-      <select required={props.required} disabled={props.disabled} value={props.value}>
+      <select required={props.required} disabled={props.disabled} value={props.value} onChange={handleChange} className={`${notEmpty} ${decorator}`}>
         {props.options.map(renderOption)}
       </select>
     )
@@ -110,4 +130,5 @@ const Switch = ({ id, selected = false, onToggle}) => {
 const FField = FieldFactory(Field);
 const FSelect = FieldFactory(Select);
 const FSwitch = FieldFactory(Switch);
-export { FField as Field, FSelect as Select, FSwitch as Switch };
+const FDate = FieldFactory(DateField);
+export { FField as Field, FSelect as Select, FSwitch as Switch, FDate as DateField };

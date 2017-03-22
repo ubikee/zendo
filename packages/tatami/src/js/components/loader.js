@@ -6,6 +6,7 @@ const LoadCard = (props) => {
 
   const gconfig = (props) => {
     const config = {
+      'LOADING' : { thumb: ''          , icon: 'file_upload', className: 'uploading', message: 'LOADING',   color: '#33B'},
       'PENDING' : { thumb: ''          , icon: 'file_upload', className: 'uploading', message: 'ANALIZING', color: '#090'},
       'ERROR'   : { thumb: props.thumb , icon: 'close'      , className: 'error'    , message: 'ERROR',     color: 'red'},
       'CORRECT' : { thumb: props.thumb , icon: ''           , className: 'done'     , message: 'OK',        color: '#2A2'},

@@ -6,7 +6,7 @@ import { Dialog, ConfirmDialog } from './components/dialogs';
 import { Inbox, InboxItem } from './components/inbox';
 import { User, UserListItem } from './components/user';
 import { SearchBox, Query } from './components/search';
-import { LoadCard } from './components/loader';
+import UploadListItem from './components/uploadItem';
 import Schedule from './components/schedule';
 
 import { DomainProvider, DomainAware } from './http/domain';
@@ -21,7 +21,7 @@ import Wait from './pages/wait';
 export {
   Tatami, Drawer, Page, Toolbar, Dialog, ConfirmDialog,
   Inbox, InboxItem,
-  LoadCard,
+  UploadListItem,
   User, UserListItem, SearchBox, Schedule,
   DomainAware, DomainProvider, Session, HTTPClient,
   Wait, Login, Login2, Exit,
