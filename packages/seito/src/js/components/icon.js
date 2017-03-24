@@ -14,4 +14,17 @@ const Icon = (props) => {
   )
 }
 
-export default Icon;
+const Picon = (props) => {
+  const clickable = props.action ? 'clickable' : '';
+  const toggled = props.toggled ? 'toggled' : '';
+  const decorator = props.decorator ? <Icon icon={props.decorator} className="decorator tiny"/> : '';
+  return (
+    <span className={`picon ${clickable} ${toggled} ${props.className}`} onClick={props.action}>
+      <img src={props.src} />
+      {decorator}
+    </span>
+  )
+}
+
+
+export { Icon, Picon };

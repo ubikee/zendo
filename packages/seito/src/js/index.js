@@ -1,5 +1,5 @@
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import Icon from './components/icon';
+import { Icon, Picon } from './components/icon';
 import { Button, FAB, Link } from './components/button';
 import Header from './components/header';
 import Menu from './components/menu';
@@ -15,7 +15,7 @@ import Collections from './collections';
 
 export {
   Validator, Collections,
-  Icon, Button, FAB, Link,
+  Icon, Picon, Button, FAB, Link,
   Header, Menu, List, GroupList, Swapable, SimpleListItem,
   Card, HCard,
   Form, Field, Select, Switch, DateField,
