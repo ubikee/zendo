@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import Icon from './icon';
+import { Icon } from './icon';
 
 // styles
 import './button.scss';
@@ -16,7 +16,7 @@ const Button = (props) => {
   }
 
   const disabled = props.disabled ? 'disabled' : '';
-  
+
   return (
     <button className={`button ${disabled} ${props.className}`} onMouseUp={handleMouseUp}>{props.label}</button>
   )

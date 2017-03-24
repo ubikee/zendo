@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import Icon from './icon';
+import { Icon } from './icon';
 import Header  from './header';
 
 import './panel.scss';

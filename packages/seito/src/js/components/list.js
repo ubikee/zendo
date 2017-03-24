@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './icon';
+import { Icon } from './icon';
 import Panel from './panel';
 import Hammer from 'react-hammerjs';
 import Collections from '../collections';
@@ -173,7 +173,7 @@ const GroupList = (props) => {
 
   const groups = props.data.map(group => {
     return (
-      <Panel id={group.id} title={group.label} collapsed={collapsed}>
+      <Panel id={group.id} title={group.label} collapsed={false}>
         <List data={group.items} onSelection={handleItemPrimaryAction}/>
       </Panel>
     )
