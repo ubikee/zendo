@@ -1,5 +1,16 @@
 @import './app.scss';
 
+@keyframes showPage {
+  0% {
+    margin-top: 30vh;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 5vh;
+    opacity: 1;
+  }
+}
+
 .screen {
 
   * {
@@ -75,6 +86,8 @@
       min-width: 320px;
       max-width: none;
       @media screen and (min-width: $break-big) {
+        animation: showPage 1s 1;
+        animation-timing-function: ease-out;
         max-width: $page-max-width;
         margin: 0 auto;
         margin-top: 5vh;
@@ -90,9 +103,8 @@
   }
 
   >.overlay {
-
-      animation: fadeOut .6s 1;
-      animation-timing-function: ease-in-out;
+    animation: fadeOut .6s 1;
+    animation-timing-function: ease-in-out;
     position: absolute;
     top: 0px;
     left: 0px;

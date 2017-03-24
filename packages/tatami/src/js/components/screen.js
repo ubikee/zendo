@@ -1,8 +1,8 @@
 import React from 'react';
-import Hammer from 'react-hammerjs';
 
 // components
 import ToolBar from './toolbar';
+import  { Picon } from 'seito';
 
 // css
 import './screen.scss';
@@ -35,54 +35,40 @@ class Screen extends React.Component {
     return this.state.dialog ? <div className="overlay">{this.state.dialog}</div> : '';
   }
 
-  render() {
+  renderDrawer = () => {
     const drawer      = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
     const drawerState = this.state.drawer ? 'active' : '';
-    const aside       = this.props.drawer ? <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside> : '';
-    const page        = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
-    const appIcon     = this.props.icon   ? this.props.icon : 'menu';
-    const toolbar     = this.props.fullscreen ? '' : <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} menu={this.props.menu} hidden={this.state.hidetoolbar}/>;
+    return this.props.drawer ? (
+      <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside>
+    ) : '';
+  }
+
+  renderToolbar = () => {
+    const appIcon = this.props.icon ? this.props.icon : 'menu';
+    return this.props.fullscreen ? '' : (
+      <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} hidden={this.state.hidetoolbar} userMenu={this.props.menu}>
+      </ToolBar>
+    );
+  }
+
+  render() {
+    const aside   = this.props.drawer ? this.renderDrawer() : '';
+    const page    = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
+    const footer  = '';
     return (
       <div className="screen">
-        {toolbar}
+        {this.renderToolbar()}
         <main className="contentArea" >
-          {aside}
+          {this.renderDrawer()}
           {page}
         </main>
-        <footer className="bottomBar"></footer>
+        <footer className="bottomBar">
+          {footer}
+        </footer>
         {this.renderDialog()}
       </div>
     )
   }
 }
-
-/**
-
-  handlePan = (event) => {
-
-    console.log(event.deltaY, this.state.hidetoolbar)
-
-    if (event.deltaY > 0 && this.state.hidetoolbar) {
-      this.toggleToolbar(false);
-    }
-
-    if (event.deltaY <0 && !this.state.hidetoolbar) {
-      this.toggleToolbar(true);
-    }
-  }
-
-const hammerOptions = {
-touchAction:'compute',
-recognizers: {
-pan: { direction: 24, threshold: 300 }
-}
-};
-
-
-<Hammer onPan={this.handlePan} options={hammerOptions}>
-
-</Hammer>
-
-**/
 
 export default Screen;
