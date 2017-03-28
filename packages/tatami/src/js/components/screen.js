@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import ToolBar from './toolbar';
-import  { Picon } from 'seito';
+import  { Icon, Picon } from 'seito';
 
 // css
 import './screen.scss';
@@ -15,7 +15,8 @@ class Screen extends React.Component {
   state = {
     drawer: false,
     dialog: false,
-    hidetoolbar: false,
+    toolbar: true,
+    drawer2: false,
   }
 
   toggleDialog = (dialog) => {
@@ -27,8 +28,12 @@ class Screen extends React.Component {
   }
 
   toggleToolbar = (value) => {
-    const hidetoolbar = value != null ? value : !this.state.toolbar;
-    this.setState({ hidetoolbar });
+    const toolbar = value != null ? value : !this.state.toolbar;
+    this.setState({ toolbar });
+  }
+
+  toggleDrawer2 = () => {
+    this.setState({ drawer2: !this.state.drawer2 });
   }
 
   renderDialog = () => {
@@ -43,10 +48,30 @@ class Screen extends React.Component {
     ) : '';
   }
 
+  renderDrawer2 = () => {
+    const drawerState = this.state.drawer2 ? 'active' : '';
+    return (
+      <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer2} >
+        <div className="drawer2">info panel </div>
+      </aside>
+    );
+  }
+
   renderToolbar = () => {
     const appIcon = this.props.icon ? this.props.icon : 'menu';
+    const actions = this.props.tools ? this.props.tools.map(tool => {
+      return (<Icon icon={tool.icon} className="clickable" action={this.toggleDrawer2}/>)
+    }) : [];
     return this.props.fullscreen ? '' : (
-      <ToolBar className="appBar" icon={appIcon} title={this.props.title} goto={this.props.goto} toggleDrawer={this.toggleDrawer} hidden={this.state.hidetoolbar} userMenu={this.props.menu}>
+      <ToolBar
+        className="appBar"
+        icon={appIcon}
+        title={this.props.title}
+        userMenu={this.props.menu}
+        actions={actions}
+        goto={this.props.goto}
+        toggleDrawer={this.toggleDrawer}
+        hidden={!this.state.toolbar}>
       </ToolBar>
     );
   }
@@ -61,6 +86,7 @@ class Screen extends React.Component {
         <main className="contentArea" >
           {this.renderDrawer()}
           {page}
+          {this.renderDrawer2()}
         </main>
         <footer className="bottomBar">
           {footer}

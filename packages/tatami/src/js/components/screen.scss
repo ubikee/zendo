@@ -49,6 +49,21 @@
         }
       }
 
+      >.drawer2 {
+        width: $drawer-width;
+        height: 100%;
+        border-right: solid 1px $divider-color;
+
+        @media screen and (max-width: $break-medium) {
+          position: absolute;
+          right: -$drawer-width;
+          transition: all 0.5s ease-in-out;
+        }
+        @media screen and (min-width: $break-medium) {
+          position: relative;
+        }
+      }
+
       @media screen and (max-width: $break-medium) {
         position: absolute;
         top: 0px;

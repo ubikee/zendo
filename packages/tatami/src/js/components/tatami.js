@@ -72,10 +72,12 @@ class Tatami extends React.Component {
   render() {
     const nextPage   = this.props.pages[this.state.page];
     const page       = React.cloneElement(nextPage, { ctx: this.state.ctx, goto: this.navigate, changeUser: this.changeUser, onExit: this.onExit });
-    const drawer     = page.props.drawer ? React.cloneElement(this.props.drawer, { goto: this.navigate, user: this.state.me }) : '';
-    const fullscreen = page.props.fullscreen;
+    const title      = this.props.title      ? this.props.title      : '[App Title]';
+    const drawer     = page.props.drawer     ? React.cloneElement(this.props.drawer, { goto: this.navigate, user: this.state.me }) : '';
+    const menu       = this.props.menu       ? this.props.menu       : [];
+    const fullscreen = page.props.fullscreen ? page.props.fullscreen : false;
     return (
-      <Screen title={this.props.title} page={page} drawer={drawer} menu={this.props.menu} goto={this.navigate} fullscreen={fullscreen} />
+      <Screen title={title} page={page} drawer={drawer} menu={menu} goto={this.navigate} fullscreen={fullscreen} tools={this.props.tools}/>
     );
   }
 }
