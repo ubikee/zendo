@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import ToolBar from './toolbar';
-import  { Icon, Picon } from 'seito';
+import  { Icon, Picon, Micon, Menu, SearchBox  } from 'seito';
 
 // css
 import './screen.scss';
@@ -13,18 +13,20 @@ import './screen.scss';
 class Screen extends React.Component {
 
   state = {
-    drawer: false,
-    dialog: false,
     toolbar: true,
-    drawer2: false,
-  }
-
-  toggleDialog = (dialog) => {
-    this.setState({ dialog });
+    drawer: false,
+    drawer_min: false,
+    info: false,
+    footer: false,
+    dialog: false,
   }
 
   toggleDrawer = () => {
     this.setState({ drawer: !this.state.drawer });
+  }
+
+  toggleDrawerMin = () => {
+    this.setState({ drawer_min: !this.state.drawer_min });
   }
 
   toggleToolbar = (value) => {
@@ -32,53 +34,67 @@ class Screen extends React.Component {
     this.setState({ toolbar });
   }
 
-  toggleDrawer2 = () => {
-    this.setState({ drawer2: !this.state.drawer2 });
+  toggleInfo = () => {
+    this.setState({ info: !this.state.info });
+  }
+
+  toggleDialog = (dialog) => {
+    this.setState({ dialog });
+  }
+
+  renderToolbar = () => {
+    const appIcon = this.props.icon ? this.props.icon : 'menu';
+    return this.props.fullscreen ? '' : (
+      <ToolBar
+        className="appBar"
+        icon={appIcon}
+        title={this.props.title}
+        toggleDrawer={this.toggleDrawer}
+        toggleInfo={this.toggleInfo}
+        hidden={!this.state.toolbar}>
+        <Icon icon="notifications" action={this.toggleInfo} className="clickable"/>
+        <Micon icon="more_vert" className="clickable">
+          <Menu title={this.props.title} options={this.props.menu} goto={this.props.goto} toggle={this.toggleMenu}/>
+        </Micon>
+
+      </ToolBar>
+    );
+  }
+
+  renderDrawer = () => {
+      const stopEvent = (event) => {
+        event.stopPropagation();
+      }
+    const drawer      = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer, minimized: this.state.drawer_min }) : '';
+    const drawerState = this.state.drawer ? 'active' : '';
+    const minButton   = this.state.drawer_min ? 'keyboard_arrow_right' : 'keyboard_arrow_left';
+    const minimized   = this.state.drawer_min ? 'minimized' : '';
+    return this.props.drawer ? (
+      <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >
+        {drawer}
+        <div className={`drawer_toolbar ${minimized}`} onMouseUp={stopEvent}>
+          <Icon icon={minButton} action={this.toggleDrawerMin} className="clickable"/>
+        </div>
+      </aside>
+    ) : '';
+  }
+
+  renderInfo = () => {
+    const infoState = this.state.info ? 'active' : '';
+    const info = this.props.info ? React.cloneElement(this.props.info, { onToggleDrawer: this.toggleDrawer }) : '';
+    return (
+      <aside className={`${infoState}`} onMouseUp={this.toggleInfo} >
+        {info}
+      </aside>
+    );
   }
 
   renderDialog = () => {
     return this.state.dialog ? <div className="overlay">{this.state.dialog}</div> : '';
   }
 
-  renderDrawer = () => {
-    const drawer      = this.props.drawer ? React.cloneElement(this.props.drawer, { onToggleDrawer: this.toggleDrawer }) : '';
-    const drawerState = this.state.drawer ? 'active' : '';
-    return this.props.drawer ? (
-      <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer} >{drawer}</aside>
-    ) : '';
-  }
-
-  renderDrawer2 = () => {
-    const drawerState = this.state.drawer2 ? 'active' : '';
-    return (
-      <aside className={`${drawerState}`} onMouseUp={this.toggleDrawer2} >
-        <div className="drawer2">info panel </div>
-      </aside>
-    );
-  }
-
-  renderToolbar = () => {
-    const appIcon = this.props.icon ? this.props.icon : 'menu';
-    const actions = this.props.tools ? this.props.tools.map(tool => {
-      return (<Icon icon={tool.icon} className="clickable" action={this.toggleDrawer2}/>)
-    }) : [];
-    return this.props.fullscreen ? '' : (
-      <ToolBar
-        className="appBar"
-        icon={appIcon}
-        title={this.props.title}
-        userMenu={this.props.menu}
-        actions={actions}
-        goto={this.props.goto}
-        toggleDrawer={this.toggleDrawer}
-        hidden={!this.state.toolbar}>
-      </ToolBar>
-    );
-  }
-
   render() {
-    const aside   = this.props.drawer ? this.renderDrawer() : '';
-    const page    = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog }): '';
+    const page    = this.props.page   ? React.cloneElement(this.props.page  , { toggleDrawer: this.toggleDrawer, toggleDialog: this.toggleDialog, toggleInfo: this.toggleInfo }): '';
     const footer  = '';
     return (
       <div className="screen">
@@ -86,7 +102,7 @@ class Screen extends React.Component {
         <main className="contentArea" >
           {this.renderDrawer()}
           {page}
-          {this.renderDrawer2()}
+          {this.renderInfo()}
         </main>
         <footer className="bottomBar">
           {footer}

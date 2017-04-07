@@ -2,23 +2,22 @@
   "name": "tatami",
   "version": "0.0.2",
   "description": "React Based Screen Layout",
-  "author": "",
+  "author": "jeroldan@gmail.com",
+  "keywords": [
+    "ubikee",
+    "zendo",
+    "react"
+  ],
   "main": "src/js/index.js",
-  "scripts": {
-    "build": "webpack --env.dev",
-    "build:prod": "webpack --env.prod -p"
-  },
   "license": "ISC",
   "dependencies": {
     "es6-promise": "^4.0.5",
-    "flag-icon-css": "^2.8.0",
     "localforage": "^1.4.3",
-    "material-design-icons-iconfont": "^3.0.0",
+    "lodash": "^4.17.2",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-hammerjs": "^0.5.0",
-
-    "seito": "^0.0.2",
-    "whatwg-fetch": "^1.0.0"
+    "material-design-icons-iconfont": "^3.0.0",
+    "seito": "^0.0.2"
   }
 }

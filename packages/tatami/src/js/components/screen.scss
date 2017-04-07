@@ -1,20 +1,10 @@
-@import './app.scss';
-
-@keyframes showPage {
-  0% {
-    margin-top: 30vh;
-    opacity: 0;
-  }
-  100% {
-    margin-top: 5vh;
-    opacity: 1;
-  }
-}
+@import '../tatami.scss';
 
 .screen {
 
   * {
-    //border: dashed 1px red;
+    //border: dotted 1px red;
+    //margin: 5px;
   }
 
   width: 100vw;
@@ -23,7 +13,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  >main {
+  .contentArea {
 
     flex: 1;
     display: flex;
@@ -34,15 +24,42 @@
       z-index: 1000;
       background-color: transparent;
 
+      >.drawer_toolbar {
+        transition: all 0.5s ease-in-out;
+        width: $drawer-width;
+        height: 4rem;
+        position: absolute;
+        bottom: 0;
+        left:0;
+        border-top: solid 1px #DDD;
+        background-color: #EEE;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1rem;
+        &.minimized {
+          width: 6rem;
+          border-right: solid 1px #DDD;
+        }
+      }
+
       >.drawer {
+        transition: all 0.5s ease-in-out;
+        &.minimized {
+          width: 6rem;
+          border-right: solid 1px #DDD;
+          ul.menu::before {
+            display: none;
+          }
+        }
         width: $drawer-width;
         height: 100%;
-        border-right: solid 1px $divider-color;
+        margin-bottom: 4rem;
+        overflow-y: auto;
+        //border-right: solid 1px $divider-color;
 
         @media screen and (max-width: $break-medium) {
           position: absolute;
           left: -$drawer-width;
-          transition: all 0.5s ease-in-out;
         }
         @media screen and (min-width: $break-medium) {
           position: relative;
@@ -52,7 +69,7 @@
       >.drawer2 {
         width: $drawer-width;
         height: 100%;
-        border-right: solid 1px $divider-color;
+        //border-right: solid 1px $divider-color;
 
         @media screen and (max-width: $break-medium) {
           position: absolute;
@@ -105,9 +122,13 @@
         animation-timing-function: ease-out;
         max-width: $page-max-width;
         margin: 0 auto;
-        margin-top: 5vh;
-        box-shadow: $shadow1;
-        background-color: $paper;
+        margin-top: 0vh;
+        //box-shadow: $shadow1;
+        //background-color: $paper;
+      }
+
+      &.site {
+        margin-top: 0;
       }
     }
 

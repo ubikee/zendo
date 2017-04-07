@@ -1,4 +1,4 @@
-@import '../components/app.scss';
+@import '../tatami.scss';
 
 .login {
   justify-content: center;
@@ -7,6 +7,7 @@
   background-color: inherit !important;
 
   .card {
+    margin: 0 auto;
     min-height: 550px;
     width: 80vw;
     max-width: 1000px;

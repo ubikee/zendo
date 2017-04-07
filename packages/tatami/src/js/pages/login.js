@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../components/page';
 import Toolbar from '../components/toolbar';
-import { User, UserListItem } from '../components/user';
+import { User, UserListItem } from 'seito';
 import { DomainAware } from '../http/domain';
 import { Icon, Button, Field, Card , Header, Tabs, Tab, Stack, List, Swapable, Switch } from 'seito';
 import { Validator as check } from 'seito';

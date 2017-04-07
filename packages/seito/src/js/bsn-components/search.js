@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Field } from 'seito';
+import { Icon, Field } from '../components/index';
 import './search.scss';
 
 const Query = (props) => {

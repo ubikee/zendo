@@ -4,7 +4,8 @@
   "description": "components for tatami",
   "author": "jeroldan@gmail.com",
   "keywords": [
-    "ywana",
+    "ubikee",
+    "zendo",
     "react"
   ],
   "main": "src/js/index.js",
@@ -13,10 +14,9 @@
     "es6-promise": "^4.0.5",
     "localforage": "^1.4.3",
     "lodash": "^4.17.2",
-    "material-design-icons-iconfont": "^3.0.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-hammerjs": "^0.5.0",
-    "whatwg-fetch": "^1.0.0"
+    "material-design-icons-iconfont": "^3.0.0"
   }
 }

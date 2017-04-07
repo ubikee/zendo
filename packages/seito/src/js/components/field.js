@@ -38,7 +38,7 @@ const FieldFactory = (WField) => {
       const icon = this.props.icon ? <Icon icon={this.props.icon} /> : '';
       const text = this.props.required ? `* ${this.props.label}` : this.props.label;
       const label = this.props.label ? <label htmlFor={this.props.id}>{text}</label> : '';
-      const clearIcon = Validator.notEmpty(this.props.value) ? <Icon icon="close" className="small" action={this.handleClear}/> : '';
+      const clearIcon = Validator.notEmpty(this.props.value) ? <Icon icon="close" className="small clickable" action={this.handleClear}/> : '';
       const actions = this.props.readOnly === true ? [] : [clearIcon];
       return (
         <div className={`field ${this.props.className}`}>

@@ -1,18 +1,4 @@
-@import '../components/app.scss';
-
-@keyframes showForm {
-  0% {
-    height: 100vh;
-    opacity: 0;
-  }
-  50% {
-    height: 100vh;
-    opacity: 1;
-  }
-  100% {
-    height: 250px;
-  }
-}
+@import '../tatami.scss';
 
 .login2 {
   flex: 1;
@@ -51,7 +37,7 @@
       margin: 0 4.2rem 0 5.5rem;
     }
     .icon-box .icon {
-      color: $icon-active;
+      //color: $icon-active;
     }
   }
 

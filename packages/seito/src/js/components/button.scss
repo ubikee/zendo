@@ -1,5 +1,3 @@
-@import './app.scss';
-
 .button {
   position: relative;
   outline: 0;
@@ -25,6 +23,7 @@
   align-items: center;
   justify-content: center;
   z-index: 998;
+  cursor: pointer;
   span {
   }
   &:hover {

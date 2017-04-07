@@ -2,27 +2,77 @@ import React from 'react';
 
 // components
 import { Page, Toolbar } from 'tatami';
+import { Icon, Tabs, Tab } from 'seito';
 
 // styles
-// import './login.scss';
+import './gallery.scss';
 
 /**
  * Gallery Page
  */
 const Gallery = (props) => {
 
-  const ctxMenu = [
-    { icon: 'refresh', label: 'Update'},
-    { icon: 'sort', label: 'Sorting'},
-  ]
+  const renderTabs = () => {
+    return (
+      <Tabs className={`bottomShadow`}>
+        <Tab label="INFO" />
+        <Tab label="JOBS" />
+      </Tabs>
+    )
+  }
 
-  const title = props.title ? props.title : '<title>';
+    return (
+      <Page  {...props}
+        threshold={40}
+        fixedHeader = {renderTabs()}
+        scrollableHeader={renderTabs()}
+        stickyHeader={renderTabs()}>
 
-  return (
-    <Page className="gallery" {...props}>
-      <Toolbar className="pageBar" icon={props.icon} title={title} menu={ctxMenu}/>
-    </Page>
-  );
+        <dl>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+          <dd className="card">card1</dd>
+        </dl>
+
+      </Page>
+    )
 }
 
 export default Gallery;

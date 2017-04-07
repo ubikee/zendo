@@ -1,4 +1,3 @@
-@import '../tatami.scss';
 
 .inboxItem {
   cursor: pointer;
@@ -47,8 +46,8 @@
     >.header { display: none; }
   }
 
-  @media screen and (max-width: $break-medium) {
-
+  //@media screen and (max-width: $break-medium) {
+  @media screen and (max-width:1200px) {
     >.inboxlist {
       flex: 1;
     }
@@ -63,7 +62,7 @@
       visibility: hidden;
       //background-color: $primary-color-light;
       transition: all .3s ease-in-out;
-      box-shadow: $shadow1;
+      //box-shadow: $shadow1;
       &.show {
         //background-color: $background;
         left: 0;
@@ -79,8 +78,8 @@
     }
   }
 
-  @media screen and (min-width: $break-medium) {
-
+  //@media screen and (min-width: $break-medium) {
+@media screen and (min-width: 1200px) {
     .list {
       flex: 4;
     }

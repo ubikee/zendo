@@ -1,0 +1,44 @@
+@import '../theme.scss';
+
+.gallery {
+
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0rem;
+  background-color: rgba(255,255,255, 1);
+  z-index: 2;
+
+  >* {
+    //border: solid 1px red;
+    margin: 0;
+    padding: 0;
+  }
+
+  dl {
+    margin: 0;
+    position:relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transform: translateZ(0);
+
+    dt {
+      background-color: #FFF;
+    }
+  }
+}
+
+.sticky {
+    position: -moz-sticky;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+}
+
+.bottomShadow {
+  box-shadow: $shadow2;
+  z-index: 1;
+}

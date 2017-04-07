@@ -1,5 +1,3 @@
-@import './app.scss';
-
 .menu {
   margin: 0px;
   padding: 8px 0;
@@ -13,8 +11,9 @@
   }
 
   >.menuitem {
+    min-width: 4rem;
     min-height: 4rem;
-    padding: 4px 0px 4px 6px;
+    padding: 4px 0px 4px 8px;
     cursor: pointer;
     display: flex;
 
@@ -36,7 +35,7 @@
     >.info {
       display: flex;
       align-items: center;
-      padding-right: 1.6rem;
+      //padding-right: 1.6rem;
       >.badge {
         border-radius: 1rem;
         font-weight: bold;

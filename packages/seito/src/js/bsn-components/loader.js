@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, HCard, SimpleListItem } from 'seito';
+import { Icon, HCard, SimpleListItem } from '../components/index';
 import './loader.scss'
 
 const LoadCard = (props) => {

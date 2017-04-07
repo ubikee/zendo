@@ -1,10 +1,7 @@
-@import './app.scss';
+@import '../tatami.scss';
 
 .drawer {
-  color: $primary-text-color;
-  background-color: $drawer-bgcolor;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
 }

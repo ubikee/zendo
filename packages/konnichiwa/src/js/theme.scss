@@ -1,48 +1,73 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,700,700i');
 
+/* Fonts */
+$title-font-size: 1.7rem;
+$title-font-weight: 400;
+$subtitle-font-size: 1.4rem;
+$subtitle-font-weight: 400;
+$caption-font-size: 1.2rem;
+$caption-font-weight: 300;
+
+/* Screen */
 $drawer-width: 250px;
 $floating-drawer-width: 85vw;
 $screen-content-width: 325px;
 $break-small: 575px;
+$break-medium: 800px;
+$break-big: 1024px;
 
-$page-max-width: 1000px;
+/* Palette Green *
+$primary-color-dark:   #00796B;
+$primary-color:        #009688;
+$primary-color-light:  #B2DFDB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #4CAF50;
+$accent-color-light:   #7CDF80;
+*/
 
-/* Palette */
+/* Palette Blue */
 $primary-color-dark:   #512DA8;
 $primary-color:        #673AB7;
 $primary-color-light:  #D1C4E9;
 $primary-color-text:   #FFFFFF;
-$accent-color:         #FFC107;
+$accent-color:         #FF9800;
+$accent-color-light:   #FFAF2F;
 
-/* Palette trans */
-$primary-color-dark-trans:  rgba( $primary-color-dark, .87);
-$primary-color-trans:       rgba( $primary-color, .5);
-$primary-color-light-trans: rgba( $primary-color-light, .5);
-$primary-color-lighter-trans: rgba( $primary-color-light, .1);
 
-//light theme
+/* Palette commons */
+$danger-color:                #ff4400;
+$danger-color-light:          #ff7470;
+$primary-color-dark-trans:    rgba( $primary-color-dark, .87);
+$primary-color-trans:         rgba( $primary-color, .5);
+$primary-color-light-trans:   rgba( $primary-color-light, .5);
+$primary-color-lighter-trans: rgba( $primary-color-light, .15);
+$accent-color-trans:          rgba( $accent-color,        .58);
+$accent-color-light-trans:    rgba( $accent-color-light,  .58);
+$danger-color-trans:          rgba( $danger-color,        .58);
+$danger-color-light-trans:    rgba( $danger-color-light,  .58);
+
+
+/* light theme */
 $background:           #FAFAFA;
+$field-background:     transparent;
 $paper:                #FFF;
-$primary-text-color:   #212121;
-$secondary-text-color: #757575;
+$primary-text-color:   rgba(0,0,0,0.87);
+$secondary-text-color: rgba(0,0,0,0.54);
+$hint-text-color:      rgba(0,0,0,0.38);
 $divider-color:        #BDBDBD;
-$divider-color-trans:  rgba($divider-color, .5);
 
-// dark theme
-/*
+
+/* dark theme
 $background:           #303030;
+$field-background:     transparent;
 $paper:                #424242;
 $primary-text-color:   #FFF;
 $secondary-text-color: #9A9A9A;
 $divider-color:        #CCC;
 */
 
-// additions
-$danger-color:         #ff4400;
-$hint-text-color:      rgba(0,0,0,0.38);
-
 // icons
-$icon-menu:     rgba(0,0,0,.6);
 $icon-active:   rgba(0,0,0,.54);
 $icon-inactive: rgba(0,0,0,.38);
 $icon-hover:    rgba(255,255,255,.12);
@@ -50,4 +75,9 @@ $icon-hover:    rgba(255,255,255,.12);
 // shadows
 $shadow1: 0 0   2px rgba(0,0,0,.12),
           0 2px 4px rgba(0,0,0,.24);
+
+$shadow2: 0px 3px 4px 5px rgba(100,100,100,0.24);
 $overlay: rgba(0,0,50,.54);
+
+$field-background: $paper;
+$drawer-bgcolor: $background;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Icon } from 'seito';
+import { List, Icon } from '../components/index';
 import './schedule.scss';
 
 const Event = (props) => {

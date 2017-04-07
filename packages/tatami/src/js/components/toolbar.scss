@@ -1,4 +1,4 @@
-@import './app.scss';
+@import '../tatami.scss';
 
 .toolbar {
   top: 0;
@@ -13,15 +13,18 @@
   position: relative;
   //color: $primary-color-text;
   //background-color: $primary-color-dark;
-  min-height: 5.6rem;
-  padding-right: .4rem; 
+  max-height: 5.6rem;
+  padding-right: .4rem;
+  .navIcon {
+    cursor: pointer;
+  }
 }
 
 .ctxMenu {
   position: absolute;
   box-shadow: $shadow1;
-  background-color: $background;
-  color: $primary-text-color;
+  //background-color: $background;
+  //color: $primary-text-color;
   top: 5.5rem;
   right: .5rem;
   min-width: 20rem;

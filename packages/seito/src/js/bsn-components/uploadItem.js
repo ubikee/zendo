@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'seito';
+import { Icon } from '../components/index';
 //import ReportDialog from '../dialogs/report';
 import './uploadItem.scss'
 

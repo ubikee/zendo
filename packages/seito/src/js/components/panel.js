@@ -26,7 +26,7 @@ class Panel extends React.Component {
     const noicon = this.props.icon ? '' : 'noicon';
     const content = this.state.open ? this.props.children : '';
     const icon = this.state.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
-    const toggleButton = this.state.collapsable ? <Icon icon={icon} action={this.toggle} /> : '';
+    const toggleButton = this.state.collapsable ? <Icon icon={icon} action={this.toggle} className="clickable" /> : '';
     return (
       <div className={`panel ${this.props.className}`}>
         <Header className={`${noicon} ${this.props.className}`} title={this.props.title} icon={this.props.icon}>

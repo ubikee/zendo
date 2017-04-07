@@ -1,0 +1,47 @@
+.icon2 {
+
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin: 0;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+
+  .font-icon {
+    max-width: 3rem;
+    max-height: 4rem;
+    font-size: 24px !important;
+    overflow: hidden;
+  }
+
+  .decorator2 {
+
+    position: absolute !important;
+    right: -.2rem;
+    bottom: -.2rem;
+    color: white;
+    background-color: #455A64;
+    border-radius: 3rem;
+
+    .font-icon {
+      font-size: 1.6rem !important;
+    }
+  }
+}
+
+.badge2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #455A64;
+  color: white;
+  border-radius: 3rem;
+}
+
+.tiny {
+  width: 2.2rem;
+  height: 2.2rem;
+}

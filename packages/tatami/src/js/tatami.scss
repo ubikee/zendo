@@ -1,0 +1,17 @@
+@import './effects.scss';
+
+// dimensions
+$drawer-width: 250px;
+$floating-drawer-width: 85vw;
+$screen-content-width: 325px;
+$break-small: 575px;
+$break-medium: 800px;
+$break-big: 1250px;
+$page-max-width: 1240px;
+
+// shadows
+$shadow1: 0   0   2px     rgba(0,0,0,.12),
+          0   2px 4px     rgba(0,0,0,.24);
+$shadow2: 0px 3px 4px 0px rgba(0,0,0,0.18);
+
+$overlay: rgba(0,0,50,.54);

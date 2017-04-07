@@ -4,7 +4,7 @@ import './header.scss';
 
 const Header = (props) => {
 
-  const icon = props.icon ? <Icon className="navIcon" icon={props.icon} action={props.action}/> : null;
+  const icon = props.icon ? <Icon className="navIcon clickable" icon={props.icon} action={props.action}/> : null;
 
   return (
     <header className={`header ${props.className}`} onMouseUp={props.onMouseUp}>

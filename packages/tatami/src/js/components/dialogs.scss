@@ -1,4 +1,4 @@
-@import './app.scss';
+@import '../tatami.scss';
 
 .dialog {
 
@@ -13,9 +13,6 @@
     max-height: 70vh;
     flex: 1;
     overflow-y: auto;
-    //display: flex;
-    //flex-direction: column;
-    //justify-content: center;
   }
 
   .buttons {

@@ -3,8 +3,8 @@ const {resolve} = require('path');
 module.exports = env => {
   return {
     entry: {
-      app: ['es6-promise', 'whatwg-fetch', './js/main.js'],
-      vendor: [ 'react', 'react-dom']
+      app: [ './js/main.js'],
+      vendor: [ 'react', 'react-dom', 'es6-promise', 'whatwg-fetch']
     },
     output: {
       filename: 'bundle.[name].js',

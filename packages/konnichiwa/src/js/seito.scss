@@ -1,0 +1,255 @@
+@import '../../node_modules/seito/src/styles/seito.scss';
+
+.clickable:hover {
+  cursor: pointer;
+  background-color: rgba(180,180,180,.5);
+}
+
+input, select {
+  color: $primary-text-color;
+  background-color: $field-background;
+}
+
+.secondary-text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: $secondary-text-color;
+}
+
+/*
+ * user
+ */
+.user {
+  background-color: $primary-color-light;
+  >.avatar {
+    .picture {
+      background-color: #FFF;
+    }
+  }
+  >.info {
+    color: $primary-text-color;
+  }
+  >.actions {
+    color: $primary-text-color;
+  }
+}
+
+/*
+ * listitems
+ */
+.listitem, .listitem0, .inboxItem , .userlistitem{
+    &:hover {
+      background-color: $primary-color-lighter-trans;
+    }
+}
+
+/*
+ * headers
+ */
+.hero {
+  color: $primary-color-text;
+  background-color: $primary-color-dark-trans;
+}
+
+.appBar {
+  color: $primary-color-text;
+  background-color: $primary-color-dark;
+}
+
+.pageBar {
+  color: $primary-text-color;
+  background-color: $primary-color-light-trans;
+}
+
+
+/**
+ * fab
+ */
+.fab {
+  border: solid 1px $accent-color;
+  background-color: $accent-color;
+  box-shadow: $shadow1;
+  span {
+    color: $primary-color-text;
+    background-color: $accent-color;
+  }
+  &:hover {
+    background-color: rgba($accent-color, 1);
+  }
+}
+
+.link {
+  color: $primary-color-trans;
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+/**
+ * tab
+ */
+ .tab {
+   color: $divider-color;
+
+   >.badge {
+     color: $primary-color-text;
+     background-color: $divider-color;
+   }
+
+   &.selected {
+     color: $accent-color;
+     border-bottom: solid 2px $accent-color;
+     >.badge {
+       color: $primary-color-text;
+       background-color: $primary-color-dark;
+     }
+   }
+ }
+
+ /*
+  * info
+  */
+.infoline {
+  >.info {
+    color: $icon-active;
+    font-size: $caption-font-size;
+  }
+  &.title {
+    font-size: $title-font-size;
+    font-weight: $title-font-weight;
+  }
+  &.caption {
+    color: $secondary-text-color;
+    font-size: $caption-font-size;
+    font-weight: $caption-font-weight;
+    >.content {
+      color: $divider-color;
+      text-align: right;
+    }
+  }
+
+  &.subtitle {
+    font-size: $subtitle-font-size;
+    font-weight: $subtitle-font-weight;
+  }
+
+  &.text {
+    color: $secondary-text-color;
+  }
+}
+
+/*
+ * list
+ */
+.list {
+  &:before{
+    background-color: rgba(255,255,255,.9);
+    color: $secondary-text-color;
+  }
+  >.grouper {
+    background-color: #FAFAFA;
+    color: $secondary-text-color;
+  }
+}
+
+.grouplist {
+  >.panel {
+    >header {
+      border-bottom: solid 1px $primary-color-light;
+      color: $primary-color;
+    }
+  }
+}
+
+.listitem0 {
+  .primaryAction {
+    .content {
+      .caption {
+        min-height: $caption-font-size;
+        font-size: $caption-font-size;
+        font-weight: $caption-font-weight;
+        color: $icon-active;
+      }
+      .title {
+        font-weight: $title-font-weight;
+      }
+      .subtitle {
+        font-size: $subtitle-font-size;
+        font-weight: $subtitle-font-weight;
+        color: $icon-active;
+      }
+    }
+  }
+}
+
+/*
+ * menu
+ */
+.menu {
+  border-bottom: solid 1px $divider-color;
+
+  &:before{
+      color: $secondary-text-color;
+  }
+
+  >.menuitem {
+
+    >.info {
+      >.badge {
+        color: $primary-color-text;
+        background-color: $primary-color-dark;
+      }
+    }
+
+    &:hover {
+      background-color: $primary-color-light-trans;
+    }
+  }
+}
+
+/*
+ * panel
+ */
+.panel {
+  >header {
+    border-bottom: solid 1px $primary-color-light;
+    color: $primary-color;
+  }
+  &.infopanel {
+    >header {
+      color: $secondary-text-color;
+      background-color: $primary-color-lighter-trans;
+    }
+  }
+  &.window {
+    border: solid 1px $primary-text-color;
+    >header {
+      color: $primary-text-color;
+      background-color: $background;
+      border-bottom: solid 1px $primary-text-color;
+    }
+    >.content {
+      background-color: #FFF;
+    }
+  }
+}
+
+/*
+ * field
+ */
+.field {
+  >.field-box {
+    label {
+      color: $divider-color;
+    }
+    input, select {
+      border-bottom: solid 1px $divider-color;
+      &:focus ~ label {
+        color: $secondary-text-color;
+      }
+      &.notEmpty ~ label {
+        color: $secondary-text-color;
+      }
+    }
+  }
+}

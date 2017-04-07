@@ -5,11 +5,10 @@ import { Tatami, Drawer } from 'tatami';
 import { Menu } from 'seito';
 
 // pages
-import { Login, Exit, Wait } from 'tatami';
+import { Login2, Exit, Wait } from 'tatami';
 import Gallery from './pages/gallery';
 import PanelPage from './pages/panel';
 import FieldPage from './pages/field';
-
 
 // styles
 import './app.scss';
@@ -46,21 +45,25 @@ const Application = (props) => {
     { id: 'SELECT', label: 'Select', icon: 'keyboard_arrow_right' },
   ]
 
-  const appDrawer = <Drawer icon="cloud_queue" title="Zendo" >
+  const appDrawer = <Drawer>
                       <Menu title="Tatami" options={tatamiMenu} />
                       <Menu title="Pages" options={tatamiPages} />
                       <Menu title="Seito" options={seitoMenu} />
                     </Drawer>
 
+  const infoDrawer =  <Drawer>
+                        <Menu title="Tatami" options={tatamiMenu} />
+                      </Drawer>
+
   const pages = {
-    'LOGIN'  : <Login title="Zendo Konnichiwa"/>,
+    'LOGIN'  : <Login2 title="Zendo Konnichiwa"/>,
     'GALLERY': <Gallery title="Gallery" drawer={appDrawer} />,
     'PANEL'  : <PanelPage title="Panel" drawer={appDrawer} />,
     'FIELD'  : <FieldPage title="Field" drawer={appDrawer} />
   }
 
   return (
-    <Tatami title="Zendo" pages={pages} init="FIELD" menu={appMenu} drawer={appDrawer}/>
+    <Tatami title="Zendo" pages={pages} init="PANEL" menu={appMenu} drawer={appDrawer} info={infoDrawer}/>
   );
 
 }

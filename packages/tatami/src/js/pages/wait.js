@@ -28,11 +28,18 @@ const WaitPage = (props) => {
       <Card>
         <h3>Icons</h3>
         <div style={{ display: 'flex', padding: '1rem 0rem', justifyContent: 'center'}}>
-          <div><Icon icon="menu" className="tiny" /><span>tiny</span></div>
+
+          <div><Icon icon="menu" className="clickable" /><span>tiny</span></div>
+
           <div><Icon icon="menu" className="small" /><span>small</span></div>
+
           <div><Icon icon="menu" className="" decorator="person"/><span>normal</span></div>
+
           <div><Icon icon="menu" className="medium" /><span>medium</span></div>
           <div><Icon icon="menu" className="large clickable" decorator="done"/><span>large</span></div>
+        </div >
+        <div style={{ display: 'flex', padding: '1rem 0rem', justifyContent: 'center'}}>
+          <div><Icon icon="menu" className="" badge="10"/><span>Icon and badge</span></div>
         </div >
       </Card>
 
