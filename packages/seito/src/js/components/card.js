@@ -4,6 +4,7 @@ import Header from './header';
 import './card.scss';
 
 const Card = (props) => {
+
   return (
     <div className={`card ${props.className}`}>
       {props.children}

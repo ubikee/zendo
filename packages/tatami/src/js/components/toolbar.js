@@ -28,7 +28,7 @@ class ToolBar extends React.Component {
     const menu = this.state.menu ? <Menu className="ctxMenu" title={this.props.title} options={options} goto={this.props.goto} toggle={this.toggleMenu}/> : '';
     const menuToggleButton = this.props.menu ? <Icon icon="more_vertical" action={this.toggleMenu}/> : '';
 
-    const userMenuToggleButton = <Picon src="https://randomuser.me/api/portraits/thumb/men/3.jpg" action={this.toggleMenu}/>;
+    const userMenuToggleButton = this.props.usermenu ? <Picon src="https://randomuser.me/api/portraits/thumb/men/3.jpg" action={this.toggleMenu}/> : '';
     const infoToggleButton     = <Icon icon="notifications" action={this.props.toggleInfo} />
 
     const hidden = this.props.hidden ? 'hidden' : '';

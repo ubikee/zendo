@@ -1,3 +1,25 @@
 @import './icon.scss';
 @import './button.scss';
 @import './card.scss';
+
+.full-screen {
+  @media (max-width: $break-medium) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-height: none;
+    z-index: 999;
+  }
+}
+
+.grid {
+  @media(min-width: $break-medium) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &:before {
+      content: none;
+  }
+}

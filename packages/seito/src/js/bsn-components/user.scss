@@ -112,9 +112,13 @@
     align-items: center;
     font-size: 2.7rem;
     font-weight: 200;
-    //background-color: $accent-color-light;
+    background-color: transparent;
     color: white;
     overflow: hidden;
+    img {
+      width: 4.2rem;
+      height: 4.2rem;
+    }
   }
   >.content {
     flex: 1;

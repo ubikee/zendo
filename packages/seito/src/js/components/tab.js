@@ -15,6 +15,8 @@ class Tabs extends React.Component {
     this.setState({ selected: id });
     if (this.props.onChange)
       this.props.onChange(id);
+    if (this.props.onChanged)
+      this.props.onChanged(id);
   }
 
   render() {

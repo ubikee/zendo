@@ -41,11 +41,11 @@ class Page extends React.Component {
     const fixedHeader       = this.props.fixedHeader      ? this.props.fixedHeader : '';
     const scrollableHeader  = this.props.scrollableHeader ? this.props.scrollableHeader : '';
     const stickyHeader      = this.props.stickyHeader     ? this.props.stickyHeader : '';
-
+    const backgroundImage   = this.props.backgroundImage  ? this.props.backgroundImage : '';
     return (
-      <div className={`page ${this.props.className}`} onDragOver={this.props.onDragOver}>
+      <div className={`page ${this.props.className}`} onDragOver={this.props.onDragOver} style={{ backgroundImage: backgroundImage }}>
         <div className={fixedHeaderStyle}>{fixedHeader}</div>
-        <div style={{ overflow: 'auto'}} onScroll={this.handleScroll(this.props.threshold)}>
+      <div style={{ overflow: 'auto'}} onScroll={this.handleScroll(this.props.threshold)}>
           <div>{scrollableHeader}</div>
           <div id="stickyHeader" className={stickyHeaderStyle}>{stickyHeader}</div>
           {this.props.children}

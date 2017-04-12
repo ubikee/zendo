@@ -5,6 +5,7 @@ import Collections from './collections';
 
 import {
   Icon, Picon, Cicon, Micon,
+  Icon2, Badge2,
   Button, FAB, Link,
   Header, Menu,
   List, GroupList, Swapable, SimpleListItem,
@@ -15,6 +16,7 @@ import {
   InfoLine,
 } from './components/index.js';
 
+import DateIcon from './bsn-components/dateIcon';
 import { Inbox, InboxItem } from './bsn-components/inbox';
 import { User, UserListItem, UserHeader, UserTag } from './bsn-components/user';
 import { SearchBox, Query } from './bsn-components/search';
@@ -25,6 +27,7 @@ export {
   Validator, Collections,
 
   Icon, Picon, Cicon, Micon,
+  Icon2, Badge2,
   Button, FAB, Link,
   Header, Menu, List, GroupList, Swapable, SimpleListItem,
   Card, HCard,
@@ -33,6 +36,7 @@ export {
   Tabs, Tab, Stack,
   InfoLine,
 
+  DateIcon,
   Inbox, InboxItem,
   UploadListItem,
   User, UserListItem, UserHeader, UserTag, SearchBox, Schedule,

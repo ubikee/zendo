@@ -3,6 +3,7 @@ import { Icon } from './icon';
 import Panel from './panel';
 import Hammer from 'react-hammerjs';
 import Collections from '../collections';
+import { Card } from './card';
 
 import './list.scss';
 
@@ -153,6 +154,28 @@ const List = (props) => {
   )
 }
 
+const GroupList = (props) => {
+  let groups = [];
+  let group = null;
+  const HeaderRenderer = props.groupRenderer ? props.groupRenderer : defaultGroupItemRenderer;
+  const ItemRenderer   = props.renderer      ? props.renderer      : defaultListItemRenderer;
+  const data = props.groupBy ? Collections.groupBy(props.data, props.groupBy, props.groupData) : props.data;
+  data.forEach( item => {
+    if (item.grouper) {
+      group = { header: <HeaderRenderer {...item}/>, items: [] };
+      groups.push(group);
+    } else {
+      group.items.push(<ItemRenderer {...item}/>)
+    }
+  });
+  return (
+    <ul className="list">
+      {groups.map(group => <Card>{group.header}{group.items}</Card>)}
+    </ul>
+  )
+}
+
+
 /*
   GroupList
 
@@ -163,7 +186,7 @@ const List = (props) => {
   ]
 
 */
-const GroupList = (props) => {
+const GroupList0 = (props) => {
 
   const handleItemPrimaryAction = (id) => {
     props.onPrimaryAction(id);

@@ -80,6 +80,10 @@
     &.toggled {
       transform: rotate(180deg);
     }
+
+    &.square {
+      border-radius: 0;
+    }
 }
 
 .micon {

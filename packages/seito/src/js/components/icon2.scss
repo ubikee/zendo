@@ -18,14 +18,12 @@
   }
 
   .decorator2 {
-
     position: absolute !important;
     right: -.2rem;
     bottom: -.2rem;
     color: white;
     background-color: #455A64;
     border-radius: 3rem;
-
     .font-icon {
       font-size: 1.6rem !important;
     }
@@ -33,12 +31,14 @@
 }
 
 .badge2 {
+  max-height: 1.6rem;
+  font-size: 1.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #455A64;
-  color: white;
   border-radius: 3rem;
+  padding: 0 1rem;
+  margin: .5rem;
 }
 
 .tiny {
