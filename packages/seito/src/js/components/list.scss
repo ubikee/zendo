@@ -101,6 +101,16 @@
   }
 }
 
+.grouplist-card {
+  overflow: hidden;
+  max-height: 100rem;
+  &.collapsed {
+    max-height: 6.6rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 .listitem0 {
   display: flex;
   min-height: 4rem;

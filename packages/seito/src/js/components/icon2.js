@@ -8,7 +8,7 @@ const Icon2 = (props) => {
   const badge       = props.badge     ? <span className='decorator2'>{props.badge}</span> : '';
   const decorator   = props.decorator ? <Icon2 className='decorator2' icon={props.decorator} /> : '';
   return (
-    <span className={`icon2 ${clickable} ${props.className}`}>
+    <span className={`icon2 ${clickable} ${props.className}`} onClick={props.action}>
       {fontIcon}
       {badge}
       {decorator}

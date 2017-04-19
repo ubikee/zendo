@@ -154,6 +154,26 @@ const List = (props) => {
   )
 }
 
+class GroupCard extends React.Component {
+  state = {
+    collapsed: false
+  }
+  onToggled = () => {
+    console.log('groupcard: ontoggled')
+    this.setState({ collapsed : !this.state.collapsed })
+  }
+  render() {
+    const header = React.cloneElement(this.props.group.header, { onToggled: this.onToggled, collapsed: this.state.collapsed });
+    const collapsed = this.state.collapsed ? 'collapsed' : '';
+    return (
+      <Card className={`grouplist-card animated ${collapsed}`} >
+        {header}
+        {this.props.group.items}
+      </Card>
+    )
+  }
+}
+
 const GroupList = (props) => {
   let groups = [];
   let group = null;
@@ -170,7 +190,7 @@ const GroupList = (props) => {
   });
   return (
     <ul className="list">
-      {groups.map(group => <Card>{group.header}{group.items}</Card>)}
+      {groups.map(group => <GroupCard group={group} />)}
     </ul>
   )
 }
