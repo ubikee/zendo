@@ -118,7 +118,7 @@
       min-width: 320px;
       max-width: none;
       @media screen and (min-width: $break-big) {
-        animation: showPage 1s 1;
+        //animation: showPage 1s 1;
         animation-timing-function: ease-out;
         max-width: $page-max-width;
         margin: 0 auto;

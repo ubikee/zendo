@@ -5,15 +5,16 @@
   flex-direction: column;
   flex: 1;
 
-  &.leaf {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
+  @media (max-width: $break-medium) {
+    &.leaf {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100vw;
+      height: 100vh;
+    }
   }
-
   &.viewer {
     color: #FFF;
     background-size:cover;
