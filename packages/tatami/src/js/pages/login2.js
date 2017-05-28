@@ -9,12 +9,14 @@ class Login2 extends React.Component {
 
   static defaultProps= {
     tab: 0,
+    user: '',
+    password: ''
   }
 
   state = {
     tab: this.props.tab,
-    user: 'admin',
-    password: '12345678',
+    user: this.props.user,
+    password: this.props.password,
     error: '',
   }
 
@@ -47,17 +49,18 @@ class Login2 extends React.Component {
     const canLogin = check.notEmpty(this.state.user) && check.notEmpty(this.state.password);
     const logo = this.props.logo ? <div className="logo"><img src={this.props.logo}/></div> : null;
     const title = this.props.title ? <div className="title">{this.props.title}</div> : null;
-
+    const version = this.props.version ? <div className="version">{this.props.version}</div> : null;
     return (
       <div className="login2">
           <header>
             {logo}
             {title}
+            {version}
           </header>
           <main>
             <Tabs selected={this.state.tab} onChange={this.handleChangeTab}>
               <Tab label="LOGIN" />
-              <Tab label="REGISTER" />
+              <Tab label="REGISTRO" />
             </Tabs>
             <Stack selected={this.state.tab}>
               <div>
@@ -68,7 +71,13 @@ class Login2 extends React.Component {
                   <Button className="primary" label="OK" action={this.handleSubmit} disabled={!canLogin}/>
                 </div>
               </div>
-              <div>TODO: Register Form</div>
+              <div style={{ display: 'flex', flexDirection: 'column', color: 'rgba(0,0,0,.8)', fontSize: '1.4rem', alignItems: 'center'}}>
+
+                <span>Para registrarte como usuario de iSend</span>
+                <span>debes contactar con el administrador del sistema</span>
+                <br/>
+                <span><a>isend-admin@popteam.com</a></span>
+              </div>
             </Stack>
           </main>
       </div>

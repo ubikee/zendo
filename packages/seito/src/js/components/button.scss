@@ -24,11 +24,42 @@
   justify-content: center;
   z-index: 998;
   cursor: pointer;
-  span {
-  }
   &:hover {
     min-width: 5.6rem;
     min-height: 5.6rem;
+  }
+}
+.fam {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  .fab {
+    position: relative;
+    bottom: 0;
+    right: 0;
+  }
+  .fam-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 7rem;
+    right: 1rem;
+    .option {
+      width: 15rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      label{ flex: 1}
+      .icon2 {
+        color: rgba(50,50,50,.8);
+        background-color: rgba(200,200,200,.2);
+        margin-top: .6rem;
+        &:hover {
+          color: #FFF;
+          background-color: #6cCF70;
+        }
+      }
+    }
   }
 }
 

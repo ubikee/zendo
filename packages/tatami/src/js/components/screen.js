@@ -52,11 +52,10 @@ class Screen extends React.Component {
         toggleDrawer={this.toggleDrawer}
         toggleInfo={this.toggleInfo}
         hidden={!this.state.toolbar}>
-        <Icon icon="notifications" action={this.toggleInfo} className="clickable"/>
-        <Micon icon="more_vert" className="clickable">
+        
+        <Micon src={this.props.avatar}>
           <Menu title={this.props.title} options={this.props.menu} goto={this.props.goto} toggle={this.toggleMenu}/>
         </Micon>
-
       </ToolBar>
     );
   }

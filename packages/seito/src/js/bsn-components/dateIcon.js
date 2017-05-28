@@ -6,7 +6,7 @@ const DateIcon = ({day, month, year, day2, month2, year2}) => {
   const Date = ({day, month, year, decorator}) => {
     const className = decorator ? 'date2' : 'date';
     return (
-      <div className={`${className}`}>
+      <div >
         <span className="year">{year}</span>
         <span className="day">{day}</span>
         <span className="month">{month}</span>

@@ -3,6 +3,7 @@ import { Icon } from './icon';
 import Panel from './panel';
 import Hammer from 'react-hammerjs';
 import Collections from '../collections';
+import Header from './header';
 import { Card } from './card';
 
 import './list.scss';
@@ -144,7 +145,7 @@ const List = (props) => {
   const items = data ? data.map(item => {
     return item.grouper ?
       <GroupRenderer {...item} /> :
-      <Renderer {...item} item={item} onSelection={props.onSelection} />
+      <Renderer {...item} item={item} onSelection={props.onSelection} toggleDialog={props.toggleDialog}/>
   }) : [];
 
   return (
@@ -233,4 +234,38 @@ const GroupList0 = (props) => {
 }
 
 
-export { List, GroupList, GroupList0, Swapable, SimpleListItem };
+const LaneItem = ({id, title, description, children, onSelect}) => {
+
+  const handleSelection = () => {
+    onSelect(id)
+  }
+
+  return (
+    <div onClick={handleSelection}>
+      <Card className="lane-item">
+        <header>{title}</header>
+        <main>
+          {children}
+        </main>
+        <footer>
+          {description}
+        </footer>
+      </Card>
+    </div>
+  )
+}
+
+const Lane = (props) => {
+  return (
+    <Card className="lane">
+      <img className="image" src={props.image}/>
+      <Header icon={props.icon} title={props.title}>{props.actions}</Header>
+      <main>
+        {props.children}
+      </main>
+    </Card>
+  )
+}
+
+
+export { List, GroupList, GroupList0, Swapable, SimpleListItem, Lane, LaneItem };

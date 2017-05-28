@@ -67,9 +67,12 @@ class Micon extends React.Component {
 
   render () {
     const hidden = this.state.menu ? '' : 'hidden';
+    const icon = this.props.icon ? <Icon {...this.props} action={this.toggleMenu} className="clickable"/> : '';
+    const picon = this.props.src ? <Picon {...this.props} action={this.toggleMenu}/> : '';
     return (
       <div className="micon">
-        <Icon {...this.props} action={this.toggleMenu}/>
+        {icon}
+        {picon}
         <div className={`micon-menu ${hidden}`}>
           {this.props.children}
         </div>

@@ -6,7 +6,7 @@ import './card.scss';
 const Card = (props) => {
 
   return (
-    <div className={`card ${props.className}`}>
+    <div className={`card ${props.className}`} onMouseUp={props.onSelect}>
       {props.children}
     </div>
   )

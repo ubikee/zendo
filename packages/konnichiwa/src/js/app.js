@@ -9,6 +9,7 @@ import { Login2, Exit, Wait } from 'tatami';
 import Gallery from './pages/gallery';
 import PanelPage from './pages/panel';
 import FieldPage from './pages/field';
+import ContainerPage from './pages/container';
 
 // styles
 import './app.scss';
@@ -34,6 +35,7 @@ const Application = (props) => {
   ]
 
   const seitoMenu = [
+    { id: 'CONTAINER', label: 'Containers', icon: 'keyboard_arrow_right' },
     { id: 'PANEL', label: 'Panel', icon: 'keyboard_arrow_right' },
     { id: 'HEADER', label: 'Header', icon: 'keyboard_arrow_right' },
     { id: 'CARD', label: 'Card', icon: 'keyboard_arrow_right' },
@@ -59,11 +61,12 @@ const Application = (props) => {
     'LOGIN'  : <Login2 title="Zendo Konnichiwa"/>,
     'GALLERY': <Gallery title="Gallery" drawer={appDrawer} />,
     'PANEL'  : <PanelPage title="Panel" drawer={appDrawer} />,
-    'FIELD'  : <FieldPage title="Field" drawer={appDrawer} />
+    'FIELD'  : <FieldPage title="Field" drawer={appDrawer} />,
+    'CONTAINER' : <ContainerPage title="Container" drawer={appDrawer} />
   }
 
   return (
-    <Tatami title="Zendo" pages={pages} init="PANEL" menu={appMenu} drawer={appDrawer} info={infoDrawer}/>
+    <Tatami title="Zendo" pages={pages} init="CONTAINER" menu={appMenu} drawer={appDrawer} info={infoDrawer}/>
   );
 
 }

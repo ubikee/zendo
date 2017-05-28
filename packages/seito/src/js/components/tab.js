@@ -44,7 +44,7 @@ const Tab = (props) => {
   const badge = props.info ? <span className="badge">{props.info}</span> : '';
   return (
     <span key={props.id} className={`tab ${selected} ${props.className}`} onMouseUp={onSelection}>
-      {props.label}{badge}
+      {props.children}{props.label}{badge}
     </span>
   )
 }

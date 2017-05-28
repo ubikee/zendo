@@ -16,6 +16,7 @@ const Button = (props) => {
   }
 
   const disabled = props.disabled ? 'disabled' : '';
+  console.log('button', props.disabled, disabled)
 
   return (
     <button className={`button ${disabled} ${props.className}`} onMouseUp={handleMouseUp}>{props.label}</button>
@@ -31,6 +32,25 @@ const FAB = (props) => {
   )
 }
 
+class FAM extends React.Component {
+  state = {
+    toggled: false
+  }
+  toggle = () => {
+    this.setState({ toggled: !this.state.toggled});
+  }
+  render() {
+    const icon = this.state.toggled ? "close" : "more_vert";
+    const options =<div className="fam-menu">{this.props.children}</div>
+    return (
+      <div className="fam">
+        {this.state.toggled ? options : null}
+        <FAB icon={icon} action={this.toggle} />
+      </div>
+    )
+  }
+}
+
 /**
  * Link
  */
@@ -40,4 +60,4 @@ const Link = (props) => {
   )
 }
 
-export { Button, FAB, Link };
+export { Button, FAB, FAM, Link };

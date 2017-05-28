@@ -4,11 +4,12 @@ import Validator from './validator';
 import Collections from './collections';
 
 import {
+  Row, Column, Grid,
   Icon, Picon, Cicon, Micon,
   Icon2, Badge2,
-  Button, FAB, Link,
+  Button, FAB, FAM, Link,
   Header, Menu,
-  List, GroupList, GroupList0, Swapable, SimpleListItem,
+  List, GroupList, GroupList0, Swapable, SimpleListItem, Lane, LaneItem,
   Card, HCard,
   Form, Field, Select, Switch, DateField,
   Panel,
@@ -28,10 +29,11 @@ import { Comment, CommentBox } from './bsn-components/comment';
 export {
   Validator, Collections,
 
+  Row, Column, Grid,
   Icon, Picon, Cicon, Micon,
   Icon2, Badge2,
-  Button, FAB, Link,
-  Header, Menu, List, GroupList, GroupList0, Swapable, SimpleListItem,
+  Button, FAB, FAM, Link,
+  Header, Menu, List, GroupList, GroupList0, Swapable, SimpleListItem, Lane, LaneItem,
   Card, HCard,
   Form, Field, Select, Switch, DateField,
   Panel,
